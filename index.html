@@ -21,7 +21,7 @@
               </div>
             </section>
             <section class="columns medium-8" id="menu">
-              <a class="menu" href="#problem" style="margin-left: 20px;">Problem</a><a class="menu" href="#solution">Solution</a><a class="menu" href="#feature">Features</a><a class="menu" href="#how-it-works">How It Works</a><a class="menu" href="#team">Team</a><a class="menu end-menu" href="#contact">Reach Us</a>
+              <a class="menu" href="#problem" style="margin-left: 20px;">Problem</a><a class="menu" href="#solution">Solution</a><a class="menu" href="#feature">Features</a><a class="menu" href="#how-it-works">How It Works</a><a class="menu" href="#team">Team</a><a class="menu end-menu" href="#contact">Contact Us</a>
             </section>
             <section class="columns medium-2" id="action"></section>
           </div>
@@ -34,7 +34,7 @@
           <div class="row">
             <div class="small-12 medium-6 medium-centered">
               <p id="brand-description">
-                Smart Pool description which is about 150 chars. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                Efficient Decentralized Mining Pools for Existing Cryptocurrencies Based on Ethereum Smart Contracts
               </p>
             </div>
           </div>
@@ -51,39 +51,41 @@
             <div class="section-point column small-12 medium-6">
               <span class="bullet"></span>
               <h3 class="point-title">
-                Problem header 1 which is bla bla bla
+                Mining in existings cryptocurrencies are highly centralized.
               </h3>
               <p class="point-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                More than 80% of mining power in Ethereum emanates from 5 mining pools. Similarly, the main 8 pools control the same fraction of mining power in Bitcoin.
               </p>
             </div>
             <div class="section-point column small-12 medium-6">
               <span class="bullet"></span>
               <h3 class="point-title">
-                Problem header 2 which is bla bla bla
+                Threat of transaction sensorship
               </h3>
               <p class="point-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                This threat increases as the mining is more centralized.
+                Pools dictate which transactions to be included in new blocks, not the miners.
               </p>
             </div>
           </div>
           <div class="row">
+            
             <div class="section-point column small-12 medium-6">
               <span class="bullet"></span>
               <h3 class="point-title">
-                Problem header 3 which is bla bla bla
+                Mining solo is bad for miners
               </h3>
               <p class="point-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                High variance of returns, hard for users to plan economically. Decentralized mining pools for Bitcoin (P2Pool) exist, but are inefficient in large network.
               </p>
             </div>
             <div class="section-point column small-12 medium-6">
               <span class="bullet"></span>
               <h3 class="point-title">
-                Problem header 4 which is bla bla bla
+                Pools take high fee
               </h3>
               <p class="point-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                Mining pools take high fee (e.g. 1%) to pay to their developers. Running centralized pools is a profitable business.
               </p>
             </div>
           </div>
@@ -102,10 +104,10 @@
                 </div>
                 <div class="point-content">
                   <h3 class="point-title">
-                    Solution title 1 Lorem ipsum dolor
+                    Decentralize Pools by Leveraging Smart Contracts
                   </h3>
                   <p class="point-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    We essentially replace the centralized pool operators by smart contracts, which is run and managed in a decentralized way on the blockchain.
                   </p>
                 </div>
               </div>
@@ -115,10 +117,10 @@
                 </div>
                 <div class="point-content">
                   <h3 class="point-title">
-                    Solution title 2 Lorem ipsum dolor
+                    Mitigate transaction censorship threat
                   </h3>
                   <p class="point-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    Miners can propose their own sets of transactions in new blocks.
                   </p>
                 </div>
               </div>
@@ -130,10 +132,10 @@
                 </div>
                 <div class="point-content">
                   <h3 class="point-title">
-                    Solution title 3 Lorem ipsum dolor
+                    Guarantee Low Variance
                   </h3>
                   <p class="point-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    Although being decentralized, our pools can guarantee the same variance in payments as centralized pools.
                   </p>
                 </div>
               </div>
@@ -143,10 +145,10 @@
                 </div>
                 <div class="point-content">
                   <h3 class="point-title">
-                    Solution title 4 Lorem ipsum dolor
+                    Low Fees
                   </h3>
                   <p class="point-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    SmartPool takes negligible (e.g. 0.2%-0.4%) to almost zero fees, depending on our funding status.
                   </p>
                 </div>
               </div>
@@ -161,7 +163,21 @@
             <div class="row">
               <div class="column small-12 medium-10 medium-centered">
                 <p class="point-body">
-                  In this work, we propose a new protocal design for a decentralized mining pool. Our protocol called SMARTPOOL shows how one can leverage smart contracts, which are autonomous agents themselves running on decentralized blockchains, to decentralize Bitcoin minging. SMARTPOOL guarantees high security, low reward's variance for miners and is cost-efficient. We implemented a prototype of SMARTPOOL as an Ethereum smart contract working as a decentralized mining pool for Bitcoin. We have deployed it on the Ethereum testnet and our experiments confirm that SMARTPOOL is efficient and ready for practical use.
+                  We use Ethereum smart contracts to build a decentralized
+                  pooled mining protocol for Bitcoin called SmartPool. Our
+                  solution implicitly replaces the centralized pool operator by
+                  network participants who run the Ethereum network.<br>
+
+                  SmartPool includes several novel data structures and
+                  design choices which make its protocol secure and efficient.
+                  Specifically, we devise a new mechanism to verify and record
+                  miners’ contributions to the pool without centralized operators.
+                  SmartPool’s efficient probabilistic verification drastically
+                  reduces both the number of messages and the costs to run
+                  the pool for miners. Using a novel data structure called the
+                  augmented Merkle tree, SmartPool’s batched share submission
+                  and efficient payment scheme can detect and efficiently
+                  discourage cheating in the pool.
                 </p>
               </div>
             </div>
@@ -180,10 +196,10 @@
               </div>
               <div class="point-content">
                 <h3 class="point-title">
-                  Feature title 1 Lorem ipsum dolor
+                  Decentralized
                 </h3>
                 <p class="point-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  SmartPool is totally decentralized, there is no centralized operator who manage the pool.
                 </p>
               </div>
             </div>
@@ -193,10 +209,10 @@
               </div>
               <div class="point-content">
                 <h3 class="point-title">
-                  Feature title 2 Lorem ipsum dolor
+                  Secure
                 </h3>
                 <p class="point-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  SmartPool is secure against both malicious and cheating miners, who wish to deviate from the protocol to earn more reward.
                 </p>
               </div>
             </div>
@@ -208,10 +224,11 @@
               </div>
               <div class="point-content">
                 <h3 class="point-title">
-                  Feature title 3 Lorem ipsum dolor
+                  Efficient & Scalable
                 </h3>
                 <p class="point-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  SmartPool is even more efficient than centralized pools in terms of bandwidth and number of messages.
+                  The pools can handle thoudsands of miners in decentralized environment without any centralized server.
                 </p>
               </div>
             </div>
@@ -221,10 +238,10 @@
               </div>
               <div class="point-content">
                 <h3 class="point-title">
-                  Feature title 4 Lorem ipsum dolor
+                  Open Source and Non-Profit
                 </h3>
                 <p class="point-body">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  We open source all source codes. SmartPool is run by the community, built for the community.
                 </p>
               </div>
             </div>
@@ -359,7 +376,7 @@
             <div class="bio">
               <input class="read-more-state" id="prateek-bio" type="checkbox" />
               <p class="member-bio read-more-wrap">
-                Prateek Saxena has deep technical expertise in computing. Prateek steers a research team developing innovations for computationally complex problems with a view to delivering solutions for the financial services industry. <br />Prateek Saxena is an Assistant Professor<span class="read-more-target">&nbsp;in Computer Science at the National University of Singapore. He is broadly interested in computer security, programming languages and compilers. His work has had practical impact on several shipping web products from Google (Chrome web browser add-ons, Closure compilation framework, and Chrome Apps store) which contributes to real applications used by over 500 million users and developers. His work has found flaws in usage of single sign-on web protocols from Microsoft and Facebook, utilized by over 2 million web sites.<br />He received his Ph.D. in Computer Science from University of California at Berkeley in 2012. His doctoral work was awarded the David J. Sakrison Memorial Award by the EECS Department at UC Berkeley for outstanding doctoral research (2012). He is the recipient of the Dean's Chair title at NUS (2012-2015, 2015-2018), AT&T Award for Best Applied Security Research Paper selected from among all US universities (2010), Symantec Research Graduate Fellowship (2011), and several other best paper awards. He serves on the program committees of leading security conferences.</span><label class="read-more-trigger" for="prateek-bio"></label>
+                Prateek Saxena is an Assistant Professor in Computer Science at the National University of Singapore. He is broadly interested in computer security, programming languages and compilers. His work has had practical impact on several shipping web products from Google (Chrome web browser add-ons <span class="read-more-target">&nbsp;, Closure compilation framework, and Chrome Apps store) which contributes to real applications used by over 500 million users and developers. His work has found flaws in usage of single sign-on web protocols from Microsoft and Facebook, utilized by over 2 million web sites.</span><label class="read-more-trigger" for="prateek-bio"></label>
               </p>
             </div>
           </div>
