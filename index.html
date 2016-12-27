@@ -38,37 +38,39 @@
     <main>
       <section id="problem">
         <h2 class="section-title">
-          Problems
+          The Problem
         </h2>
         <div class="section-content">
           <div class="row">
             <div class="section-point column small-12 medium-6">
               <span class="bullet"></span>
               <h3 class="point-title">
-                Mining in existings cryptocurrencies are highly centralized
+                Mining in existing cryptocurrencies are highly centralized
               </h3>
               <p class="point-body">
-                More than 80% of mining power in Ethereum emanates from 5 mining pools. Similarly, the main 8 pools control the same fraction of mining power in Bitcoin.
+                More than 80% of mining power in Ethereum emanates from 5 mining pools. Similarly, the main 8 pools control the same fraction of mining power in Bitcoin.                
               </p>
             </div>
             <div class="section-point column small-12 medium-6">
               <span class="bullet"></span>
               <h3 class="point-title">
-                Threat of transaction sensorship
+                Threat of transaction censorship and single point of failure.
               </h3>
               <p class="point-body">
-                This threat increases as the mining is more centralized. Pools dictate which transactions to be included in new blocks, not the miners.
+                Pools dictate which transactions to be included in new blocks, not the miners.
+                Pools are subject to continuous DDoS attacks. If a big pool will go down, the security of the network is significantly compromised.  
               </p>
             </div>
           </div>
           <div class="row">
             <div class="section-point column small-12 medium-6">
               <span class="bullet"></span>
-              <h3 class="point-title">
-                Mining solo is bad for miners
+              <h3 class="point-title"> 
+                Mining solo is impossible for small miners
               </h3>
               <p class="point-body">
-                High variance of returns, hard for users to plan economically. Decentralized mining pools for Bitcoin (P2Pool) exist, but are inefficient in large network.
+                High variance of returns, hard for users to plan economically. Decentralized mining pools for Bitcoin (P2Pool) exist, but are inefficient in large network and are not applicable to Ethereum.
+                
               </p>
             </div>
             <div class="section-point column small-12 medium-6">
@@ -77,7 +79,7 @@
                 Pools take high fee
               </h3>
               <p class="point-body">
-                Mining pools take high fee (e.g. 1%) to pay to their developers. Running centralized pools is a profitable business.
+                Pools take high fee to cover for their operation costs and to gain profits.
               </p>
             </div>
           </div>
@@ -86,7 +88,7 @@
       <section id="solution">
         <section id="solution-points">
           <h2 class="section-title">
-            Our Solutions
+            The Solution
           </h2>
           <div class="section-content">
             <div class="row">
@@ -140,7 +142,8 @@
                     Low Fees
                   </h3>
                   <p class="point-body">
-                    SmartPool takes negligible (e.g. 0.2%-0.4%) to almost zero fees, depending on our funding status.
+                    The decentralized formation of SmartPool does not require any infrastructure to secure miner's payments and guarantee smooth running of the pool.
+                    SmartPool takes negligible to almost zero fees, which will be used to maintain the pool front-end and to develop new features.
                   </p>
                 </div>
               </div>
@@ -155,10 +158,10 @@
             <div class="row">
               <div class="column small-12 medium-10 medium-centered">
                 <p class="point-body">
-                  We use Ethereum smart contracts to build a decentralized pooled mining protocol for Bitcoin called SmartPool. Our solution implicitly replaces the centralized pool operator by network participants who run the Ethereum network.
+                  We use Ethereum smart contracts to build a decentralized pooled mining protocol called SmartPool. Our solution implicitly replaces the centralized pool operator by network participants who run the Ethereum network.
                 </p>
                 <p class="point-body">
-                  SmartPool includes several novel data structures and design choices which make its protocol secure and efficient. Specifically, we devise a new mechanism to verify and record miners' contributions to the pool without centralized operators. SmartPool's efficient probabilistic verification drastically reduces both the number of messages and the costs to run the pool for miners. Using a novel data structure called the augmented Merkle tree, SmartPool's batched share submission and efficient payment scheme can detect and efficiently discourage cheating in the pool.
+                  SmartPool includes several novel data structures and design choices which make its protocol secure and efficient. Specifically, we devise a new mechanism to verify and record miners' contributions to the pool without centralized operators. SmartPool's efficient probabilistic verification drastically reduces both the number of messages and the costs to run the pool for miners. Using a novel data structure called the augmented Merkle tree, SmartPool's batched share submission and efficient payment scheme remove any incentive for submitting invalid batches.
                 </p>
                 <p class="point-body">
                   Want to learn more? Read our&nbsp;<a href="" id="white-paper">white paper</a>.
@@ -197,6 +200,7 @@
                 </h3>
                 <p class="point-body">
                   SmartPool is secure against both malicious and cheating miners, who wish to deviate from the protocol to earn more reward.
+                  Its decenteralization fully protect it from DDoS attacks.
                 </p>
               </div>
             </div>
@@ -253,7 +257,7 @@
             <div class="bio">
               <input class="read-more-state" id="loi-bio" type="checkbox" />
               <p class="member-bio read-more-wrap">
-                Loi Luu is a PhD candidate in the Department of Computer Science at National University of Singapore. His research topics of interest are Cryptocurrency, Smart contract security and Distributed consensus algorithms. His researches have been published in several top-tier security conferences like ACM<span class="read-more-target">&nbsp;Conference on Computer and Communications Security (CCS 2015, CCS 2016), the Computer Security Foundations Symposium (CSF 2015). He has given talks in prestigious Bitcoin and Ethereum conferences like the Scaling Bitcoin workshop 2015 in Hong Kong, The Ethereum Devcon 2 in Shanghai. <br />Loi has developed Oyente, the first security analyzer for Ethereum smart contracts, and released it as open source. Currently he is on leave from NUS to work as a researcher for Ethereum Foundation.</span><label class="read-more-trigger" for="loi-bio"></label>
+                Loi Luu is a PhD candidate in the Department of Computer Science at National University of Singapore and work as a researcher for the Ethereum Foundation. His research topics of interest are Cryptocurrency, Smart contract security and Distributed consensus algorithms. His researches have been published in several top-tier security conferences like ACM<span class="read-more-target">&nbsp;Conference on Computer and Communications Security (CCS 2015, CCS 2016), the Computer Security Foundations Symposium (CSF 2015). He has given talks in prestigious Bitcoin and Ethereum conferences like the Scaling Bitcoin workshop 2015 in Hong Kong, The Ethereum Devcon 2 in Shanghai. <br />Loi has developed Oyente, the first security analyzer for Ethereum smart contracts, and released it as open source.</span><label class="read-more-trigger" for="loi-bio"></label>
               </p>
             </div>
           </div>
@@ -274,7 +278,7 @@
             <div class="bio">
               <input class="read-more-state" id="yaron-bio" type="checkbox" />
               <p class="member-bio read-more-wrap">
-                Yaron Velner is a postdoctoral researcher in the Hebrew University of Jerusalem. His research is focused on aspects of game theory incentives in blockchain protocols and formal verification of smart contracts. He holds a Phd in computer science from Tel Aviv University. In his Phd thesis he<span class="read-more-target">&nbsp;investigated applications of game theory techniques to formal verification of computer programs and systems.<br />Yaron is also an experienced software developer with over 10 years of experience as a senior software engineer and a technical leader at EZchip semi-conducters (recently acquired by Mellanox technologies). At EZchip he was a member in the data structure and algorithm team, which developed novel data structures for IP routing.</span><label class="read-more-trigger" for="yaron-bio"></label>
+                Yaron Velner is a postdoctoral researcher in the Hebrew University of Jerusalem. His research is focused on aspects of game theory incentives in blockchain protocols and formal verification of smart contracts. He holds a Phd in computer science from Tel Aviv University. In his Phd thesis he<span class="read-more-target">&nbsp;investigated applications of game theory techniques to formal verification of computer programs and systems.<br />Yaron is also an experienced software developer with over 10 years of experience as a senior software engineer and a technical leader at EZchip semi-conductors (recently acquired by Mellanox technologies). At EZchip he was a member in the data structure and algorithm team, which developed novel data structures for IP routing.</span><label class="read-more-trigger" for="yaron-bio"></label>
               </p>
             </div>
           </div>
