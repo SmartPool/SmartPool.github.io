@@ -14,17 +14,16 @@
         <nav class="row expanded">
           <div class="column row">
             <section class="columns medium-2" id="logo">
+              <div id="square-background"></div>
+              <div id="triangle-right"></div>
               <div class="logo-backing">
                 <img src="images/logo.svg" />
               </div>
-              <div id="triangle-right"></div>
             </section>
-            <section class="columns medium-7" id="menu">
+            <section class="columns medium-8" id="menu">
               <a class="menu" href="#problem" style="margin-left: 20px;">Problem</a><a class="menu" href="#solution">Solution</a><a class="menu" href="#feature">Features</a><a class="menu" href="#how-it-works">How It Works</a><a class="menu" href="#team">Team</a><a class="menu end-menu" href="#contact">Reach Us</a>
             </section>
-            <section class="columns medium-3" id="action">
-              <a class="action" href="">Join The Pool</a>
-            </section>
+            <section class="columns medium-2" id="action"></section>
           </div>
         </nav>
         <section id="brand">
@@ -252,8 +251,9 @@
               </p>
             </div>
             <div class="bio">
-              <p class="member-bio">
-                Loi Luu is a PhD candidate in the Department of Computer Science at National University of Singapore. His research topics of interest are Cryptocurrency, Smart contract security and Distributed consensus algorithms. His researches have been published in several top-tier security conferences like ACM Conference on Computer and Communications Security (CCS 2015, CCS 2016), the Computer Security Foundations Symposium (CSF 2015). He has given talks in prestigious Bitcoin and Ethereum conferences like the Scaling Bitcoin workshop 2015 in Hong Kong, The Ethereum Devcon 2 in Shanghai. <br />Loi has developed Oyente, the first security analyzer for Ethereum smart contracts, and released it as open source. Currently he is on leave from NUS to work as a researcher for Ethereum Foundation.
+              <input class="read-more-state" id="loi-bio" type="checkbox" />
+              <p class="member-bio read-more-wrap">
+                Loi Luu is a PhD candidate in the Department of Computer Science at National University of Singapore. His research topics of interest are Cryptocurrency, Smart contract security and Distributed consensus algorithms. His researches have been published in several top-tier security conferences like ACM<span class="read-more-target">&nbsp;Conference on Computer and Communications Security (CCS 2015, CCS 2016), the Computer Security Foundations Symposium (CSF 2015). He has given talks in prestigious Bitcoin and Ethereum conferences like the Scaling Bitcoin workshop 2015 in Hong Kong, The Ethereum Devcon 2 in Shanghai. <br />Loi has developed Oyente, the first security analyzer for Ethereum smart contracts, and released it as open source. Currently he is on leave from NUS to work as a researcher for Ethereum Foundation.</span><label class="read-more-trigger" for="loi-bio"></label>
               </p>
             </div>
           </div>
@@ -272,8 +272,9 @@
               </p>
             </div>
             <div class="bio">
-              <p class="member-bio">
-                Yaron Velner is a postdoctoral researcher in the Hebrew University of Jerusalem. His research is focused on aspects of game theory incentives in blockchain protocols and formal verification of smart contracts. He holds a Phd in computer science from Tel Aviv University. In his Phd thesis he investigated applications of game theory techniques to formal verification of computer programs and systems.<br />Yaron is also an experienced software developer with over 10 years of experience as a senior software engineer and a technical leader at EZchip semi-conducters (recently acquired by Mellanox technologies). At EZchip he was a member in the data structure and algorithm team, which developed novel data structures for IP routing.
+              <input class="read-more-state" id="yaron-bio" type="checkbox" />
+              <p class="member-bio read-more-wrap">
+                Yaron Velner is a postdoctoral researcher in the Hebrew University of Jerusalem. His research is focused on aspects of game theory incentives in blockchain protocols and formal verification of smart contracts. He holds a Phd in computer science from Tel Aviv University. In his Phd thesis he<span class="read-more-target">&nbsp;investigated applications of game theory techniques to formal verification of computer programs and systems.<br />Yaron is also an experienced software developer with over 10 years of experience as a senior software engineer and a technical leader at EZchip semi-conducters (recently acquired by Mellanox technologies). At EZchip he was a member in the data structure and algorithm team, which developed novel data structures for IP routing.</span><label class="read-more-trigger" for="yaron-bio"></label>
               </p>
             </div>
           </div>
@@ -292,8 +293,9 @@
               </p>
             </div>
             <div class="bio">
-              <p class="member-bio">
-                Victor Tran is a senior backend engineer and Linux system administrator. He has great experience in developing and building infrastructure for multiple social marketing platforms and advertising networks. He is upset with high performance multi-platform applications. In his leisure time, he enjoys developing tools in Ruby and Golang for his team to improve the team's productivity.<br />Victor co-founded and was CTO of multiple startups in social marketing. He built and maintained platforms which handled millions of monthly active users, one of his platform was in Alexa top 20 in the US for several months.
+              <input class="read-more-state" id="victor-bio" type="checkbox" />
+              <p class="member-bio read-more-wrap">
+                Victor Tran is a senior backend engineer and Linux system administrator. He has great experience in developing and building infrastructure for multiple social marketing platforms and advertising networks. He is upset with high performance multi-platform applications. In his leisure time,<span class="read-more-target">&nbsp;he enjoys developing tools in Ruby and Golang for his team to improve the team's productivity.<br />Victor co-founded and was CTO of multiple startups in social marketing. He built and maintained platforms which handled millions of monthly active users, one of his platform was in Alexa top 20 in the US for several months.</span><label class="read-more-trigger" for="victor-bio"></label>
               </p>
             </div>
           </div>
@@ -314,8 +316,9 @@
               </p>
             </div>
             <div class="bio">
-              <p class="member-bio">
-                Clement is a Cyber Security graduate student at National University of Singapore. He previously obtained a double degree from Ecole Polytechnique in Computer Science and from University of Paris-Saclay in Fundamental Physics. Before developing an interest for cryptocurrencies, he worked on Machine Learning applications for caching policies on Content Delivery Networks at Cisco.
+              <input class="read-more-state" id="clement-bio" type="checkbox" />
+              <p class="member-bio read-more-wrap">
+                Clement is a Cyber Security graduate student at National University of Singapore. He previously obtained a double degree from Ecole Polytechnique in Computer Science and from University of Paris-Saclay in Fundamental Physics. Before developing an interest for cryptocurrencies, he worked on<span class="read-more-target">&nbsp;Machine Learning applications for caching policies on Content Delivery Networks at Cisco.</span><label class="read-more-trigger" for="clement-bio"></label>
               </p>
             </div>
           </div>
@@ -334,7 +337,7 @@
               </p>
             </div>
             <div class="bio">
-              <p class="member-bio">
+              <p class="member-bio read-more-wrap">
                 Vitalik is the Founder and Chief Scientist of Ethereum. He is also both the Founder and a writer for Bitcoin Magazine, a venture that marked the beginning of his career in crypto in 2011. He is interested in creating secure, efficient, and trustworthy systems and advises a number of projects in the crypto space.
               </p>
             </div>
@@ -354,8 +357,9 @@
               </p>
             </div>
             <div class="bio">
-              <p class="member-bio">
-                Prateek Saxena has deep technical expertise in computing. Prateek steers a research team developing innovations for computationally complex problems with a view to delivering solutions for the financial services industry. <br />Prateek Saxena is an Assistant Professor in Computer Science at the National University of Singapore. He is broadly interested in computer security, programming languages and compilers. His work has had practical impact on several shipping web products from Google (Chrome web browser add-ons, Closure compilation framework, and Chrome Apps store) which contributes to real applications used by over 500 million users and developers. His work has found flaws in usage of single sign-on web protocols from Microsoft and Facebook, utilized by over 2 million web sites.<br />He received his Ph.D. in Computer Science from University of California at Berkeley in 2012. His doctoral work was awarded the David J. Sakrison Memorial Award by the EECS Department at UC Berkeley for outstanding doctoral research (2012). He is the recipient of the Dean's Chair title at NUS (2012-2015, 2015-2018), AT&T Award for Best Applied Security Research Paper selected from among all US universities (2010), Symantec Research Graduate Fellowship (2011), and several other best paper awards. He serves on the program committees of leading security conferences.
+              <input class="read-more-state" id="prateek-bio" type="checkbox" />
+              <p class="member-bio read-more-wrap">
+                Prateek Saxena has deep technical expertise in computing. Prateek steers a research team developing innovations for computationally complex problems with a view to delivering solutions for the financial services industry. <br />Prateek Saxena is an Assistant Professor<span class="read-more-target">&nbsp;in Computer Science at the National University of Singapore. He is broadly interested in computer security, programming languages and compilers. His work has had practical impact on several shipping web products from Google (Chrome web browser add-ons, Closure compilation framework, and Chrome Apps store) which contributes to real applications used by over 500 million users and developers. His work has found flaws in usage of single sign-on web protocols from Microsoft and Facebook, utilized by over 2 million web sites.<br />He received his Ph.D. in Computer Science from University of California at Berkeley in 2012. His doctoral work was awarded the David J. Sakrison Memorial Award by the EECS Department at UC Berkeley for outstanding doctoral research (2012). He is the recipient of the Dean's Chair title at NUS (2012-2015, 2015-2018), AT&T Award for Best Applied Security Research Paper selected from among all US universities (2010), Symantec Research Graduate Fellowship (2011), and several other best paper awards. He serves on the program committees of leading security conferences.</span><label class="read-more-trigger" for="prateek-bio"></label>
               </p>
             </div>
           </div>
