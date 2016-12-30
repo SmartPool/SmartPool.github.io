@@ -1,0 +1,563 @@
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+@import 'node_modules/foundation-sites/scss/foundation';
+
+@include foundation-global-styles;
+@include foundation-grid;
+// @include foundation-flex-grid;
+// @include foundation-flex-classes;
+// @include foundation-typography;
+// @include foundation-forms;
+// @include foundation-button;
+// @include foundation-accordion;
+// @include foundation-accordion-menu;
+// @include foundation-badge;
+// @include foundation-breadcrumbs;
+// @include foundation-button-group;
+// @include foundation-callout;
+// @include foundation-card;
+// @include foundation-close-button;
+// @include foundation-menu;
+// @include foundation-menu-icon;
+// @include foundation-drilldown-menu;
+// @include foundation-dropdown;
+// @include foundation-dropdown-menu;
+// @include foundation-responsive-embed;
+// @include foundation-label;
+// @include foundation-media-object;
+// @include foundation-off-canvas;
+// @include foundation-orbit;
+// @include foundation-pagination;
+// @include foundation-progress-bar;
+// @include foundation-slider;
+// @include foundation-sticky;
+// @include foundation-reveal;
+// @include foundation-switch;
+// @include foundation-table;
+// @include foundation-tabs;
+// @include foundation-thumbnail;
+// @include foundation-title-bar;
+// @include foundation-tooltip;
+// @include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+
+@import 'reset';
+
+// Colors
+$bgColor: #2E4147;
+$brandColor: #E7E9EA;
+$brandDesColor: #E8E8E8;
+$textColor: #E7E9EA;
+$btTextColor: #FFFFFF;
+$primaryBtColor: #00A8E8;
+// $navBgColor: rgba(23, 44, 51, 0.5);
+$navBgColor: rgba(256, 256, 256, 1);
+$navMenuTextColor: #00171F;
+$bulletColor: #E7E9E9;
+$bgDarkColor: #172C33;
+$imageBorderColor: #FFFFFF;
+$nameColor: #73CFF2;
+$positionColor: #E8E8E8;
+$bioColor: #E8E8E8;
+$linkColor: #45BFEE;
+$contactColor: #E8E8E8;
+$sectionTitleColor: #E8E8E8;
+$sectionBodyColor: #E8E8E8;
+$footerTextColor: #00171F;
+$footerBgColor: #FFFFFF;
+$footerBrandNameColor: #00171F;
+
+// sizing
+$navHeight: 60px;
+$triangleHeight: 30px; // half of navHeight
+$leftLogoSpace: 55px;
+$menuFontSize: 16px;
+$brandDesFontSize: 16px;
+$bodyFontSize: 16px;
+$footerHeight: 60px;
+$footerBrandNameFontSize: 16px;
+
+// body
+body {
+  background-color: $bgColor;
+}
+
+// header
+header {
+  background-color: $bgColor;
+
+  div.background {
+    background-image: url('images/rise2_optimized.png');
+    background-size: 1438px 809px;
+    background-position: center;
+    background-repeat: no-repeat;
+    @include breakpoint(small only) {
+      background-size: cover;
+    }
+  }
+
+  nav {
+    height: $navHeight;
+    background-color: $navBgColor;
+    #logo {
+      padding: 0;
+      text-align: center;
+      line-height: $navHeight;
+      margin-left: auto;
+      margin-right: auto;
+      // padding-left: 5em;
+      // @include breakpoint(small only) {
+      //   padding-left: 0;
+      // }
+      // @include breakpoint(medium only) {
+      //   padding-left: 0;
+      // }
+      div#menu-wrapper {
+        display: inline-block;
+      }
+
+      div.logo-backing {
+        height: $navHeight;
+      }
+      div#square-background {
+        float: left;
+        width: $leftLogoSpace;
+        height: $navHeight;
+        background-color: white;
+        position: absolute;
+        left: 0;
+      }
+      div#triangle-right {
+        float: left;
+        width: 0;
+        height: 0;
+        margin-left: $leftLogoSpace;
+        border-top: $triangleHeight solid transparent;
+        border-left: $triangleHeight solid white;
+        border-bottom: $triangleHeight solid transparent;
+      }
+      img {
+        width: 40px;
+        height: 46px;
+        max-height: $navHeight;
+        max-width: 69px;
+        vertical-align: middle;
+      }
+      a.menu {
+        font-weight: 500;
+        line-height: $navHeight;
+        font-size: $menuFontSize;
+        color: $navMenuTextColor;
+        margin: 0 0 0 40px;
+        text-decoration: none;
+        &.beginning {
+          margin-left: 0;
+        }
+      }
+    }
+
+    #menu {
+      line-height: $navHeight;
+      padding: 0;
+      text-align: center;
+      a.menu {
+        font-weight: 500;
+        font-size: $menuFontSize;
+        color: $navMenuTextColor;
+        margin: 0 0 0 40px;
+        text-decoration: none;
+        @include breakpoint(small only) {
+          margin-left: 10px;
+        }
+      }
+      .end-menu {
+        margin-right: 0 !important;
+      }
+    }
+
+    #action {
+      line-height: $navHeight;
+      padding: 0;
+      text-align: right;
+      a.action {
+        font-weight: 400;
+        font-size: $bodyFontSize;
+        color: $btTextColor;
+        text-decoration: none;
+        padding: 5px 15px;
+        background: #00A8E8;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  section#brand {
+    padding-top: 60px;
+    text-align: center;
+    h1#brand-name {
+      font-size: 48px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $brandColor;
+      letter-spacing: 15px;
+    }
+
+    img#separator {
+      width: 30px;
+      margin: 30px;
+      margin-right: 1.5em;
+      @include breakpoint(small only) {
+        margin: 30px;
+      }
+    }
+
+    p#brand-description {
+      font-size: $brandDesFontSize;
+      color: $brandDesColor;
+      line-height: 22px;
+      @include breakpoint(small only) {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+
+  section#feature {
+    margin-top: 80px;
+    text-align: left;
+
+    &:after {
+      clear: both;
+    }
+
+    div.point-content {
+      &:after {
+        clear: both;
+      }
+    }
+
+    div.left-point {
+      text-align: right;
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .point-image {
+        text-align: left;
+      }
+    }
+
+    .right-point {
+      text-align: left;
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .point-image {
+        text-align: right;
+      }
+    }
+
+    @include breakpoint(small only) {
+      div.point-image {
+        text-align: center;
+        padding-bottom: 15px;
+        img {
+          width: 50px;
+          height: 50px;
+          display: inline-block;
+        }
+      }
+
+      div.point-content {
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+    }
+
+
+    h3.point-title {
+      font-size: 20px;
+      color: $sectionTitleColor;
+      // padding-right: 70px;
+      // padding-left: 70px;
+      // margin-left: 10px;
+    }
+
+    p.point-body {
+      font-size: $bodyFontSize;
+      color: $sectionBodyColor;
+      line-height: 22px;
+      padding-top: 10px;
+      padding-bottom: 40px;
+
+    }
+
+    @include breakpoint(small only) {
+      p.point-body {
+        padding-bottom: 25px;
+      }
+    }
+
+    div.section-point {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+// main
+main {
+  section#problem {
+    background-color: $bgDarkColor;
+    text-align: center;
+  }
+
+  section#solution {
+    background-color: $bgColor;
+    text-align: center;
+
+    div.point-content {
+      margin-left: 85px;
+      &:after {
+        clear: both;
+      }
+    }
+  }
+
+  section#how-it-works {
+    background-color: $bgDarkColor;
+    text-align: center;
+    p.point-body {
+      font-weight: 500;
+      letter-spacing: 1px;
+      line-height: 30px;
+      text-align: justify;
+      padding-bottom: 20px;
+      padding-top: 0px;
+    }
+
+    @include breakpoint(small only) {
+      p.point-body {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      div.section-content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+    }
+
+    div.section-content {
+      padding-bottom: 25px;
+    }
+
+    a#white-paper {
+      font-size: $bodyFontSize;
+      color: #45BFEE;
+      text-decoration: none;
+    }
+  }
+
+  section#team {
+    background-color: $bgColor;
+    text-align: center;
+    .member-container {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 4em;
+    }
+    .member-image {
+      border-radius: 50%;
+      border: 3px solid #FFFFFF;
+      max-width: 10em;
+    }
+    .member-name {
+      font-size: 24px;
+      color: $nameColor;
+      font-weight: 600;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    .member-position {
+      font-size: 18px;
+      color: $positionColor;
+      padding-bottom: 20px;
+    }
+
+    .member-bio {
+      font-size: $bodyFontSize;
+      color: $bioColor;
+      line-height: 22px;
+      padding-left: 15px;
+      padding-right: 15px;
+      text-align: justify;
+    }
+
+    .read-more-state {
+      display: none;
+    }
+
+    .read-more-target {
+      opacity: 0;
+      max-height: 0;
+      font-size: 0;
+      display: none;
+    }
+
+    .read-more-state:checked ~ .read-more-wrap .read-more-target {
+      opacity: 1;
+      font-size: inherit;
+      max-height: 999em;
+      display: inline;
+    }
+
+    .read-more-state ~ .member-bio {
+      .read-more-trigger:before {
+        content: '... Read more';
+      }
+    }
+
+    .read-more-state:checked ~ .member-bio {
+      .read-more-trigger:before {
+        content: ' Hide';
+      }
+    }
+
+    .read-more-trigger {
+      font-size: $bodyFontSize;
+      color: #45BFEE;
+    }
+  }
+
+  section#contact {
+    background-color: $bgDarkColor;
+    text-align: center;
+    .contact-container {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 30px;
+    }
+    .contact-item {
+      max-width: 50px;
+    }
+  }
+
+  div.section-content {
+    padding-top: 15px;
+  }
+
+  div.point-image {
+    width: 85px;
+    height: 85px;
+    float: left;
+    margin-left: 10px;
+  }
+
+  div.section-point {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  h3.point-title {
+    font-size: 20px;
+    color: $sectionTitleColor;
+    padding-right: 40px;
+    padding-left: 30px;
+    margin-left: 10px;
+  }
+
+  .bullet {
+    background-image: url('images/bullet.svg');
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 20px;
+    display: block;
+    float: left;
+    margin-left: 10px;
+  }
+
+  p.point-body {
+    font-size: $bodyFontSize;
+    color: $sectionBodyColor;
+    line-height: 22px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+    padding-right: 40px;
+    margin-left: 10px;
+  }
+
+  h2.section-title {
+    font-size: 24px;
+    color: $sectionTitleColor;
+    padding: 30px;
+  }
+}
+// footer
+footer {
+  background-color: $footerBgColor;
+  .footer-container {
+    padding: 0 0;
+    text-align: center;
+  }
+
+  span.center-helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  .logo-backing {
+    padding-top: 30px;
+    padding-bottom: 5px;
+  }
+
+  .footer-logo {
+    width: 40px;
+    height: 46px;
+    max-height: $footerHeight;
+    vertical-align: middle;
+  }
+
+  .footer-brand-name {
+    font-size: $footerBrandNameFontSize;
+    color: $footerBrandNameColor;
+    font-weight: 500;
+  }
+
+  .copy-right {
+    font-size: $bodyFontSize;
+    color: $footerTextColor;
+    text-align: center;
+    font-weight: 500;
+    line-height: $footerHeight;
+  }
+
+  .desktop-footer {
+    .logo-backing {
+      text-align: left;
+      height: 60px;
+      padding: 0;
+      float: left;
+    }
+    .footer-brand-name {
+      text-align: left;
+      line-height: 60px;
+      margin-left: 50px;
+    }
+    .copy-right {
+      text-align: right;
+    }
+  }
+}

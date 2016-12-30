@@ -1,0 +1,345 @@
+// configurable variables
+- brand_name = "Efficient Decentralized Mining Pools for Existing Cryptocurrencies Based on Ethereum Smart Contracts"
+
+- feature_decentralized_title = "Decentralized"
+- feature_decentralized_body = "No centralized operators managing the pool."
+- feature_secure_title = "Secure"
+- feature_secure_body = "Secure against both malicious and cheating miners, fully protected from DDoS attacks."
+- feature_efficient_title = "Efficient & Scalable"
+- feature_efficient_body = "Even more efficient than centralized pools.|Can handle thousands of miners."
+- feature_open_source_title = "Open Source and Non-Profit"
+- feature_open_source_body = "Open source all source codes. Run by the community, built for the community."
+
+- problem_centralized_title = "Mining in existing cryptocurrencies are highly centralized"
+- problem_centralized_body = "More than 80% of mining power in Ethereum emanates from 5 mining pools. Similarly, the main 8 pools control the same fraction of mining power in Bitcoin."
+- problem_censorship_title = "Threat of transaction censorship and single point of failure"
+- problem_censorship_body = "Pools dictate which transactions to be included in new blocks, not the miners.|Pools are subject to continuous DDoS attacks. If a big pool will go down, the security of the network is significantly compromised."
+- problem_solo_title = "Mining solo is impossible for small miners"
+- problem_solo_body = "High variance of returns, hard for users to plan economically. Decentralized mining pools for Bitcoin (P2Pool) exist, but are inefficient in large network and are not applicable to Ethereum."
+- problem_fee_title = "Pools take high fee"
+- problem_fee_body = "Pools take high fee to cover for their operation costs and to gain profits."
+
+- solution_decentralized_title = "Decentralize Pools by Leveraging Smart Contracts"
+- solution_decentralized_body = "We essentially replace the centralized pool operators by smart contracts, which is run and managed in a decentralized way on the blockchain."
+- solution_censorship_title = "Mitigate transaction censorship threat"
+- solution_censorship_body = "Miners can propose their own sets of transactions in new blocks."
+- solution_variance_title = "Guarantee Low Variance"
+- solution_variance_body = "Although being decentralized, our pools can guarantee the same variance in payments as centralized pools."
+- solution_fee_title = "Low Fees"
+- solution_fee_body = "The decentralized formation of SmartPool does not require any infrastructure to secure miner's payments and guarantee smooth running of the pool.|SmartPool takes negligible to almost zero fees, which will be used to maintain the pool front-end and to develop new features."
+
+- how_it_works = "We use Ethereum smart contracts to build a decentralized pooled mining protocol called SmartPool. Our solution implicitly replaces the centralized pool operator by network participants who run the Ethereum network.|SmartPool includes several novel data structures and design choices which make its protocol secure and efficient. Specifically, we devise a new mechanism to verify and record miners' contributions to the pool without centralized operators. SmartPool's efficient probabilistic verification drastically reduces both the number of messages and the costs to run the pool for miners. Using a novel data structure called the augmented Merkle tree, SmartPool's batched share submission and efficient payment scheme remove any incentive for submitting invalid batches."
+- copy_right = "Copyright &copy; 2017. All Right Reserved"
+
+// actual HTML structuring
+doctype 5
+html
+  head
+    meta charset="utf-8"
+    // SEO metas
+    // ---------
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    link rel="icon" type="image/x-icon" sizes="16x16" href="images/logo.png"
+    link rel="shortcut icon" type="image/png" href="images/logo.png"
+    link rel="stylesheet" media="screen" href="stylesheets/styles.css"
+    title Smart Pool
+  body
+    header
+      div.background
+        nav.row.expanded
+          div.row
+              // section.columns.medium-2
+              section#menu.columns.large-8.small-centered
+                div#logo
+                  div#menu-wrapper
+                    a.menu.beginning href="/"
+                      img src="images/logo.svg"
+                    a.menu href="#problem" Problem
+                    a.menu href="#solution" Solution
+                    a.menu.hide-for-small-only href="#how-it-works" How It Works
+                    a.menu href="#team" Team
+                    a.menu.end-menu href="#contact" Reach Us
+              // section#action.columns.medium-2
+               // a.action href="" Join The Pool
+        section#brand
+          h1#brand-name Smart Pool
+          img#separator src="images/separator.svg"
+          div.row
+            div.small-12.medium-6.medium-centered
+              p#brand-description #{brand_name}
+
+        section#feature
+          div.section-content
+            div.show-for-small-only
+              div.row.section-point.extended.columns
+                div.point-image
+                  img src="images/centralized-structure.svg"
+                div.point-content
+                  h3.point-title #{feature_decentralized_title}
+                  p.point-body
+                    == feature_decentralized_body.split('|').join('<br/>')
+              div.row.section-point.extended.columns
+                div.point-image
+                  img src="images/shield.svg"
+                div.point-content
+                  h3.point-title #{feature_secure_title}
+                  p.point-body
+                    == feature_secure_body.split('|').join('<br/>')
+              div.row.section-point.extended.columns
+                div.point-image
+                  img src="images/efficiency.svg"
+                div.point-content
+                  h3.point-title #{feature_efficient_title}
+                  p.point-body
+                    == feature_efficient_body.split('|').join('<br/>')
+              div.row.section-point.extended.columns
+                div.point-image
+                  img src="images/open-sign.svg"
+                div.point-content
+                  h3.point-title #{feature_open_source_title}
+                  p.point-body
+                    == feature_open_source_body.split('|').join('<br/>')
+            div.hide-for-small-only
+              div.row
+                div.columns.small-12.medium-centered
+                  div.row
+                    div.section-point.columns.small-12.medium-6.left-point
+                      div.row
+                        div.columns.large-3.medium-1 &nbsp;
+                        div.columns.large-7.medium-8
+                          div.point-content
+                            h3.point-title #{feature_decentralized_title}
+                            p.point-body
+                              == feature_decentralized_body.split('|').join('<br/>')
+                        div.columns.large-2.medium-3.point-image
+                          img src="images/centralized-structure.svg"
+                    div.section-point.columns.small-12.medium-6.right-point
+                      div.row
+                        div.column.large-2.medium-3.point-image
+                          img src="images/shield.svg"
+                        div.column.large-7.medium-8
+                          div.point-content
+                            h3.point-title #{feature_secure_title}
+                            p.point-body
+                              == feature_secure_body.split('|').join('<br/>')
+                        div.columns.large-3.medium-1 &nbsp;
+              div.row
+                div.columns.small-12.medium-centered
+                  div.row
+                    div.section-point.columns.small-12.medium-6.left-point
+                      div.row
+                        div.columns.large-3.medium-1 &nbsp;
+                        div.columns.large-7.medium-8
+                          div.point-content
+                            h3.point-title #{feature_efficient_title}
+                            p.point-body
+                              == feature_efficient_body.split('|').join('<br/>')
+                        div.columns.large-2.medium-3.point-image
+                          img src="images/efficiency.svg"
+                    div.section-point.columns.small-12.medium-6.right-point
+                      div.row
+                        div.columns.large-2.medium-3.point-image
+                          img src="images/open-sign.svg"
+                        div.columns.large-7.medium-8
+                          div.point-content
+                            h3.point-title #{feature_open_source_title}
+                            p.point-body
+                              == feature_open_source_body.split('|').join('<br/>')
+                        div.columns.large-3.medium-1 &nbsp;
+
+    main
+      section#problem
+        h2.section-title The Problem
+        div.section-content
+          div.row
+            div.section-point.column.small-12.medium-6
+              span.bullet
+              h3.point-title #{problem_centralized_title}
+              p.point-body
+                == problem_centralized_body.split('|').join('<br/>')
+            div.section-point.column.small-12.medium-6
+              span.bullet
+              h3.point-title #{problem_censorship_title}
+              p.point-body
+                == problem_censorship_body.split('|').join('<br/>')
+          div.row
+            div.section-point.column.small-12.medium-6
+              span.bullet
+              h3.point-title #{problem_solo_title}
+              p.point-body
+                == problem_solo_body.split('|').join('<br/>')
+            div.section-point.column.small-12.medium-6
+              span.bullet
+              h3.point-title #{problem_fee_title}
+              p.point-body
+                == problem_fee_body.split('|').join('<br/>')
+      section#solution
+        section#solution-points
+          h2.section-title The Solution
+          div.section-content
+            div.row
+              div.section-point.columns.small-12.medium-6
+                div.point-image
+                  img src="images/centralized-structure.svg"
+                div.point-content
+                  h3.point-title #{solution_decentralized_title}
+                  p.point-body
+                    == solution_decentralized_body.split('|').join('<br/>')
+              div.section-point.columns.small-12.medium-6
+                div.point-image
+                  img src="images/padlock.svg"
+                div.point-content
+                  h3.point-title #{solution_censorship_title}
+                  p.point-body
+                    == solution_censorship_body.split('|').join('<br/>')
+            div.row
+              div.section-point.columns.small-12.medium-6
+                div.point-image
+                  img src="images/guarantee.svg"
+                div.point-content
+                  h3.point-title #{solution_variance_title}
+                  p.point-body
+                    == solution_variance_body.split('|').join('<br/>')
+              div.section-point.columns.small-12.medium-6
+                div.point-image
+                  img src="images/stack-of-dollars-on-two-hands.svg"
+                div.point-content
+                  h3.point-title #{solution_fee_title}
+                  p.point-body
+                    == solution_fee_body.split('|').join('<br/>')
+
+      section#how-it-works
+        h2.section-title How It Works
+        div.row
+          div.column.small-12.medium-10.medium-centered.section-content
+            - how_it_works.split('|').each do |point|
+              p.point-body
+                == point
+            p.point-body
+              | Want to learn more? Read our&nbsp;
+              a#white-paper href="" white paper
+              | .
+
+      section#team
+        h2.section-title Meet The Team
+        div.section-content.row
+          div.member-container.column.small-12.medium-4
+            div.avatar
+              img.member-image src="images/LoiLuu.png"
+            div.name
+              p.member-name Loi Luu
+            div.position
+              p.member-position Founder
+            div.bio
+              input type="checkbox" class="read-more-state" id="loi-bio" /
+              p.member-bio.read-more-wrap
+                | Loi Luu is a Computer Science PhD candidate at National University of Singapore. His research topics of interest are Cryptocurrency, Smart contract security and Distributed consensus algorithms. His researches have been published in several top-tier security conferences (CCS 2015,
+                span.read-more-target
+                  | &nbsp;CCS 2016, CSF 2015). He has given talks in prestigious Bitcoin and Ethereum conferences like the Scaling Bitcoin workshop 2015 in Hong Kong, The Ethereum Devcon 2 in Shanghai.
+                  br
+                  | Loi has developed Oyente, the first security analyzer for Ethereum smart contracts, and released it as open source.
+                label.read-more-trigger for="loi-bio"
+          div.member-container.column.small-12.medium-4
+            div.avatar
+              img.member-image src="images/Yaron.png"
+            div.name
+              p.member-name Yaron Velner
+            div.position
+              p.member-position Co-Founder and Developer
+            div.bio
+              input#yaron-bio type="checkbox" class="read-more-state" /
+              p.member-bio.read-more-wrap
+                | Yaron Velner is a postdoctoral researcher in the Hebrew University of Jerusalem. His research is focused on aspects of game theory incentives in blockchain protocols and formal verification of smart contracts. He holds a Phd in computer science from Tel Aviv University. In his Phd thesis he
+                span.read-more-target
+                  | &nbsp;investigated applications of game theory techniques to formal verification of computer programs and systems.
+                  | &nbsp;investigated applications of game theory techniques to formal verification of computer programs and systems.
+                  br
+                  | Yaron is also an experienced software developer with over 10 years of experience as a senior software engineer and a technical leader at EZchip semi-conductors (recently acquired by Mellanox technologies). At EZchip he was a member in the data structure and algorithm team, which developed novel data structures for IP routing.
+                label.read-more-trigger for="yaron-bio"
+          div.member-container.column.small-12.medium-4
+            div.avatar
+              img.member-image src="images/victor.png"
+            div.name
+              p.member-name Victor Tran
+            div.position
+              p.member-position Developer
+            div.bio
+              input#victor-bio type="checkbox" class="read-more-state" /
+              p.member-bio.read-more-wrap
+                | Victor Tran is a senior backend engineer and Linux system administrator. He has great experience in developing and building infrastructure for multiple social marketing platforms and advertising networks. He is upset with high performance multi-platform applications. In his leisure time,
+                span.read-more-target
+                  | &nbsp;he enjoys developing tools in Ruby and Golang for his team to improve the team's productivity.
+                  br
+                  | Victor co-founded and was CTO of multiple startups in social marketing. He built and maintained platforms which handled millions of monthly active users, one of his platform was in Alexa top 20 in the US for several months.
+                label.read-more-trigger for="victor-bio"
+        div.row
+          div.member-container.column.small-12.medium-4
+            div.avatar
+              img.member-image src="images/Clement.png"
+            div.name
+              p.member-name Clement Fischer
+            div.position
+              p.member-position Developer
+            div.bio
+              input#clement-bio type="checkbox" class="read-more-state" /
+              p.member-bio.read-more-wrap
+                | Clement is a Cyber Security graduate student at National University of Singapore. He previously obtained a double degree from Ecole Polytechnique in Computer Science and from University of Paris-Saclay in Fundamental Physics. Before developing an interest for cryptocurrencies, he worked on
+                span.read-more-target
+                  | &nbsp;Machine Learning applications for caching policies on Content Delivery Networks at Cisco.
+                label.read-more-trigger for="clement-bio"
+          div.member-container.column.small-12.medium-4
+            div.avatar
+              img.member-image src="images/vitalik-buterin.jpg"
+            div.name
+              p.member-name Vitalik Buterin
+            div.position
+              p.member-position Advisor
+            div.bio
+              p.member-bio.read-more-wrap
+                | Vitalik is the Founder and Chief Scientist of Ethereum. He is also both the Founder and a writer for Bitcoin Magazine, a venture that marked the beginning of his career in crypto in 2011. He is interested in creating secure, efficient, and trustworthy systems and advises a number of projects in the crypto space.
+          div.member-container.column.small-12.medium-4
+            div.avatar
+              img.member-image src="images/prateek.jpg"
+            div.name
+              p.member-name Prateek Saxena
+            div.position
+              p.member-position Advisor
+            div.bio
+              p.member-bio.read-more-wrap
+                | Prateek Saxena is a research professor in computer science at National University of Singapore. His cybersecurity research has had practical impact at global hi-tech firms and he has received several premier awards.
+      section#contact
+        h2.section-title Reach Us
+        div.row
+          div.contact-container.column.small-6.medium-3
+            a href=""
+              img.contact-item#email src="images/email.svg"
+          div.contact-container.column.small-6.medium-3
+            a href=""
+              img.contact-item#github src="images/github.svg"
+          div.contact-container.column.small-6.medium-3
+            a href=""
+              img.contact-item#slack src="images/slack.svg"
+          div.contact-container.column.small-6.medium-3
+            a href=""
+              img.contact-item#twitter src="images/twitter.svg"
+    footer
+      div.row.show-for-small-only
+        div.footer-container.column.small-12
+          div.logo-backing
+            span.center-helper
+            img.footer-logo src="images/logo.svg"
+          p.footer-brand-name Smart Pool
+        div.footer-container.column.small-12
+          div.copy-right
+            p
+              == copy_right
+      div.row.hide-for-small-only.desktop-footer
+        div.footer-container.column.medium-6
+          div.logo-backing
+            span.center-helper
+            img.footer-logo src="images/logo.svg"
+          p.footer-brand-name Smart Pool
+        div.footer-container.column.medium-6
+          div.copy-right
+            p
+              == copy_right
