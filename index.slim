@@ -31,6 +31,18 @@
 - how_it_works = "We use Ethereum smart contracts to build a decentralized pooled mining protocol called SmartPool. Our solution implicitly replaces the centralized pool operator by network participants who run the Ethereum network.|SmartPool includes several novel data structures and design choices which make its protocol secure and efficient. Specifically, we devise a new mechanism to verify and record miners' contributions to the pool without centralized operators. SmartPool's efficient probabilistic verification drastically reduces both the number of messages and the costs to run the pool for miners. Using a novel data structure called the augmented Merkle tree, SmartPool's batched share submission and efficient payment scheme remove any incentive for submitting invalid batches."
 - copy_right = "Copyright &copy; 2017. All Right Reserved"
 
+- faqs = []
+- faqs << ["What is SmartPool?", 'An efficient and decentralized mining protocol for existing cryptocurrencies based on Ethereum smart contracts.']
+- faqs << ["How is it different from (or better than) normal pools?", 'Normal centralized pools are bad because of: centralization in mining (obviously), transaction censorship, and high fees.|SmartPool enables an efficient way to mine blocks in a decentralized manner between miners. Everyone can propose their own transactions in a block, thus eliminating the censorship on transactions. SmartPool requires negligible to no fees from miners.']
+- faqs << ["Ethereum is moving to Proof-of-stake, how SmartPool benefits Ethereum?", 'We are excited about Proof of stake as anyone else, but it will take at least one more year for PoS to come. Until PoS is officially rolled out, SmartPool is still relevant and makes mining in Ethereum much more decentralized.|Further, SmartPool will be used to build decentralized mining pools for other cryptocurrencies (e.g. Bitcoin, ZCash) based on Ethereum smart contracts. Adoption of such pools will increase users base of Ethereum much more.']
+- faqs << ["How do I participate then?", "If you a miner, it is pretty straightforward. You just need to install an update to your miner software (which we provide) to interact with the contracts. More details will be released later on.|If you are not a miner but an cryptocurrency advocate, please consider donating to support the SmartPool development. SmartPool is a not-for-profit open source project."]
+- faqs << ["What are the supported cryptocurrencies?", "Ethereum first, ZCash and Bitcoin will be supported later if funding allows."]
+- faqs << ["Everyone is doing an ICO for their project, why there is not one for SmartPool?", "We have thought of running an ICO to fund our project, and we had a strong belief that many people will invest based on the recent ICOs. However, having an ICO for SmartPool may jeopardise the adoption of our future pools, thus greatly affect the mining decentralization goal which is more important to us.|All things considered, we decided to go non-profit and start SmartPool as a community project, which is built for the community and funded by the community. After all, we are more interested in getting the technology built and deployed in real world."]
+- faqs << ["Can't you just migrate Bitcoin's P2Pool solution to Ethereum?", "No. Technically impossible. P2Pool is so inefficient in terms of number of messages and gas cost per message."]
+- faqs << ["Decentralized Bitcoin pools gained very low adoption, how SmartPool is different?", "SmartPool is better in several ways: <ol><li>SmartPool is much more efficient in terms of number of messages. P2Pool may require thousands of messages per miner per block, while SmartPool only requires a few.</li><li>Miners pay much less in terms of computation and bandwidth costs.</li></ol>"]
+- faqs << ["Is it just a proof of concept?", "We already have a proof of concept for a SmartPool-based mining pool for Bitcoin. We aim to build production-ready and compatible system so everyone can use and launch their own decentralized pools.|Depending on our funding, we plan to launch and maintain SmartPool-based pools in for Ethereum and other cryptocurrencies too.|Other's pools: from June 2017 (depending on the funding status)."]
+- faqs << ["How will the money be spent?", "<ol><li>Pay to the devs (please check out our team).</li><li>Travel and other expenses.</li><li>Initial incentives to miners (for example, we might pay 1% more reward to miners).</li></ol>"]
+
 // actual HTML structuring
 doctype 5
 html
@@ -322,6 +334,21 @@ html
           div.contact-container.column.small-6.medium-3
             a href=""
               img.contact-item#twitter src="images/twitter.svg"
+      section#faq
+        h2.section-title Frequently Asked Questions
+        div.row
+          - faqs.each_with_index do |faq, index|
+            div.column.small-12.medium-12
+              div.faq
+                input.hide.show-answer type="checkbox" id="mark_q_#{index}"
+                h3.question
+                  label for="mark_q_#{index}"
+                    | #{index + 1}.&nbsp;
+                    == faq[0]
+                div.answer
+                  - faq[1].split('|').each do |p|
+                    p.answer
+                      == p
     footer
       div.row.show-for-small-only
         div.footer-container.column.small-12

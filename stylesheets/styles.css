@@ -1698,6 +1698,39 @@ main h2.section-title {
   color: #E8E8E8;
   padding: 30px; }
 
+main section#faq {
+  background-color: #2E4147;
+  text-align: center;
+  padding-bottom: 25px; }
+  main section#faq div.faq {
+    text-align: left;
+    color: #E7E9EA;
+    background-color: #172C33;
+    margin-bottom: 15px;
+    padding: 30px;
+    border-radius: 5px;
+    line-height: 1.5em; }
+    @media screen and (max-width: 39.9375em) {
+      main section#faq div.faq {
+        padding: 15px; } }
+    main section#faq div.faq h3.question {
+      padding-bottom: 15px; }
+    main section#faq div.faq div.answer ol {
+      list-style-type: decimal;
+      margin-left: 15px; }
+    main section#faq div.faq a {
+      font-size: 16px;
+      color: #45BFEE;
+      text-decoration: none; }
+    main section#faq div.faq input.show-answer:checked ~ div.answer {
+      display: block; }
+    main section#faq div.faq input.show-answer:checked ~ h3.question {
+      padding-bottom: 15px; }
+    main section#faq div.faq input.show-answer ~ div.answer {
+      display: none; }
+    main section#faq div.faq input.show-answer ~ h3.question {
+      padding-bottom: 0px; }
+
 footer {
   background-color: #FFFFFF; }
   footer .footer-container {

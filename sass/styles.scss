@@ -503,6 +503,59 @@ main {
     color: $sectionTitleColor;
     padding: 30px;
   }
+
+  section#faq {
+    background-color: $bgColor;
+    text-align: center;
+    padding-bottom: 25px;
+
+    div.faq {
+      text-align: left;
+      color: $textColor;
+      background-color: $bgDarkColor;
+      margin-bottom: 15px;
+      padding: 30px;
+      border-radius: 5px;
+      line-height: 1.5em;
+
+      @include breakpoint(small only) {
+        padding: 15px;
+      }
+
+      h3.question {
+        padding-bottom: 15px;
+      }
+
+      div.answer {
+        ol {
+          list-style-type: decimal;
+          margin-left: 15px;
+        }
+      }
+
+      a {
+        font-size: $bodyFontSize;
+        color: #45BFEE;
+        text-decoration: none;
+      }
+
+      input.show-answer:checked ~ div.answer {
+        display: block;
+      }
+
+      input.show-answer:checked ~ h3.question {
+        padding-bottom: 15px;
+      }
+
+      input.show-answer ~ div.answer {
+        display: none;
+      }
+
+      input.show-answer ~ h3.question {
+        padding-bottom: 0px;
+      }
+    }
+  }
 }
 // footer
 footer {
