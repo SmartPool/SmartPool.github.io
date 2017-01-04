@@ -439,8 +439,34 @@ main {
     }
   }
 
-  section#contact {
+  section#sponsor {
     background-color: $bgDarkColor;
+    text-align: center;
+    .member-container {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 4em;
+    }
+    .member-image {
+      border-radius: 50%;
+      border: 3px solid #FFFFFF;
+      max-width: 10em;
+    }
+    .member-name {
+      font-size: 24px;
+      color: $nameColor;
+      font-weight: 600;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  section#contact {
+    background-color: $bgColor;
     text-align: center;
     .contact-container {
       padding-left: 0;
@@ -505,14 +531,14 @@ main {
   }
 
   section#faq {
-    background-color: $bgColor;
+    background-color: $bgDarkColor;
     text-align: center;
     padding-bottom: 25px;
 
     div.faq {
       text-align: left;
       color: $textColor;
-      background-color: $bgDarkColor;
+      background-color: $bgColor;
       margin-bottom: 15px;
       padding: 30px;
       border-radius: 5px;

@@ -1636,15 +1636,35 @@ main section#team {
     max-height: 999em;
     display: inline; }
   main section#team .read-more-state ~ .member-bio .read-more-trigger:before {
-    content: ' ... read more'; }
+    content: '... Read more'; }
   main section#team .read-more-state:checked ~ .member-bio .read-more-trigger:before {
-    content: ' hide'; }
+    content: ' Hide'; }
   main section#team .read-more-trigger {
     font-size: 16px;
     color: #45BFEE; }
 
-main section#contact {
+main section#sponsor {
   background-color: #172C33;
+  text-align: center; }
+  main section#sponsor .member-container {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 4em; }
+  main section#sponsor .member-image {
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    max-width: 10em; }
+  main section#sponsor .member-name {
+    font-size: 24px;
+    color: #73CFF2;
+    font-weight: 600;
+    padding-top: 20px;
+    padding-bottom: 20px; }
+  main section#sponsor a {
+    text-decoration: none; }
+
+main section#contact {
+  background-color: #2E4147;
   text-align: center; }
   main section#contact .contact-container {
     padding-left: 0;
@@ -1699,13 +1719,13 @@ main h2.section-title {
   padding: 30px; }
 
 main section#faq {
-  background-color: #2E4147;
+  background-color: #172C33;
   text-align: center;
   padding-bottom: 25px; }
   main section#faq div.faq {
     text-align: left;
     color: #E7E9EA;
-    background-color: #172C33;
+    background-color: #2E4147;
     margin-bottom: 15px;
     padding: 30px;
     border-radius: 5px;
