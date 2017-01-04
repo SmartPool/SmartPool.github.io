@@ -1636,9 +1636,9 @@ main section#team {
     max-height: 999em;
     display: inline; }
   main section#team .read-more-state ~ .member-bio .read-more-trigger:before {
-    content: '... Read more'; }
+    content: ' ... read more'; }
   main section#team .read-more-state:checked ~ .member-bio .read-more-trigger:before {
-    content: ' Hide'; }
+    content: ' hide'; }
   main section#team .read-more-trigger {
     font-size: 16px;
     color: #45BFEE; }
