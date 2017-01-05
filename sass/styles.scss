@@ -66,7 +66,7 @@ $contactColor: #E8E8E8;
 $sectionTitleColor: #E8E8E8;
 $sectionBodyColor: #E8E8E8;
 $answerTextColor: #FFFFFF;
-$answerBgColor: #1C363F;
+$answerBgColor: #0E1C21;
 $footerTextColor: #00171F;
 $footerBgColor: #FFFFFF;
 $footerBrandNameColor: #00171F;
@@ -475,14 +475,7 @@ main {
   section#contact {
     background-color: $bgColor;
     text-align: center;
-    .contact-container {
-      padding-left: 0;
-      padding-right: 0;
-      padding-bottom: 30px;
-    }
-    .contact-item {
-      max-width: 50px;
-    }
+    
   }
 
   div.section-content {
@@ -538,14 +531,14 @@ main {
   }
 
   section#faq {
-    background-color: $bgDarkColor;
+    background-color: $bgColor;
     text-align: center;
     padding-bottom: 25px;
 
     div.faq {
       text-align: left;
       color: $textColor;
-      background-color: $bgColor;
+      background-color: $bgDarkColor;
       margin-bottom: 15px;
       // padding: 20px;
       border-radius: 5px;
@@ -582,7 +575,7 @@ main {
 
       input.show-answer:checked ~ h3.question {
         // padding-bottom: 15px;
-        border-bottom: 2px solid $bgDarkColor;
+        border-bottom: 2px solid $bgColor;
       }
 
       input.show-answer ~ div.answer {
@@ -603,6 +596,33 @@ footer {
     text-align: center;
   }
 
+  .contact-container {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0px;
+    text-align: center;
+    height: 100%;
+
+    a {
+      float: right;
+      padding-top: 15px;
+    }
+
+    @include breakpoint(small only) {
+      padding-top: 30px;
+      text-align: center;
+
+      a {
+        float: none;
+      }
+    }
+  }
+  .contact-item {
+    height: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   span.center-helper {
     display: inline-block;
     height: 100%;
@@ -612,6 +632,10 @@ footer {
   .logo-backing {
     padding-top: 30px;
     padding-bottom: 5px;
+
+    @include breakpoint(small only) {
+      padding-top: 20px;
+    }
   }
 
   .footer-logo {
@@ -648,7 +672,7 @@ footer {
       margin-left: 50px;
     }
     .copy-right {
-      text-align: right;
+      text-align: center;
     }
   }
 }

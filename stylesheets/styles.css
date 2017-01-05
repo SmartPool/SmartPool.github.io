@@ -1668,12 +1668,6 @@ main section#sponsor {
 main section#contact {
   background-color: #2E4147;
   text-align: center; }
-  main section#contact .contact-container {
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 30px; }
-  main section#contact .contact-item {
-    max-width: 50px; }
 
 main div.section-content {
   padding-top: 15px; }
@@ -1721,13 +1715,13 @@ main h2.section-title {
   padding: 30px; }
 
 main section#faq {
-  background-color: #172C33;
+  background-color: #2E4147;
   text-align: center;
   padding-bottom: 25px; }
   main section#faq div.faq {
     text-align: left;
     color: #E7E9EA;
-    background-color: #2E4147;
+    background-color: #172C33;
     margin-bottom: 15px;
     border-radius: 5px;
     line-height: 1.5em; }
@@ -1739,7 +1733,7 @@ main section#faq {
     main section#faq div.faq div.answer {
       padding: 10px 20px 15px 20px;
       color: #FFFFFF;
-      background-color: #1C363F;
+      background-color: #0E1C21;
       border-radius: 0 0 5px 5px; }
       main section#faq div.faq div.answer ol {
         list-style-type: decimal;
@@ -1751,7 +1745,7 @@ main section#faq {
     main section#faq div.faq input.show-answer:checked ~ div.answer {
       display: block; }
     main section#faq div.faq input.show-answer:checked ~ h3.question {
-      border-bottom: 2px solid #172C33; }
+      border-bottom: 2px solid #2E4147; }
     main section#faq div.faq input.show-answer ~ div.answer {
       display: none; }
     main section#faq div.faq input.show-answer ~ h3.question {
@@ -1762,6 +1756,25 @@ footer {
   footer .footer-container {
     padding: 0 0;
     text-align: center; }
+  footer .contact-container {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0px;
+    text-align: center;
+    height: 100%; }
+    footer .contact-container a {
+      float: right;
+      padding-top: 15px; }
+    @media screen and (max-width: 39.9375em) {
+      footer .contact-container {
+        padding-top: 30px;
+        text-align: center; }
+        footer .contact-container a {
+          float: none; } }
+  footer .contact-item {
+    height: 30px;
+    padding-left: 20px;
+    padding-right: 20px; }
   footer span.center-helper {
     display: inline-block;
     height: 100%;
@@ -1769,6 +1782,9 @@ footer {
   footer .logo-backing {
     padding-top: 30px;
     padding-bottom: 5px; }
+    @media screen and (max-width: 39.9375em) {
+      footer .logo-backing {
+        padding-top: 20px; } }
   footer .footer-logo {
     width: 40px;
     height: 46px;
@@ -1794,4 +1810,4 @@ footer {
     line-height: 60px;
     margin-left: 50px; }
   footer .desktop-footer .copy-right {
-    text-align: right; }
+    text-align: center; }
