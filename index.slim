@@ -14,7 +14,7 @@
 - problem_centralized_body = "More than 80% of mining power in Ethereum emanates from 5 mining pools. Similarly, the main 8 pools control the same fraction of mining power in Bitcoin."
 - problem_censorship_title = "Threat of transaction censorship and single point of failure"
 - problem_censorship_body = "Pools dictate which transactions to be included in new blocks, not the miners.|Pools are subject to continuous DDoS attacks. If a big pool will go down, the security of the network is significantly compromised."
-- problem_solo_title = "Mining solo is impossible for small miners"
+- problem_solo_title = "Mining solo is difficult for small miners"
 - problem_solo_body = "High variance of returns, hard for users to plan economically. Decentralized mining pools for Bitcoin (P2Pool) exist, but are inefficient in large network and are not applicable to Ethereum."
 - problem_fee_title = "Pools take high fee"
 - problem_fee_body = "Pools take high fee to cover for their operation costs and to gain profits."
@@ -33,7 +33,7 @@
 
 - faqs = []
 - faqs << ["What is SmartPool?", 'An efficient and decentralized mining protocol for existing cryptocurrencies based on Ethereum smart contracts.']
-- faqs << ["How is it different from (or better than) normal pools?", 'Normal centralized pools are bad because of: centralization in mining (obviously), transaction censorship (e.g. mining empty blocks, black-listing transactions), and high fees.|SmartPool enables an efficient way to mine blocks in a decentralized manner between miners. Everyone can propose their own transactions in a block, thus eliminating the censorship on transactions. SmartPool requires negligible to no fees from miners.']
+- faqs << ["How is it different from (or better than) normal pools?", 'Normal centralized pools are not ideal because of: centralization in mining (obviously), transaction censorship (e.g. mining empty blocks, black-listing transactions), and high fees.|SmartPool enables an efficient way to mine blocks in a decentralized manner between miners. Everyone can propose their own transactions in a block, thus eliminating the censorship on transactions. SmartPool requires negligible to no fees from miners.']
 - faqs << ["Ethereum is moving to Proof-of-stake, how SmartPool benefits Ethereum?", 'We are excited about Proof of stake as anyone else, but it will take at least <a href="https://twitter.com/VladZamfir/status/814907702833016833">one more year</a> for PoS to come. Until PoS is officially rolled out, SmartPool is still relevant and makes mining in Ethereum much more decentralized.|The adoption of Ethereum based decentralized pools would increase Ether volume usage (as ZCash miners would have to interact with the corresponding Ethereum contract) and directly benefit Ethereum miners.']
 - faqs << ["How do I participate then?", "If you a miner, it is pretty straightforward. You just need to install an update to your miner software (which we provide) to interact with the contracts. More details will be released later on.|If you are not a miner but a cryptocurrency advocate, please consider donating to support the SmartPool development. SmartPool is a non-profit open source project."]
 - faqs << ["What are the supported cryptocurrencies?", "Ethereum first, ZCash and Bitcoin will be supported later if funding allows. We would also provide a generic interface to allow porting to almost all cryptocurrencies."]
@@ -242,15 +242,13 @@ html
             div.name
               p.member-name Loi Luu
             div.position
-              p.member-position Founder
+              p.member-position Co-Founder and Developer
             div.bio
               input type="checkbox" class="read-more-state" id="loi-bio" /
               p.member-bio.read-more-wrap
-                | Loi Luu is a Computer Science PhD candidate at National University of Singapore. His research topics of interest are Cryptocurrency, Smart contract security and Distributed consensus algorithms. His researches have been published in several top-tier security conferences (CCS 2015,
+                | Loi Luu is a PhD candidate at National University of Singapore. His research is on cryptocurrencies, smart contract security and distributed consensus algorithms. He is a lead developer of Oyente, the first security analyzer for smart contracts, which is now <a href="https://github.com/ethereum/oyente">open-source</a>. His research publications 
                 span.read-more-target
-                  | &nbsp;CCS 2016, CSF 2015). He has given talks in prestigious Bitcoin and Ethereum conferences like the Scaling Bitcoin workshop 2015 in Hong Kong, The Ethereum Devcon 2 in Shanghai.
-                  br
-                  | Loi has developed Oyente, the first security analyzer for Ethereum smart contracts, and released it as open source.
+                  | &nbsp; are available <a href="www.comp.nus.edu.sg/~loiluu/">online</a>, and he is a regular invited speaker at Bitcoin and Ethereum workshops such as DevCon2, EdCon.io, Scaling Bitcoin.                
                 label.read-more-trigger for="loi-bio"
           div.member-container.column.small-12.medium-4
             div.avatar
@@ -278,7 +276,7 @@ html
             div.bio
               input#victor-bio type="checkbox" class="read-more-state" /
               p.member-bio.read-more-wrap
-                | Victor Tran is a senior backend engineer and Linux system administrator. He has great experience in developing and building infrastructure for multiple social marketing platforms and advertising networks. He is interested in building high performance multi-platform applications. In his leisure time,
+                | Victor Tran is a senior backend engineer and Linux system administrator. He has experience in developing and building infrastructure for multiple social marketing platforms and advertising networks. He is interested in building high performance multi-platform applications. In his leisure time,
                 span.read-more-target
                   | &nbsp;he enjoys developing tools in Ruby and Golang for his team to improve the team's productivity.
                   br
