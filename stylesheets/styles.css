@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Lato");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 /**
  * Foundation for Sites by ZURB
  * Version 6.3.0
@@ -1375,8 +1375,7 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  -webkit-font-smoothing: antialiased;
-  font-family: 'Lato', sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   vertical-align: baseline; }
 
 /* HTML5 display-role reset for older browsers */
@@ -1642,6 +1641,9 @@ main section#team {
   main section#team .read-more-trigger {
     font-size: 16px;
     color: #45BFEE; }
+  main section#team a {
+    color: #45BFEE;
+    text-decoration: none; }
 
 main section#sponsor {
   background-color: #172C33;
@@ -1727,17 +1729,18 @@ main section#faq {
     color: #E7E9EA;
     background-color: #2E4147;
     margin-bottom: 15px;
-    padding: 30px;
     border-radius: 5px;
     line-height: 1.5em; }
     @media screen and (max-width: 39.9375em) {
       main section#faq div.faq {
         padding: 15px; } }
     main section#faq div.faq h3.question {
-      padding-bottom: 15px; }
-    main section#faq div.faq div.answer ol {
-      list-style-type: decimal;
-      margin-left: 15px; }
+      padding: 20px 20px 20px 20px; }
+    main section#faq div.faq div.answer {
+      padding: 10px 20px 15px 20px; }
+      main section#faq div.faq div.answer ol {
+        list-style-type: decimal;
+        margin-left: 15px; }
     main section#faq div.faq a {
       font-size: 16px;
       color: #45BFEE;
@@ -1745,11 +1748,11 @@ main section#faq {
     main section#faq div.faq input.show-answer:checked ~ div.answer {
       display: block; }
     main section#faq div.faq input.show-answer:checked ~ h3.question {
-      padding-bottom: 15px; }
+      border-bottom: 2px solid #172C33; }
     main section#faq div.faq input.show-answer ~ div.answer {
       display: none; }
     main section#faq div.faq input.show-answer ~ h3.question {
-      padding-bottom: 0px; }
+      padding-bottom: 20px; }
 
 footer {
   background-color: #FFFFFF; }

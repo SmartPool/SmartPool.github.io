@@ -1,5 +1,5 @@
-// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+// @import url('https://fonts.googleapis.com/css?family=Lato');
 
 @import 'node_modules/foundation-sites/scss/foundation';
 
@@ -76,8 +76,8 @@ $leftLogoSpace: 55px;
 $menuFontSize: 16px;
 $brandDesFontSize: 16px;
 $bodyFontSize: 16px;
-$footerHeight: 60px;
 $footerBrandNameFontSize: 16px;
+$footerHeight: 60px;
 
 // body
 body {
@@ -437,6 +437,11 @@ main {
       font-size: $bodyFontSize;
       color: #45BFEE;
     }
+
+    a {
+      color: #45BFEE;
+      text-decoration: none;
+    }
   }
 
   section#sponsor {
@@ -540,7 +545,7 @@ main {
       color: $textColor;
       background-color: $bgColor;
       margin-bottom: 15px;
-      padding: 30px;
+      // padding: 20px;
       border-radius: 5px;
       line-height: 1.5em;
 
@@ -549,10 +554,11 @@ main {
       }
 
       h3.question {
-        padding-bottom: 15px;
+        padding: 20px 20px 20px 20px;
       }
 
       div.answer {
+        padding: 10px 20px 15px 20px;
         ol {
           list-style-type: decimal;
           margin-left: 15px;
@@ -570,7 +576,8 @@ main {
       }
 
       input.show-answer:checked ~ h3.question {
-        padding-bottom: 15px;
+        // padding-bottom: 15px;
+        border-bottom: 2px solid $bgDarkColor;
       }
 
       input.show-answer ~ div.answer {
@@ -578,7 +585,7 @@ main {
       }
 
       input.show-answer ~ h3.question {
-        padding-bottom: 0px;
+        padding-bottom: 20px;
       }
     }
   }
@@ -616,7 +623,7 @@ footer {
   }
 
   .copy-right {
-    font-size: $bodyFontSize;
+    font-size: $footerBrandNameFontSize;
     color: $footerTextColor;
     text-align: center;
     font-weight: 500;
