@@ -65,6 +65,8 @@ $linkColor: #45BFEE;
 $contactColor: #E8E8E8;
 $sectionTitleColor: #E8E8E8;
 $sectionBodyColor: #E8E8E8;
+$answerTextColor: #FFFFFF;
+$answerBgColor: #1C363F;
 $footerTextColor: #00171F;
 $footerBgColor: #FFFFFF;
 $footerBrandNameColor: #00171F;
@@ -559,6 +561,9 @@ main {
 
       div.answer {
         padding: 10px 20px 15px 20px;
+        color: $answerTextColor;
+        background-color: $answerBgColor;
+        border-radius: 0 0 5px 5px;
         ol {
           list-style-type: decimal;
           margin-left: 15px;
