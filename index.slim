@@ -333,21 +333,6 @@ html
             div.name
               p.member-name And You?
 
-      section#contact
-        h2.section-title Find Us
-        div.row
-          div.contact-container.column.small-6.medium-3
-            a href="mailto:loiluu@comp.nus.edu.sg"
-              img.contact-item#email src="images/email.svg"
-          div.contact-container.column.small-6.medium-3
-            a href="https://github.com/SmartPool"
-              img.contact-item#github src="images/github.svg"
-          div.contact-container.column.small-6.medium-3
-            a href="https://gitter.im/SmartPool/Lobby"
-              img.contact-item#gitter src="images/gitter1.svg"
-          div.contact-container.column.small-6.medium-3
-            a href="https://twitter.com/SmartpoolP"
-              img.contact-item#twitter src="images/twitter.svg"
       section#faq
         h2.section-title Frequently Asked Questions
         div.row
@@ -363,7 +348,8 @@ html
                   - faq[1].split('|').each do |p|
                     p.answer
                       == p
-    footer
+
+    footer#contact
       div.row.show-for-small-only
         div.footer-container.column.small-12
           div.logo-backing
@@ -371,16 +357,37 @@ html
             img.footer-logo src="images/logo.svg"
           p.footer-brand-name Smart Pool
         div.footer-container.column.small-12
+          div.row
+            div.contact-container
+              a href="mailto:loiluu@comp.nus.edu.sg"
+                img.contact-item#email src="images/email.svg"
+              a href="https://gitter.im/SmartPool/Lobby"
+                img.contact-item#gitter src="images/gitter1.svg"
+              a href="https://github.com/SmartPool"
+                img.contact-item#github src="images/github.svg"
+              a href="https://twitter.com/SmartpoolP"
+                img.contact-item#twitter src="images/twitter.svg"
+        div.footer-container.column.small-12
           div.copy-right
             p
               == copy_right
       div.row.hide-for-small-only.desktop-footer
-        div.footer-container.column.medium-6
+        div.footer-container.column.medium-4
           div.logo-backing
             span.center-helper
             img.footer-logo src="images/logo.svg"
           p.footer-brand-name Smart Pool
-        div.footer-container.column.medium-6
+        div.footer-container.column.medium-4
           div.copy-right
             p
               == copy_right
+        div.footer-container.column.medium-4
+          div.contact-container
+            a href="https://twitter.com/SmartpoolP"
+              img.contact-item#twitter src="images/twitter.svg"
+            a href="https://github.com/SmartPool"
+              img.contact-item#github src="images/github.svg"
+            a href="https://gitter.im/SmartPool/Lobby"
+              img.contact-item#gitter src="images/gitter1.svg"
+            a href="mailto:loiluu@comp.nus.edu.sg"
+              img.contact-item#email src="images/email.svg"
