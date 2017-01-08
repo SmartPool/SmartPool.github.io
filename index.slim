@@ -1,5 +1,5 @@
 // configurable variables
-- brand_name = "Efficient Decentralized Mining Pools for Existing Cryptocurrencies Based on Ethereum Smart Contracts"
+- brand_description = "Efficient Decentralized Mining Pools for Existing Cryptocurrencies Based on Ethereum Smart Contracts"
 
 - feature_decentralized_title = "Decentralized"
 - feature_decentralized_body = "No centralized operators managing the pool."
@@ -41,7 +41,7 @@
 - faqs << ["Can't we just port Bitcoin's P2Pool solution to Ethereum?", 'No. It is <a href="http://ethereum.stackexchange.com/questions/570/is-there-p2pool-mining-available-for-ethereum" rel="nofollow">technically impossible</a> to use P2Pool solution for Ethereum. Moreover, our solution also performs better than P2Pool for other currencies.']
 - faqs << ["Decentralized Bitcoin pools haven't gained adoption. What differentiates SmartPool?", "<ol><li>SmartPool leverages the security of Ethereum blockchain for its operation. Previous decentralized Bitcoin pools (e.g. P2Pool) used a separate side-chain which doesn't have as strong a backing infrastructure as Ethereum today.</li><li>SmartPool's design scales ad-infinitum. In contrast, previous decentralized Bitcoin pools have a scalability bottleneck at even 1% of the Bitcoin mining scale.</li><li> SmartPool is a versatile concept. It can support mining for more than one cryptocurrency. It is appealing both for Bitcoin (which has dominated by large mining farms) as well as for other cryptocurrencies like Monero and ZCash (which have many more solo miners).</li></ol>"]
 - faqs << ["Is it just a proof of concept?", "We already have a proof of concept for a SmartPool-based mining pool for Bitcoin. We aim to build production-ready and compatible system so everyone can use and launch their own decentralized pools.|Depending on our funding, we plan to launch and maintain SmartPool-based pools in for Ethereum and other cryptocurrencies too."]
-- faqs << ["What is the development timeline?", "<ol><li>Public crowdfund: 15 Jan 2017 (we ask for donations from public).</li><li>First beta pool for Ethereum (on testnet): late April 2017.</li><li>First working pool for Ethereum: late May 2017.</li><li>Other’s pools: from June 2017 (depending on the funding status).</li></ol>"]
+- faqs << ["What is the development timeline?", "<ol><li>Public crowdfund: 15 Jan 2017 (we ask for donations from public).</li><li>First beta pool for Ethereum (on testnet): late April 2017.</li><li>First working pool for Ethereum: late May 2017.</li><li>Other's pools: from June 2017 (depending on the funding status).</li></ol>"]
 - faqs << ["How is the project funded?", "The SmartPool project is funded by the community and run by the community. Thus, we will do a crowdfund and ask for donations from public. We are also applying for some dev grants like Ethereum Dev Grants or Wanxiang Blockchain Labs. We will keep updating our funding status."]
 - faqs << ["How much money are we looking for from the crowdfund? What are the deliverables?", "Depending on how much we get, our promised deliverables vary as follows.<ol><li>Less than 5,000 ETH: Implement SmartPool for Ethereum and release all softwares as open source (i.e. under MIT license).</li><li>5,000 to 10,000 ETH: In addition to what we have promised, we will launch a decentralized pool for Ethereum and maintain it until Ethereum moves to proof of stake.</li><li>More than 10,000 ETH: In addition to what we have promised, we implement SmartPool protocol for other cryptocurrencies (Bitcoin, ZCash and/or Monero) and possibly launch and maintain real pools for these cryptocurrencies.</li></ol>"]
 - faqs << ["How will the money be spent?", "<ol><li>Pay to the devs (please check out our team).</li><li>Equipment and other expenses: GPU renting, basic infrastructure, social media promotion, etc.</li><li>Miners' subsidies. For example, we may give 5% bonus on shares until the pool attracts at least 10% mining power.</li></ol>"]
@@ -50,12 +50,25 @@
 
 // actual HTML structuring
 doctype 5
-html
+html lang="en"
   head
     meta charset="utf-8"
     // SEO metas
     // ---------
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta name="description" content="#{brand_description}"
+    meta name="keywords" content="blockchain, mining pool, ethereum, bitcoin, decentralize, free"
+    meta name="robots" content="index, follow"
+    // Open graph
+    meta property="og:title" content="SmartPool">
+    meta property="og:type" content="article">
+    meta property="og:url" content="http://smartpool.io">
+    meta property="og:image" content="http://smartpool.io/images/logo.png"
+    // Twitter card
+    meta name="twitter:card" content="#{brand_description}">
+    meta name="twitter:site" content="@SmartPoolPrj">
+    meta name="twitter:title" content="SmartPool">
+    meta name="twitter:description" content="#{brand_description}">
     link rel="icon" type="image/x-icon" sizes="16x16" href="images/logo.png"
     link rel="shortcut icon" type="image/png" href="images/logo.png"
     link rel="stylesheet" media="screen" href="stylesheets/styles.css"
@@ -74,7 +87,7 @@ html
                     a.menu href="#problem" Problem
                     a.menu href="#solution" Solution
                     a.menu.hide-for-small-only href="#how-it-works" How It Works
-                    a.menu href="#team" Team                    
+                    a.menu href="#team" Team
                     a.menu.end-menu href="#faq" FAQs
               // section#action.columns.medium-2
                // a.action href="" Join The Pool
@@ -83,7 +96,7 @@ html
           img#separator src="images/separator.svg"
           div.row
             div.small-12.medium-6.medium-centered
-              p#brand-description #{brand_name}
+              p#brand-description #{brand_description}
 
         section#feature
           div.section-content
@@ -395,3 +408,4 @@ html
               img.contact-item#gitter src="images/gitter1.svg"
             a href="mailto:loiluu@comp.nus.edu.sg"
               img.contact-item#email src="images/email.svg"
+    script src="javascripts/ga.js"
