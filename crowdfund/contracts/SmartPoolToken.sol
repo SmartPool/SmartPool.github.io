@@ -11,9 +11,10 @@ contract SmartPoolToken is StandardToken, Lockable {
     uint _supply;
     uint _rate;
 
-    uint ETHER = 1000000000000000000;
+    uint ETHER = 1 ether;
 
     event TokenMint(address newTokenHolder, uint tokensAmount);
+    event Donated(address from, uint amount, uint tokensAmount);
 
     function SmartPoolToken(uint preminedTokens) {
         _supply = 0;
@@ -26,7 +27,7 @@ contract SmartPoolToken is StandardToken, Lockable {
         return _supply;
     }
 
-    function mintTokens(address newTokenHolder, uint etherAmount) internal {
+    function mintTokens(address newTokenHolder, uint etherAmount) internal returns (uint tokensCreated){
         uint tokensAmount = safeMul(_rate, etherAmount) / ETHER;
 
         if (tokensAmount >= 1) {
@@ -35,7 +36,9 @@ contract SmartPoolToken is StandardToken, Lockable {
             _supply += tokensAmount;
 
             TokenMint(newTokenHolder, tokensAmount);
+            return tokensAmount;
         }
+        return 0;
     }
 
     function () payable onlyWhenDonationOpen {
@@ -51,7 +54,8 @@ contract SmartPoolToken is StandardToken, Lockable {
             donationBalances[msg.sender], etherAmount);
         totalFundRaised = safeAdd(
             totalFundRaised, etherAmount);
-        mintTokens(msg.sender, etherAmount);
+        uint tokensCreated = mintTokens(msg.sender, etherAmount);
+        Donated(msg.sender, etherAmount, tokensCreated);
     }
 
     function myDonation() constant returns (uint donation) {
