@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.4.4;
 
 import "./zeppelin/token/StandardToken.sol";
 import "./Lockable.sol";
@@ -6,7 +6,7 @@ import "./Lockable.sol";
 contract SmartPoolToken is StandardToken, Lockable {
     string public name = "SmartPool";
     string public symbol = "SPT";
-    uint public decimals = 1;
+    uint public decimals = 0;
 
     mapping(address => uint) public donationAmountInWei;
     mapping(uint => address) public donors;

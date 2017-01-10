@@ -347,48 +347,114 @@ var SolidityEvent = require("web3/lib/web3/event.js");
   };
 
   Contract.all_networks = {
-  "default": {
+  "2": {
     "abi": [
       {
-        "constant": true,
+        "constant": false,
         "inputs": [],
-        "name": "duration",
-        "outputs": [
-          {
-            "name": "",
-            "type": "uint256"
-          }
-        ],
+        "name": "stopAcceptingDonation",
+        "outputs": [],
         "payable": false,
         "type": "function"
       },
       {
         "constant": true,
         "inputs": [],
-        "name": "creationBlockNumber",
+        "name": "owner",
         "outputs": [
           {
             "name": "",
-            "type": "uint256"
+            "type": "address"
           }
         ],
         "payable": false,
         "type": "function"
       },
       {
+        "constant": false,
+        "inputs": [],
+        "name": "startAcceptingDonation",
+        "outputs": [],
+        "payable": false,
+        "type": "function"
+      },
+      {
+        "constant": false,
         "inputs": [
           {
-            "name": "_duration",
-            "type": "uint256"
+            "name": "newOwner",
+            "type": "address"
           }
         ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "payable": false,
+        "type": "function"
+      },
+      {
+        "inputs": [],
         "payable": false,
         "type": "constructor"
       }
     ],
-    "unlinked_binary": "0x606060405234610000576040516020806100d183398101604052515b4360005560018190555b505b609c806100356000396000f300606060405263ffffffff60e060020a6000350416630fb5a6b48114602c5780631bf30929146048575b6000565b3460005760366064565b60408051918252519081900360200190f35b346000576036606a565b60408051918252519081900360200190f35b60015481565b600054815600a165627a7a723058206ef56d1af78e4383a4f58c9e349e165610948a6b602c6d4de9c116f80668242c0029",
+    "unlinked_binary": "0x606060405234610000575b5b60008054600160a060020a03191633600160a060020a03161790555b6000805460a060020a60ff02191690555b5b6101e0806100486000396000f300606060405263ffffffff60e060020a600035041663519a73c381146100455780638da5cb5b14610054578063e67e04f91461007d578063f2fde38b1461008c575b610000565b34610000576100526100a7565b005b34610000576100616100fe565b60408051600160a060020a039092168252519081900360200190f35b346100005761005261010d565b005b3461000057610052600160a060020a036004351661015f565b005b60005433600160a060020a03908116911614156100fa5760005460a060020a900460ff16156100d557610000565b6000805474ff0000000000000000000000000000000000000000191660a060020a1790555b5b5b565b600054600160a060020a031681565b60005433600160a060020a03908116911614156100fa5760005460a060020a900460ff16151561013c57610000565b6000805474ff0000000000000000000000000000000000000000191690555b5b5b565b60005433600160a060020a03908116911614156101ae57600160a060020a038116156101ae576000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b5b5b505600a165627a7a72305820cb152f6731eef951bd97bae9b06720cb5331eccfa5094682a75ee6a186e88c1f0029",
     "events": {},
-    "updated_at": 1483881287072
+    "updated_at": 1484051267617,
+    "links": {}
+  },
+  "default": {
+    "abi": [
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "stopAcceptingDonation",
+        "outputs": [],
+        "payable": false,
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [],
+        "name": "startAcceptingDonation",
+        "outputs": [],
+        "payable": false,
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "payable": false,
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "payable": false,
+        "type": "constructor"
+      }
+    ],
+    "unlinked_binary": "0x606060405234610000575b5b60008054600160a060020a03191633600160a060020a03161790555b6000805460a060020a60ff02191690555b5b6101e0806100486000396000f300606060405263ffffffff60e060020a600035041663519a73c381146100455780638da5cb5b14610054578063e67e04f91461007d578063f2fde38b1461008c575b610000565b34610000576100526100a7565b005b34610000576100616100fe565b60408051600160a060020a039092168252519081900360200190f35b346100005761005261010d565b005b3461000057610052600160a060020a036004351661015f565b005b60005433600160a060020a03908116911614156100fa5760005460a060020a900460ff16156100d557610000565b6000805474ff0000000000000000000000000000000000000000191660a060020a1790555b5b5b565b600054600160a060020a031681565b60005433600160a060020a03908116911614156100fa5760005460a060020a900460ff16151561013c57610000565b6000805474ff0000000000000000000000000000000000000000191690555b5b5b565b60005433600160a060020a03908116911614156101ae57600160a060020a038116156101ae576000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0383161790555b5b5b5b505600a165627a7a72305820d7010fbdd61ed14a49c4c34a8fde4a0f2321f0d29f77ed63c75f9c77375b32cc0029",
+    "events": {},
+    "updated_at": 1484037908725
   }
 };
 
