@@ -8,7 +8,7 @@ contract SmartPoolToken is StandardToken, Lockable {
     string public symbol = "SPT";
     uint public decimals = 1;
 
-    mapping(address => uint) public donationAmountInEther;
+    mapping(address => uint) public donationAmountInWei;
     mapping(uint => address) public donors;
     uint public donorCount;
     uint public totalFundRaised;
@@ -31,8 +31,8 @@ contract SmartPoolToken is StandardToken, Lockable {
         return _supply;
     }
 
-    function mintTokens(address newTokenHolder, uint etherAmount) internal returns (uint){
-        uint tokensAmount = safeMul(_rate, etherAmount / ETHER);
+    function mintTokens(address newTokenHolder, uint weiAmount) internal returns (uint){
+        uint tokensAmount = safeMul(_rate, weiAmount) / ETHER;
 
         if (tokensAmount >= 1) {
             balances[newTokenHolder] = safeAdd(
@@ -46,24 +46,24 @@ contract SmartPoolToken is StandardToken, Lockable {
     }
 
     function () payable onlyWhenDonationOpen {
-        uint etherAmount = msg.value;
-        if (etherAmount <= 0) throw;
+        uint weiAmount = msg.value;
+        if (weiAmount <= 0) throw;
 
-        if (donationAmountInEther[msg.sender] == 0) {
+        if (donationAmountInWei[msg.sender] == 0) {
             donors[donorCount] = msg.sender;
             donorCount += 1;
         }
 
-        donationAmountInEther[msg.sender] = safeAdd(
-            donationAmountInEther[msg.sender], etherAmount);
+        donationAmountInWei[msg.sender] = safeAdd(
+            donationAmountInWei[msg.sender], weiAmount);
         totalFundRaised = safeAdd(
-            totalFundRaised, etherAmount);
-        uint tokensCreated = mintTokens(msg.sender, etherAmount);
-        Donated(msg.sender, etherAmount, tokensCreated, block.number);
+            totalFundRaised, weiAmount);
+        uint tokensCreated = mintTokens(msg.sender, weiAmount);
+        Donated(msg.sender, weiAmount, tokensCreated, block.number);
     }
 
     function getDonationAmount() constant returns (uint donation) {
-        return donationAmountInEther[msg.sender];
+        return donationAmountInWei[msg.sender];
     }
 
     function getTokenBalance() constant returns (uint tokens) {
