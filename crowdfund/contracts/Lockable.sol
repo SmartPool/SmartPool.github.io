@@ -2,10 +2,6 @@ pragma solidity ^0.4.0;
 
 import "./zeppelin/Ownable.sol";
 
-/*
-This contract will lock after `duration` blocks since
-its creation.
-*/
 contract Lockable is Ownable {
     bool donationLock;
 
