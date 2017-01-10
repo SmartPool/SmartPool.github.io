@@ -1,27 +1,31 @@
 pragma solidity ^0.4.0;
 
+import "./zeppelin/Ownable.sol";
+
 /*
 This contract will lock after `duration` blocks since
 its creation.
 */
-contract Lockable {
-    uint public creationBlockNumber;
-    uint public duration;
+contract Lockable is Ownable {
+    bool donationLock;
 
-    modifier beforeDuration {
-        if (block.number - creationBlockNumber <= duration) {
-            _;
-        }
+    function Lockable() {
+        donationLock = false;
     }
 
-    modifier afterDuration {
-        if (block.number - creationBlockNumber <= duration) throw;
+    modifier onlyWhenDonationOpen {
+        if (donationLock) throw;
         _;
     }
 
-    function Lockable(uint _duration) {
-        creationBlockNumber = block.number;
-        duration = _duration;
+    function stopAcceptingDonation() onlyOwner {
+        if (donationLock) throw;
+        donationLock = true;
+    }
+
+    function startAcceptingDonation() onlyOwner {
+        if (!donationLock) throw;
+        donationLock = false;
     }
 }
 
