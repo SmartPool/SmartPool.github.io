@@ -1,0 +1,162 @@
+- brand_description = "Efficient Decentralized Mining Pools for Existing Cryptocurrencies Based on Ethereum Smart Contracts"
+
+- donation_title = "We are calling for donation!"
+- public_node = "https://ropsten.infura.io/0BRKxQ0SFvAxGL72cbXi"
+- smart_pool_address = "0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D"
+- smart_pool_bitcoin_address = "0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D"
+- smart_pool_zcash_address = "0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D"
+- smart_pool_abi_url = 'https://testnet.etherscan.io/api?module=contract&action=getabi&address=' + smart_pool_address + '&apikey=DS24ZMNDG8CGKNU1QAU32WFS4DZKJ3PE3J'
+
+- copy_right = "Copyright &copy; 2017. All Right Reserved"
+
+- donation_title = "We are calling for donation"
+- donation = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.|Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.|Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.|Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
+doctype 5
+html lang="en"
+  head
+    meta charset="utf-8"
+    // SEO metas
+    // ---------
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta name="description" content="#{brand_description}"
+    meta name="keywords" content="blockchain, mining pool, ethereum, bitcoin, decentralize, free"
+    meta name="robots" content="index, follow"
+    // Open graph
+    meta property="og:title" content="SmartPool is calling for donation"
+    meta property="og:type" content="article"
+    meta property="og:url" content="http://smartpool.io"
+    meta property="og:image" content="http://smartpool.io/images/logo.png"
+    // Twitter card
+    meta name="twitter:card" content="#{brand_description}"
+    meta name="twitter:site" content="@SmartPool_Prj"
+    meta name="twitter:title" content="SmartPool"
+    meta name="twitter:description" content="#{brand_description}"
+    link rel="icon" type="image/x-icon" sizes="16x16" href="images/logo.png"
+    link rel="shortcut icon" type="image/png" href="images/logo.png"
+    link rel="stylesheet" media="screen" href="stylesheets/styles.css"
+    link rel="stylesheet" media="screen" href="stylesheets/odometer-theme-minimal.css"
+    link rel="stylesheet" media="screen" href="stylesheets/obsidian.css"
+    link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"
+    script src="javascripts/highlight.pack.js"
+    title Smart Pool is calling for donation
+    script
+      | hljs.initHighlightingOnLoad();
+  body
+    header
+      div.background
+        nav.row.expanded
+          div.row
+              // section.columns.medium-2
+              section#menu.columns.large-8.small-centered
+                div#logo
+                  div#menu-wrapper
+                    a.menu.beginning href="/"
+                      img src="images/logo.svg"
+                    a.menu href="/#problem" Problem
+                    a.menu href="/#solution" Solution
+                    a.menu.hide-for-small-only href="/#how-it-works" How It Works
+                    a.menu href="/#team" Team
+                    a.menu href="/#faq" FAQs
+                    a.menu.end-menu.active href="/donate.html" Donation
+              // section#action.columns.medium-2
+               // a.action href="" Join The Pool
+
+        section#donation
+          div.donation-banner
+            a href="/donate.html"
+              div.border
+                h3.donation-title #{donation_title}
+                p.progress Fund raised:
+                p.progress#total-fund-raised.total-fund-raised.odometer 0.00
+                p.progress ether
+          div.donation-instruction
+            h3 Our addresses
+            div.instruction-wrapper
+              div.address
+                p.label.ethereum Ethereum:
+                p.address #{smart_pool_address}
+              div.address
+                p.label.bitcoin Bitcoin:
+                p.address #{smart_pool_bitcoin_address}
+              div.address
+                p.label.zcash ZCash:
+                p.address #{smart_pool_zcash_address}
+            h3 Using Ethereum Wallet (Mist) to donate
+            div.instruction-wrapper
+              div.wallet-instruction
+                p 1. Click on Send button on the top bar of Ethereum Wallet.
+                p 2. Paste our Ethereum address on "To" field.
+                p 3. Specify amount of Ether that you want to donate.
+                p 4. Click "Send" button at the bottom of Ethereum Wallet.
+                p 5. Enter your address's password.
+                p 6. Click "Send Transaction" to send your donation.
+            h3 Using Geth console to donate.
+            div.instruction-wrapper
+              div.geth-instruction
+                pre
+                  code.language-javascript
+                    | personal.unlockAccount(yourAccountAddress, yourPassword)
+                    br
+                    | eth.sendTransaction({from: yourAccountAddress, to: '#{smart_pool_address}', value: web3.toWei('1000', 'ether'), gas: 1000000})
+
+    main
+      section#donation
+        h2.section-title #{donation_title}
+        div.row
+          div.column.small-12.medium-10.medium-centered.section-content
+            - donation.split('|').each do |point|
+              p.point-body
+                == point
+
+    footer#contact
+      div.row.show-for-small-only
+        div.footer-container.column.small-12
+          div.logo-backing
+            span.center-helper
+            img.footer-logo src="images/logo.svg"
+          p.footer-brand-name Smart Pool
+        div.footer-container.column.small-12
+          div.row
+            div.contact-container
+              a href="mailto:loiluu@comp.nus.edu.sg"
+                img.contact-item#email src="images/email.svg"
+              a href="https://gitter.im/SmartPool/Lobby"
+                img.contact-item#gitter src="images/gitter1.svg"
+              a href="https://github.com/SmartPool"
+                img.contact-item#github src="images/github.svg"
+              a href="https://twitter.com/SmartpoolPrj"
+                img.contact-item#twitter src="images/twitter.svg"
+        div.footer-container.column.small-12
+          div.copy-right
+            p
+              == copy_right
+      div.row.hide-for-small-only.desktop-footer
+        div.footer-container.column.medium-4
+          div.logo-backing
+            span.center-helper
+            img.footer-logo src="images/logo.svg"
+          p.footer-brand-name Smart Pool
+        div.footer-container.column.medium-4
+          div.copy-right
+            p
+              == copy_right
+        div.footer-container.column.medium-4
+          div.contact-container
+            a href="https://twitter.com/SmartPool_Prj"
+              img.contact-item#twitter src="images/twitter.svg"
+            a href="https://github.com/SmartPool"
+              img.contact-item#github src="images/github.svg"
+            a href="https://gitter.im/SmartPool/Lobby"
+              img.contact-item#gitter src="images/gitter1.svg"
+            a href="mailto:loiluu@comp.nus.edu.sg"
+              img.contact-item#email src="images/email.svg"
+    section#app-variables.hide
+      p#public-node #{public_node}
+      p#smart-pool-address #{smart_pool_address}
+      p#smart-pool-abi-url #{smart_pool_abi_url}
+    script src="javascripts/ga.js"
+    script src="javascripts/jquery.min.js"
+    script src="javascripts/odometer.min.js"
+    script src="javascripts/web3.min.js"
+    script src="javascripts/smartpool.js"

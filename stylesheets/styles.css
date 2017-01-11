@@ -1473,6 +1473,9 @@ header {
             margin-left: 10px; } }
       header nav #menu .end-menu {
         margin-right: 0 !important; }
+      header nav #menu .active {
+        padding-bottom: 3px;
+        border-bottom: 2px solid #172c33; }
     header nav #action {
       line-height: 60px;
       padding: 0;
@@ -1510,8 +1513,9 @@ header {
           padding-left: 10px;
           padding-right: 10px; } }
   header section#donation {
-    margin-top: 50px;
-    text-align: center; }
+    padding-top: 50px;
+    text-align: center;
+    background: rgba(23, 44, 51, 0.6); }
     header section#donation div.border {
       color: #E7E9EA;
       border: 2px solid #E7E9EA;
@@ -1519,6 +1523,8 @@ header {
       padding: 10px 50px;
       display: inline-block;
       background-color: rgba(23, 44, 51, 0.6); }
+      header section#donation div.border.no-bot-border {
+        border-bottom: none; }
     header section#donation h3.donation-title {
       text-transform: uppercase;
       padding-bottom: 20px; }
@@ -1530,6 +1536,35 @@ header {
       padding-left: 10px;
       padding-right: 10px;
       font-size: 18px; }
+    header section#donation div.donation-instruction {
+      margin-top: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: #E7E9EA; }
+      header section#donation div.donation-instruction div.instruction-wrapper {
+        display: inline-block;
+        padding-bottom: 20px; }
+      header section#donation div.donation-instruction div.address {
+        padding-top: 15px;
+        text-align: left; }
+        header section#donation div.donation-instruction div.address p {
+          display: inline-block;
+          font-family: 'Source Code Pro', monospace; }
+        header section#donation div.donation-instruction div.address p.label {
+          min-width: 80px; }
+      header section#donation div.donation-instruction div.geth-instruction {
+        text-align: left; }
+        header section#donation div.donation-instruction div.geth-instruction pre {
+          padding-top: 20px; }
+          header section#donation div.donation-instruction div.geth-instruction pre code {
+            line-height: 30px;
+            font-family: 'Source Code Pro', monospace;
+            max-width: 700px; }
+      header section#donation div.donation-instruction div.wallet-instruction {
+        text-align: left; }
+        header section#donation div.donation-instruction div.wallet-instruction p {
+          padding-top: 15px;
+          font-family: 'Source Code Pro', monospace; }
   header section#feature {
     margin-top: 50px;
     text-align: left; }
@@ -1591,10 +1626,10 @@ main section#solution {
     main section#solution div.point-content:after {
       clear: both; }
 
-main section#how-it-works {
+main section#how-it-works, main section#donation {
   background-color: #172c33;
   text-align: center; }
-  main section#how-it-works p.point-body {
+  main section#how-it-works p.point-body, main section#donation p.point-body {
     font-weight: 500;
     letter-spacing: 1px;
     line-height: 30px;
@@ -1602,15 +1637,15 @@ main section#how-it-works {
     padding-bottom: 20px;
     padding-top: 0px; }
   @media screen and (max-width: 39.9375em) {
-    main section#how-it-works p.point-body {
+    main section#how-it-works p.point-body, main section#donation p.point-body {
       padding-left: 10px;
       padding-right: 10px; }
-    main section#how-it-works div.section-content {
+    main section#how-it-works div.section-content, main section#donation div.section-content {
       padding-left: 0;
       padding-right: 0; } }
-  main section#how-it-works div.section-content {
+  main section#how-it-works div.section-content, main section#donation div.section-content {
     padding-bottom: 25px; }
-  main section#how-it-works a#white-paper {
+  main section#how-it-works a#white-paper, main section#donation a#white-paper {
     font-size: 16px;
     color: #45BFEE;
     text-decoration: none; }

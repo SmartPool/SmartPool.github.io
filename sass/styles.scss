@@ -178,6 +178,10 @@ header {
       .end-menu {
         margin-right: 0 !important;
       }
+      .active {
+        padding-bottom: 3px;
+        border-bottom: 2px solid $bgDarkColor;
+      }
     }
 
     #action {
@@ -228,8 +232,9 @@ header {
   }
 
   section#donation {
-    margin-top: 50px;
+    padding-top: 50px;
     text-align: center;
+    background: $bgDonationColor;
 
     div.border {
       color: $textColor;
@@ -238,6 +243,10 @@ header {
       padding: 10px 50px;
       display: inline-block;
       background-color: $bgDonationColor;
+
+      &.no-bot-border {
+        border-bottom: none;
+      }
     }
 
     h3.donation-title {
@@ -255,6 +264,48 @@ header {
       padding-left: 10px;
       padding-right: 10px;
       font-size: 18px;
+    }
+
+    div.donation-instruction {
+      margin-top: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: $textColor;
+
+      div.instruction-wrapper {
+        display: inline-block;
+        padding-bottom: 20px;
+      }
+
+      div.address {
+        padding-top: 15px;
+        text-align: left;
+        p {
+          display: inline-block;
+          font-family: 'Source Code Pro', monospace;
+        }
+        p.label {
+          min-width: 80px;
+        }
+      }
+      div.geth-instruction {
+        text-align: left;
+        pre {
+          padding-top: 20px;
+          code {
+            line-height: 30px;
+            font-family: 'Source Code Pro', monospace;
+            max-width: 700px;
+          }
+        }
+      }
+      div.wallet-instruction {
+        text-align: left;
+        p {
+          padding-top: 15px;
+          font-family: 'Source Code Pro', monospace;
+        }
+      }
     }
   }
 
@@ -366,7 +417,7 @@ main {
     }
   }
 
-  section#how-it-works {
+  section#how-it-works, section#donation {
     background-color: $bgDarkColor;
     text-align: center;
     p.point-body {
