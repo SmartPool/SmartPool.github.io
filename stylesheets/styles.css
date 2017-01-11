@@ -1509,8 +1509,29 @@ header {
         header section#brand p#brand-description {
           padding-left: 10px;
           padding-right: 10px; } }
+  header section#donation {
+    margin-top: 50px;
+    text-align: center; }
+    header section#donation div.border {
+      color: #E7E9EA;
+      border: 2px solid #E7E9EA;
+      border-radius: 5px;
+      padding: 10px 50px;
+      display: inline-block;
+      background-color: rgba(23, 44, 51, 0.6); }
+    header section#donation h3.donation-title {
+      text-transform: uppercase;
+      padding-bottom: 20px; }
+    header section#donation p.progress {
+      display: inline-block;
+      line-height: 20px; }
+    header section#donation p.total-fund-raised {
+      font-weight: 600;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 18px; }
   header section#feature {
-    margin-top: 80px;
+    margin-top: 50px;
     text-align: left; }
     header section#feature:after {
       clear: both; }
@@ -1559,7 +1580,7 @@ header {
       padding-right: 0; }
 
 main section#problem {
-  background-color: #172C33;
+  background-color: #172c33;
   text-align: center; }
 
 main section#solution {
@@ -1571,7 +1592,7 @@ main section#solution {
       clear: both; }
 
 main section#how-it-works {
-  background-color: #172C33;
+  background-color: #172c33;
   text-align: center; }
   main section#how-it-works p.point-body {
     font-weight: 500;
@@ -1646,7 +1667,7 @@ main section#team {
     text-decoration: none; }
 
 main section#sponsor {
-  background-color: #172C33;
+  background-color: #172c33;
   text-align: center; }
   main section#sponsor .member-container {
     padding-left: 0;
@@ -1721,7 +1742,7 @@ main section#faq {
   main section#faq div.faq {
     text-align: left;
     color: #E7E9EA;
-    background-color: #172C33;
+    background-color: #172c33;
     margin-bottom: 15px;
     border-radius: 5px;
     line-height: 1.5em; }

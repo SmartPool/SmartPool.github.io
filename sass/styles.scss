@@ -48,6 +48,7 @@
 // Colors
 $bgColor: #2E4147;
 $brandColor: #E7E9EA;
+$bgDonationColor: rgba(23, 44, 51, 0.6);
 $brandDesColor: #E8E8E8;
 $textColor: #E7E9EA;
 $btTextColor: #FFFFFF;
@@ -56,7 +57,7 @@ $primaryBtColor: #00A8E8;
 $navBgColor: rgba(256, 256, 256, 1);
 $navMenuTextColor: #00171F;
 $bulletColor: #E7E9E9;
-$bgDarkColor: #172C33;
+$bgDarkColor: rgba(23, 44, 51, 1);
 $imageBorderColor: #FFFFFF;
 $nameColor: #73CFF2;
 $positionColor: #E8E8E8;
@@ -226,8 +227,39 @@ header {
     }
   }
 
+  section#donation {
+    margin-top: 50px;
+    text-align: center;
+
+    div.border {
+      color: $textColor;
+      border: 2px solid $textColor;
+      border-radius: 5px;
+      padding: 10px 50px;
+      display: inline-block;
+      background-color: $bgDonationColor;
+    }
+
+    h3.donation-title {
+      text-transform: uppercase;
+      padding-bottom: 20px;
+    }
+
+    p.progress {
+      display: inline-block;
+      line-height: 20px;
+    }
+
+    p.total-fund-raised {
+      font-weight: 600;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 18px;
+    }
+  }
+
   section#feature {
-    margin-top: 80px;
+    margin-top: 50px;
     text-align: left;
 
     &:after {

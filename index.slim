@@ -1,6 +1,11 @@
 // configurable variables
 - brand_description = "Efficient Decentralized Mining Pools for Existing Cryptocurrencies Based on Ethereum Smart Contracts"
 
+- donation_title = "We are calling for donation!"
+- public_node = "https://ropsten.infura.io/0BRKxQ0SFvAxGL72cbXi"
+- smart_pool_address = "0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D"
+- smart_pool_abi_url = 'https://testnet.etherscan.io/api?module=contract&action=getabi&address=' + smart_pool_address + '&apikey=DS24ZMNDG8CGKNU1QAU32WFS4DZKJ3PE3J'
+
 - feature_decentralized_title = "Decentralized"
 - feature_decentralized_body = "No centralized operators managing the pool."
 - feature_secure_title = "Secure"
@@ -72,6 +77,7 @@ html lang="en"
     link rel="icon" type="image/x-icon" sizes="16x16" href="images/logo.png"
     link rel="shortcut icon" type="image/png" href="images/logo.png"
     link rel="stylesheet" media="screen" href="stylesheets/styles.css"
+    link rel="stylesheet" media="screen" href="stylesheets/odometer-theme-minimal.css"
     title Smart Pool
   body
     header
@@ -97,6 +103,14 @@ html lang="en"
           div.row
             div.small-12.medium-6.medium-centered
               p#brand-description #{brand_description}
+
+        section#donation
+          a href="/donate.html"
+            div.border
+              h3.donation-title #{donation_title}
+              p.progress Fund raised:
+              p.progress#total-fund-raised.total-fund-raised.odometer 0.00
+              p.progress ether
 
         section#feature
           div.section-content
@@ -408,4 +422,12 @@ html lang="en"
               img.contact-item#gitter src="images/gitter1.svg"
             a href="mailto:loiluu@comp.nus.edu.sg"
               img.contact-item#email src="images/email.svg"
+    section#app-variables.hide
+      p#public-node #{public_node}
+      p#smart-pool-address #{smart_pool_address}
+      p#smart-pool-abi-url #{smart_pool_abi_url}
     script src="javascripts/ga.js"
+    script src="javascripts/jquery.min.js"
+    script src="javascripts/odometer.min.js"
+    script src="javascripts/web3.min.js"
+    script src="javascripts/smartpool.js"

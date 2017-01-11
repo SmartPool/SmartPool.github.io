@@ -17,6 +17,7 @@
     <link href="images/logo.png" rel="icon" sizes="16x16" type="image/x-icon" />
     <link href="images/logo.png" rel="shortcut icon" type="image/png" />
     <link href="stylesheets/styles.css" media="screen" rel="stylesheet" />
+    <link href="stylesheets/odometer-theme-minimal.css" media="screen" rel="stylesheet" />
     <title>Smart Pool</title>
   </head>
   <body>
@@ -45,6 +46,24 @@
               </p>
             </div>
           </div>
+        </section>
+        <section id="donation">
+          <a href="/donate.html">
+            <div class="border">
+              <h3 class="donation-title">
+                We are calling for donation!
+              </h3>
+              <p class="progress">
+                Fund raised:
+              </p>
+              <p class="progress total-fund-raised odometer" id="total-fund-raised">
+                0.00
+              </p>
+              <p class="progress">
+                ether
+              </p>
+            </div>
+          </a>
         </section>
         <section id="feature">
           <div class="section-content">
@@ -762,6 +781,21 @@
         </div>
       </div>
     </footer>
+    <section class="hide" id="app-variables">
+      <p id="public-node">
+        https://ropsten.infura.io/0BRKxQ0SFvAxGL72cbXi
+      </p>
+      <p id="smart-pool-address">
+        0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D
+      </p>
+      <p id="smart-pool-abi-url">
+        https://testnet.etherscan.io/api?module=contract&amp;action=getabi&amp;address=0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D&amp;apikey=DS24ZMNDG8CGKNU1QAU32WFS4DZKJ3PE3J
+      </p>
+    </section>
     <script src="javascripts/ga.js"></script>
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/odometer.min.js"></script>
+    <script src="javascripts/web3.min.js"></script>
+    <script src="javascripts/smartpool.js"></script>
   </body>
 </html>
