@@ -1512,10 +1512,11 @@ header {
         header section#brand p#brand-description {
           padding-left: 10px;
           padding-right: 10px; } }
+  header section.darker-bg-color {
+    background-color: rgba(23, 44, 51, 0.6); }
   header section#donation {
     padding-top: 50px;
-    text-align: center;
-    background: rgba(23, 44, 51, 0.6); }
+    text-align: center; }
     header section#donation div.border {
       color: #E7E9EA;
       border: 2px solid #E7E9EA;

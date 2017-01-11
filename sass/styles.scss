@@ -231,10 +231,13 @@ header {
     }
   }
 
+  section.darker-bg-color {
+    background-color: $bgDonationColor;
+  }
+
   section#donation {
     padding-top: 50px;
     text-align: center;
-    background: $bgDonationColor;
 
     div.border {
       color: $textColor;
