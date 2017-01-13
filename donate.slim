@@ -1,16 +1,16 @@
 - brand_description = "Efficient Decentralized Mining Pools for Existing Cryptocurrencies Based on Ethereum Smart Contracts"
 
-- donation_title = "We are calling for donation!"
+- donation_title = "We are accepting donation!"
 - public_node = "https://ropsten.infura.io/0BRKxQ0SFvAxGL72cbXi"
 - smart_pool_address = "0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D"
-- smart_pool_bitcoin_address = "0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D"
-- smart_pool_zcash_address = "0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D"
+- smart_pool_bitcoin_address = "1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC"
+- smart_pool_zcash_address = "t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN"
 - smart_pool_abi_url = 'https://testnet.etherscan.io/api?module=contract&action=getabi&address=' + smart_pool_address + '&apikey=DS24ZMNDG8CGKNU1QAU32WFS4DZKJ3PE3J'
 
 - copy_right = "Copyright &copy; 2017. All Right Reserved"
 
-- donation_title = "We are calling for donation"
-- donation = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.|Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.|Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.|Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+- donation_title = "Calling for donation"
+- donation = "SmartPool is a non-profit project, thus we need your help in funding the development of the project."
 
 doctype 5
 html lang="en"
@@ -23,7 +23,7 @@ html lang="en"
     meta name="keywords" content="blockchain, mining pool, ethereum, bitcoin, decentralize, free"
     meta name="robots" content="index, follow"
     // Open graph
-    meta property="og:title" content="SmartPool is calling for donation"
+    meta property="og:title" content="Call for donation"
     meta property="og:type" content="article"
     meta property="og:url" content="http://smartpool.io"
     meta property="og:image" content="http://smartpool.io/images/logo.png"
@@ -86,19 +86,16 @@ html lang="en"
             div.instruction-wrapper
               div.wallet-instruction
                 p 1. Click on Send button on the top bar of Ethereum Wallet.
-                p 2. Paste our Ethereum address on "To" field.
-                p 3. Specify amount of Ether that you want to donate.
-                p 4. Click "Send" button at the bottom of Ethereum Wallet.
-                p 5. Enter your address's password.
-                p 6. Click "Send Transaction" to send your donation.
-            h3 Using Geth console to donate.
+                p 2. Paste #{smart_pool_address} on "To" field and specify the amount.
+                p 3. Click "Send" button, enter your wallet's password and click "Send Transaction".
+            h3 Donating from Geth console (replace yourAccountAdress and amount accordingly)
             div.instruction-wrapper
               div.geth-instruction
                 pre
                   code.language-javascript
                     | personal.unlockAccount(yourAccountAddress, yourPassword)
                     br
-                    | eth.sendTransaction({from: yourAccountAddress, to: '#{smart_pool_address}', value: web3.toWei('1000', 'ether'), gas: 1000000})
+                    | eth.sendTransaction({from: yourAccountAddress, to: '#{smart_pool_address}', value: web3.toWei('10', 'ether'), gas: 1000000})
 
     main
       section#donation
