@@ -8,7 +8,7 @@ contract SmartPoolToken is StandardToken, Lockable {
     string public symbol = "SPT";
     uint public decimals = 0;
 
-    address _beneficial;
+    address public beneficial;
     mapping(address => uint) public donationAmountInWei;
     mapping(uint => address) public donors;
     uint public donorCount;
@@ -21,10 +21,10 @@ contract SmartPoolToken is StandardToken, Lockable {
     event TokenMint(address newTokenHolder, uint tokensAmount);
     event Donated(address indexed from, uint amount, uint tokensAmount, uint blockNumber);
 
-    function SmartPoolToken(uint preminedTokens, address beneficial) {
+    function SmartPoolToken(uint preminedTokens, address wallet) {
         _supply = 0;
         _rate = 100;
-        _beneficial = beneficial;
+        beneficial = wallet;
         totalFundRaised = 0;
         mintTokens(owner, safeMul(preminedTokens, ETHER / _rate));
     }
@@ -82,7 +82,7 @@ contract SmartPoolToken is StandardToken, Lockable {
     }
 
     function withdraw() onlyOwner {
-        if (!_beneficial.send(this.balance)) {
+        if (!beneficial.send(this.balance)) {
             throw;
         }
     }
