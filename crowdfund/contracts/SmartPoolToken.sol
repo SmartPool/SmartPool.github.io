@@ -13,7 +13,6 @@ contract SmartPoolToken is StandardToken, Lockable {
     mapping(uint => address) public donors;
     uint public donorCount;
     uint public totalFundRaised;
-    uint _supply;
     uint _rate;
 
     uint ETHER = 1 ether;
@@ -22,15 +21,11 @@ contract SmartPoolToken is StandardToken, Lockable {
     event Donated(address indexed from, uint amount, uint tokensAmount, uint blockNumber);
 
     function SmartPoolToken(uint preminedTokens, address wallet) {
-        _supply = 0;
+        totalSupply = 0;
         _rate = 100;
         beneficial = wallet;
         totalFundRaised = 0;
         mintTokens(owner, safeMul(preminedTokens, ETHER / _rate));
-    }
-
-    function totalSupply() constant returns (uint supply) {
-        return _supply;
     }
 
     function mintTokens(address newTokenHolder, uint weiAmount) internal returns (uint){
@@ -39,7 +34,7 @@ contract SmartPoolToken is StandardToken, Lockable {
         if (tokensAmount >= 1) {
             balances[newTokenHolder] = safeAdd(
                 balances[newTokenHolder], tokensAmount);
-            _supply = safeAdd(_supply, tokensAmount);
+            totalSupply = safeAdd(totalSupply, tokensAmount);
 
             TokenMint(newTokenHolder, tokensAmount);
             return tokensAmount;
