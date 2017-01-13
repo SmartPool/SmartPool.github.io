@@ -1,6 +1,6 @@
 - brand_description = "Efficient Decentralized Mining Pools for Existing Cryptocurrencies Based on Ethereum Smart Contracts"
 
-- donation_title = "We are accepting donation!"
+- donation_title = "Please Donate to Support our Development!"
 - public_node = "https://ropsten.infura.io/0BRKxQ0SFvAxGL72cbXi"
 - smart_pool_address = "0xD2011af56f3bf0d11d2F17a7AbDaE86db63E255D"
 - smart_pool_bitcoin_address = "1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC"
@@ -9,7 +9,7 @@
 
 - copy_right = "Copyright &copy; 2017. All Right Reserved"
 
-- donation_title = "Calling for donation"
+- donation_title = "We are accepting donations"
 
 doctype 5
 html lang="en"
@@ -22,7 +22,7 @@ html lang="en"
     meta name="keywords" content="blockchain, mining pool, ethereum, bitcoin, decentralize, free"
     meta name="robots" content="index, follow"
     // Open graph
-    meta property="og:title" content="Call for donation"
+    meta property="og:title" content="Call for donations"
     meta property="og:type" content="article"
     meta property="og:url" content="http://smartpool.io"
     meta property="og:image" content="http://smartpool.io/images/logo.png"
@@ -38,7 +38,7 @@ html lang="en"
     link rel="stylesheet" media="screen" href="stylesheets/obsidian.css"
     link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"
     script src="javascripts/highlight.pack.js"
-    title Smart Pool is calling for donation
+    title Smart Pool is accepting donations
     script
       | hljs.initHighlightingOnLoad();
   body
@@ -57,7 +57,7 @@ html lang="en"
                     a.menu.hide-for-small-only href="/#how-it-works" How It Works
                     a.menu href="/#team" Team
                     a.menu href="/#faq" FAQs
-                    a.menu.end-menu.active href="/donate.html" Donation
+                    a.menu.end-menu.active href="/donate.html" Donate
               // section#action.columns.medium-2
                // a.action href="" Join The Pool
 
@@ -66,9 +66,9 @@ html lang="en"
             a href="/donate.html"
               div.border
                 h3.donation-title #{donation_title}
-                p.progress Fund raised:
+                p.progress Current donated amount:
                 p.progress#total-fund-raised.total-fund-raised.odometer 0.00
-                p.progress ether
+                p.progress ETH
           div.donation-instruction
             h3 Our addresses
             div.instruction-wrapper
@@ -84,7 +84,7 @@ html lang="en"
             h3 Using Ethereum Wallet (Mist) to donate
             div.instruction-wrapper
               div.wallet-instruction
-                p 1. Click on Send button on the top bar of Ethereum Wallet.
+                p 1. Click on "Send" button on the top bar of Ethereum Wallet.
                 p 2. Paste #{smart_pool_address} on "To" field and specify the amount.
                 p 3. Click "Send" button, enter your wallet's password and click "Send Transaction".
             h3 Donating from Geth console (replace yourAccountAdress and amount accordingly)
@@ -102,20 +102,20 @@ html lang="en"
         div.row
           div.column.small-12.medium-10.medium-centered.section-content
             p.point-body
-              | SmartPool is a non-profit project, thus we need your help in funding the development of the project. We believe that SmartPool is the killer application for Ethereum smart contract. It is the first smart contract that can strengthen the security of the Ethereum blockchain itself by improving the decentralization of the network.
+              | We believe that SmartPool is a killer application for Ethereum smart contract. It is one of the first smart contracts (if not the only one) that can strengthen the security of the Ethereum blockchain itself by improving the decentralization of the network. Moreover, SmartPool can also be used to launch mining pools for existing cryptocurrencies in the Ethereum network, thereby greatly benefiting Ethereum by introducing more users/ full nodes to the system.
             p.point-body
-              | Moreover, SmartPool can be used to launch mining pools for existing cryptocurrencies in the Ethereum network, thus it greatly benefits Ethereum by introducing more and more users/ full nodes to the system.
+              | For such reasons, getting SmartPool deployed and improving the decentralization of the network is our first and most important priority. Thus, we decided to build SmartPool as a non-profit project. As any other non-profit projects, we need your help in funding the development.
             p.point-body.less-padding-bot
               span What are the tokens for?
-              | After donating to SmartPool, you will be credited some SmartPool tokens (SPT). These tokens are now only meant to recognize your contributions to SmartPool and have no financial implications. In the future, we may have mechanisms to compensate token holders. The token rate is set as follows
+              | After donating to SmartPool, you will be credited some SmartPool tokens (SPT). These tokens now are only meant to recognize your contributions to SmartPool and have no financial implications. In the future, we may have mechanisms to compensate token holders. The token rate is set as follows
             ul.point-body
               li 1 ETH = 100 SPT from now to 27 January
-              li 1 ETH = 50 SPT from 27 January onward
+              li 1 ETH = 50 SPT from 27 January onwards
             p.point-body.continue
-              | We premine 600,000 SPT for our early donor and our team.
+              | We pre-mine 600,000 SPT for our early donor and our team. The reason why we reserve some tokens for the team, although these tokens currently have no financial value, is for the future plan. If SmartPool takes off successfully and SPT has some value, the reserved tokens will help us fund the future operation of the team to support SmartPool longer and better.
             p.point-body
               span Who will manage the donation?
-              | The donation in ETH will be moved to our wallet contract, which are controlled by 3 people in our team including Loi Luu, Yaron Velner and Victor Tran.
+              | The donation in ETH will be moved to our wallet contract which is controlled by 3 people in our team including Loi Luu, Yaron Velner and Victor Tran.
             p.point-body.less-padding-bot
               span The methodology for reporting.
               | We will post to reddit monthly to update to the community about the project's progress. People can always see the progress on our github repository. Otherwise, if you have any inquiry regarding our update, please contact Loi Luu:
@@ -124,7 +124,7 @@ html lang="en"
               li Skype: luutheloi
             p.point-body
               span Other funding sources?
-              | We were lucky to be sponsored by DinarDirham with an undisclosed amount for our initial development. We also apply for the Ethereum Dev Grants, but we haven't heard back from the grant manager. We will keep updating our funding status.
+              | We were lucky to be sponsored by DinarDirham with an undisclosed amount for our initial development. We also apply to the Ethereum Dev Grants, but we haven't heard back from the grant manager. We will keep updating our funding status.
             p.point-body.less-padding-bot
               span Timelines.
               | We plan to work on the SmartPool from January 2017, although the underlying research has been started for 4 months. Our tentative timeline is as following (this may be changed depending on our funding status).
@@ -142,7 +142,7 @@ html lang="en"
               li 5,000 to 10,000 ETH: In addition to what we have promised, we will launch a decentralized pool for Ethereum and maintain it until Ethereum moves to proof of stake.
               li More than 10,000 ETH: In addition to what we have promised, we implement SmartPool protocol for other cryptocurrencies (Bitcoin, ZCash and/or Monero) and possibly launch and maintain real pools for these cryptocurrencies.
             p.point-body
-              | The team currently consists of 4 members: 2 full-time, 2 part-time (please read about the team in the home page). The total working hours of the team is more than 120 man-hours per week. We may be hiring more developers to speed up the development if the funding allows.
+              | The team currently consists of 4 members: 2 full-time, 2 part-time (please read about the team in the home page). The total working hours of the team is more than 120 man-hours per week. The team currently consists of 4 members: 2 full-time, 2 part-time (please read about the team in the home page). The total working hours of the team is more than 120 man-hours per week. Team size and working hours may be increased to speed up the development if the funding allows.
 
 
     footer#contact
