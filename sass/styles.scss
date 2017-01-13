@@ -48,15 +48,18 @@
 // Colors
 $bgColor: #2E4147;
 $brandColor: #E7E9EA;
+$bgDonationColor: rgba(23, 44, 51, 0.6);
 $brandDesColor: #E8E8E8;
 $textColor: #E7E9EA;
 $btTextColor: #FFFFFF;
 $primaryBtColor: #00A8E8;
+$bgCallForDonation: #E8E8E8;
+$callForDonationTextColor: black;
 // $navBgColor: rgba(23, 44, 51, 0.5);
 $navBgColor: rgba(256, 256, 256, 1);
 $navMenuTextColor: #00171F;
 $bulletColor: #E7E9E9;
-$bgDarkColor: #172C33;
+$bgDarkColor: rgba(23, 44, 51, 1);
 $imageBorderColor: #FFFFFF;
 $nameColor: #73CFF2;
 $positionColor: #E8E8E8;
@@ -177,6 +180,10 @@ header {
       .end-menu {
         margin-right: 0 !important;
       }
+      .active {
+        padding-bottom: 3px;
+        border-bottom: 2px solid $bgDarkColor;
+      }
     }
 
     #action {
@@ -226,8 +233,89 @@ header {
     }
   }
 
+  section.darker-bg-color {
+    background-color: $bgDonationColor;
+  }
+
+  section#donation {
+    padding-top: 50px;
+    text-align: center;
+
+    div.border {
+      color: $textColor;
+      border: 2px solid $textColor;
+      border-radius: 5px;
+      padding: 10px 50px;
+      display: inline-block;
+      background-color: $bgDonationColor;
+
+      &.no-bot-border {
+        border-bottom: none;
+      }
+    }
+
+    h3.donation-title {
+      text-transform: uppercase;
+      padding-bottom: 20px;
+    }
+
+    p.progress {
+      display: inline-block;
+      line-height: 20px;
+    }
+
+    p.total-fund-raised {
+      font-weight: 600;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 18px;
+    }
+
+    div.donation-instruction {
+      margin-top: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: $textColor;
+
+      div.instruction-wrapper {
+        display: inline-block;
+        padding-bottom: 20px;
+      }
+
+      div.address {
+        padding-top: 15px;
+        text-align: left;
+        p {
+          display: inline-block;
+          font-family: 'Source Code Pro', monospace;
+        }
+        p.label {
+          min-width: 80px;
+        }
+      }
+      div.geth-instruction {
+        text-align: left;
+        pre {
+          padding-top: 20px;
+          code {
+            line-height: 30px;
+            font-family: 'Source Code Pro', monospace;
+            max-width: 700px;
+          }
+        }
+      }
+      div.wallet-instruction {
+        text-align: left;
+        p {
+          padding-top: 15px;
+          font-family: 'Source Code Pro', monospace;
+        }
+      }
+    }
+  }
+
   section#feature {
-    margin-top: 80px;
+    margin-top: 50px;
     text-align: left;
 
     &:after {
@@ -334,12 +422,74 @@ main {
     }
   }
 
+  section#calling-donation {
+    background-color: $bgCallForDonation;
+    text-align: center;
+    color: $callForDonationTextColor;
+    border-bottom: 4px solid $bgDarkColor;
+
+    h2.section-title {
+      color: $callForDonationTextColor;
+    }
+
+    p.point-body, ul.point-body {
+      font-weight: 500;
+      letter-spacing: 0px;
+      line-height: 30px;
+      text-align: justify;
+      padding-bottom: 20px;
+      padding-top: 0px;
+      color: $callForDonationTextColor;
+    }
+
+    p.point-body.less-padding-bot {
+      padding-bottom: 0;
+    }
+
+    ul.point-body {
+      color: $textColor;
+      padding-left: 80px;
+      padding-bottom: 0;
+      list-style: square url("/images/bullet.svg");
+      color: $callForDonationTextColor;
+    }
+
+    ul.point-body.more-padding-bot {
+      padding-bottom: 20px;
+    }
+
+    span {
+      padding-right: 10px;
+      font-weight: 600;
+      color: $nameColor;
+      color: $callForDonationTextColor;
+    }
+
+    @include breakpoint(small only) {
+      p.point-body {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      div.section-content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+    }
+
+    div.section-content {
+      padding-bottom: 25px;
+    }
+
+  }
+
   section#how-it-works {
     background-color: $bgDarkColor;
     text-align: center;
-    p.point-body {
+    p.point-body, ul.point-body {
       font-weight: 500;
-      letter-spacing: 1px;
+      letter-spacing: 0px;
       line-height: 30px;
       text-align: justify;
       padding-bottom: 20px;

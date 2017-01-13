@@ -2,3 +2,4 @@ design/
 crowdfund/build/
 .DS_Store
 crowdfund/node_modules/
+node_modules/

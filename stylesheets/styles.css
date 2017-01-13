@@ -1473,6 +1473,9 @@ header {
             margin-left: 10px; } }
       header nav #menu .end-menu {
         margin-right: 0 !important; }
+      header nav #menu .active {
+        padding-bottom: 3px;
+        border-bottom: 2px solid #172c33; }
     header nav #action {
       line-height: 60px;
       padding: 0;
@@ -1509,8 +1512,62 @@ header {
         header section#brand p#brand-description {
           padding-left: 10px;
           padding-right: 10px; } }
+  header section.darker-bg-color {
+    background-color: rgba(23, 44, 51, 0.6); }
+  header section#donation {
+    padding-top: 50px;
+    text-align: center; }
+    header section#donation div.border {
+      color: #E7E9EA;
+      border: 2px solid #E7E9EA;
+      border-radius: 5px;
+      padding: 10px 50px;
+      display: inline-block;
+      background-color: rgba(23, 44, 51, 0.6); }
+      header section#donation div.border.no-bot-border {
+        border-bottom: none; }
+    header section#donation h3.donation-title {
+      text-transform: uppercase;
+      padding-bottom: 20px; }
+    header section#donation p.progress {
+      display: inline-block;
+      line-height: 20px; }
+    header section#donation p.total-fund-raised {
+      font-weight: 600;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 18px; }
+    header section#donation div.donation-instruction {
+      margin-top: 20px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      color: #E7E9EA; }
+      header section#donation div.donation-instruction div.instruction-wrapper {
+        display: inline-block;
+        padding-bottom: 20px; }
+      header section#donation div.donation-instruction div.address {
+        padding-top: 15px;
+        text-align: left; }
+        header section#donation div.donation-instruction div.address p {
+          display: inline-block;
+          font-family: 'Source Code Pro', monospace; }
+        header section#donation div.donation-instruction div.address p.label {
+          min-width: 80px; }
+      header section#donation div.donation-instruction div.geth-instruction {
+        text-align: left; }
+        header section#donation div.donation-instruction div.geth-instruction pre {
+          padding-top: 20px; }
+          header section#donation div.donation-instruction div.geth-instruction pre code {
+            line-height: 30px;
+            font-family: 'Source Code Pro', monospace;
+            max-width: 700px; }
+      header section#donation div.donation-instruction div.wallet-instruction {
+        text-align: left; }
+        header section#donation div.donation-instruction div.wallet-instruction p {
+          padding-top: 15px;
+          font-family: 'Source Code Pro', monospace; }
   header section#feature {
-    margin-top: 80px;
+    margin-top: 50px;
     text-align: left; }
     header section#feature:after {
       clear: both; }
@@ -1559,7 +1616,7 @@ header {
       padding-right: 0; }
 
 main section#problem {
-  background-color: #172C33;
+  background-color: #172c33;
   text-align: center; }
 
 main section#solution {
@@ -1570,12 +1627,52 @@ main section#solution {
     main section#solution div.point-content:after {
       clear: both; }
 
-main section#how-it-works {
-  background-color: #172C33;
-  text-align: center; }
-  main section#how-it-works p.point-body {
+main section#calling-donation {
+  background-color: #E8E8E8;
+  text-align: center;
+  color: black;
+  border-bottom: 4px solid #172c33; }
+  main section#calling-donation h2.section-title {
+    color: black; }
+  main section#calling-donation p.point-body, main section#calling-donation ul.point-body {
     font-weight: 500;
-    letter-spacing: 1px;
+    letter-spacing: 0px;
+    line-height: 30px;
+    text-align: justify;
+    padding-bottom: 20px;
+    padding-top: 0px;
+    color: black; }
+  main section#calling-donation p.point-body.less-padding-bot {
+    padding-bottom: 0; }
+  main section#calling-donation ul.point-body {
+    color: #E7E9EA;
+    padding-left: 80px;
+    padding-bottom: 0;
+    list-style: square url("/images/bullet.svg");
+    color: black; }
+  main section#calling-donation ul.point-body.more-padding-bot {
+    padding-bottom: 20px; }
+  main section#calling-donation span {
+    padding-right: 10px;
+    font-weight: 600;
+    color: #73CFF2;
+    color: black; }
+  @media screen and (max-width: 39.9375em) {
+    main section#calling-donation p.point-body {
+      padding-left: 10px;
+      padding-right: 10px; }
+    main section#calling-donation div.section-content {
+      padding-left: 0;
+      padding-right: 0; } }
+  main section#calling-donation div.section-content {
+    padding-bottom: 25px; }
+
+main section#how-it-works {
+  background-color: #172c33;
+  text-align: center; }
+  main section#how-it-works p.point-body, main section#how-it-works ul.point-body {
+    font-weight: 500;
+    letter-spacing: 0px;
     line-height: 30px;
     text-align: justify;
     padding-bottom: 20px;
@@ -1646,7 +1743,7 @@ main section#team {
     text-decoration: none; }
 
 main section#sponsor {
-  background-color: #172C33;
+  background-color: #172c33;
   text-align: center; }
   main section#sponsor .member-container {
     padding-left: 0;
@@ -1721,7 +1818,7 @@ main section#faq {
   main section#faq div.faq {
     text-align: left;
     color: #E7E9EA;
-    background-color: #172C33;
+    background-color: #172c33;
     margin-bottom: 15px;
     border-radius: 5px;
     line-height: 1.5em; }

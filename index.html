@@ -17,6 +17,7 @@
     <link href="images/logo.png" rel="icon" sizes="16x16" type="image/x-icon" />
     <link href="images/logo.png" rel="shortcut icon" type="image/png" />
     <link href="stylesheets/styles.css" media="screen" rel="stylesheet" />
+    <link href="stylesheets/odometer-theme-minimal.css" media="screen" rel="stylesheet" />
     <title>Smart Pool</title>
   </head>
   <body>
@@ -27,7 +28,7 @@
             <section class="columns large-8 small-centered" id="menu">
               <div id="logo">
                 <div id="menu-wrapper">
-                  <a class="menu beginning" href="/"><img src="images/logo.svg" /></a><a class="menu" href="#problem">Problem</a><a class="menu" href="#solution">Solution</a><a class="menu hide-for-small-only" href="#how-it-works">How It Works</a><a class="menu" href="#team">Team</a><a class="menu end-menu" href="#faq">FAQs</a>
+                  <a class="menu beginning" href="/"><img src="images/logo.svg" /></a><a class="menu" href="#problem">Problem</a><a class="menu" href="#solution">Solution</a><a class="menu hide-for-small-only" href="#how-it-works">How It Works</a><a class="menu" href="#team">Team</a><a class="menu" href="#faq">FAQs</a><a class="menu end-menu" href="/donate.html">Donate</a>
                 </div>
               </div>
             </section>
@@ -45,6 +46,24 @@
               </p>
             </div>
           </div>
+        </section>
+        <section id="donation">
+          <a href="/donate.html">
+            <div class="border">
+              <h3 class="donation-title">
+                Please Donate to Support our Development!
+              </h3>
+              <p class="progress">
+                Current donated amount:
+              </p>
+              <p class="progress total-fund-raised odometer" id="total-fund-raised">
+                0.00
+              </p>
+              <p class="progress">
+                ether
+              </p>
+            </div>
+          </a>
         </section>
         <section id="feature">
           <div class="section-content">
@@ -230,7 +249,7 @@
             <div class="section-point column small-12 medium-6">
               <span class="bullet"></span>
               <h3 class="point-title">
-                Mining Solo Is Difficult for Small Miners
+                Mining Solo is Difficult for Small Miners
               </h3>
               <p class="point-body">
                 High variance of returns, hard for users to plan economically. Decentralized mining pools for Bitcoin (e.g., P2Pool) exist, but are inefficient and not applicable to Ethereum.
@@ -762,6 +781,21 @@
         </div>
       </div>
     </footer>
+    <section class="hide" id="app-variables">
+      <p id="public-node">
+        https://mainnet.infura.io/0BRKxQ0SFvAxGL72cbXi
+      </p>
+      <p id="smart-pool-address">
+        0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80
+      </p>
+      <p id="smart-pool-abi-url">
+        https://api.etherscan.io/api?module=contract&amp;action=getabi&amp;address=0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80&amp;apikey=DS24ZMNDG8CGKNU1QAU32WFS4DZKJ3PE3J
+      </p>
+    </section>
     <script src="javascripts/ga.js"></script>
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/odometer.min.js"></script>
+    <script src="javascripts/web3.min.js"></script>
+    <script src="javascripts/smartpool.js"></script>
   </body>
 </html>
