@@ -53,6 +53,8 @@ $brandDesColor: #E8E8E8;
 $textColor: #E7E9EA;
 $btTextColor: #FFFFFF;
 $primaryBtColor: #00A8E8;
+$bgCallForDonation: #E8E8E8;
+$callForDonationTextColor: black;
 // $navBgColor: rgba(23, 44, 51, 0.5);
 $navBgColor: rgba(256, 256, 256, 1);
 $navMenuTextColor: #00171F;
@@ -420,12 +422,74 @@ main {
     }
   }
 
-  section#how-it-works, section#donation {
+  section#calling-donation {
+    background-color: $bgCallForDonation;
+    text-align: center;
+    color: $callForDonationTextColor;
+    border-bottom: 4px solid $bgDarkColor;
+
+    h2.section-title {
+      color: $callForDonationTextColor;
+    }
+
+    p.point-body, ul.point-body {
+      font-weight: 500;
+      letter-spacing: 0px;
+      line-height: 30px;
+      text-align: justify;
+      padding-bottom: 20px;
+      padding-top: 0px;
+      color: $callForDonationTextColor;
+    }
+
+    p.point-body.less-padding-bot {
+      padding-bottom: 0;
+    }
+
+    ul.point-body {
+      color: $textColor;
+      padding-left: 80px;
+      padding-bottom: 0;
+      list-style: square url("/images/bullet.svg");
+      color: $callForDonationTextColor;
+    }
+
+    ul.point-body.more-padding-bot {
+      padding-bottom: 20px;
+    }
+
+    span {
+      padding-right: 10px;
+      font-weight: 600;
+      color: $nameColor;
+      color: $callForDonationTextColor;
+    }
+
+    @include breakpoint(small only) {
+      p.point-body {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      div.section-content {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+    }
+
+    div.section-content {
+      padding-bottom: 25px;
+    }
+
+  }
+
+  section#how-it-works {
     background-color: $bgDarkColor;
     text-align: center;
-    p.point-body {
+    p.point-body, ul.point-body {
       font-weight: 500;
-      letter-spacing: 1px;
+      letter-spacing: 0px;
       line-height: 30px;
       text-align: justify;
       padding-bottom: 20px;
