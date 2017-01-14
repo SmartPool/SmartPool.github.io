@@ -1526,6 +1526,9 @@ header {
       background-color: rgba(23, 44, 51, 0.6); }
       header section#donation div.border.no-bot-border {
         border-bottom: none; }
+      @media screen and (max-width: 39.9375em) {
+        header section#donation div.border {
+          padding: 10px 20px; } }
     header section#donation h3.donation-title {
       text-transform: uppercase;
       padding-bottom: 20px; }
@@ -1544,14 +1547,23 @@ header {
       color: #E7E9EA; }
       header section#donation div.donation-instruction div.instruction-wrapper {
         display: inline-block;
-        padding-bottom: 20px;
-        max-width: 900px; }
+        padding-bottom: 20px; }
+        @media screen and (min-width: 40em) {
+          header section#donation div.donation-instruction div.instruction-wrapper {
+            max-width: 900px; } }
+        @media screen and (max-width: 39.9375em) {
+          header section#donation div.donation-instruction div.instruction-wrapper {
+            padding-left: 10px;
+            padding-right: 10px; } }
       header section#donation div.donation-instruction div.address {
         padding-top: 15px;
         text-align: left; }
         header section#donation div.donation-instruction div.address p {
           display: inline-block;
           font-family: 'Source Code Pro', monospace; }
+          @media screen and (max-width: 39.9375em) {
+            header section#donation div.donation-instruction div.address p {
+              word-break: break-all; } }
         header section#donation div.donation-instruction div.address p.label {
           min-width: 80px; }
       header section#donation div.donation-instruction div.geth-instruction {
@@ -1567,6 +1579,9 @@ header {
         header section#donation div.donation-instruction div.wallet-instruction p {
           padding-top: 15px;
           font-family: 'Source Code Pro', monospace; }
+          @media screen and (max-width: 39.9375em) {
+            header section#donation div.donation-instruction div.wallet-instruction p {
+              word-break: break-all; } }
   header section#feature {
     margin-top: 50px;
     text-align: left; }

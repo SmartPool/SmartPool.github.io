@@ -252,6 +252,10 @@ header {
       &.no-bot-border {
         border-bottom: none;
       }
+
+      @include breakpoint(small only) {
+        padding: 10px 20px;
+      }
     }
 
     h3.donation-title {
@@ -280,7 +284,16 @@ header {
       div.instruction-wrapper {
         display: inline-block;
         padding-bottom: 20px;
-        max-width: 900px;
+
+        @include breakpoint(medium up) {
+          max-width: 900px;
+        }
+
+        @include breakpoint(small only) {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
       }
 
       div.address {
@@ -289,6 +302,9 @@ header {
         p {
           display: inline-block;
           font-family: 'Source Code Pro', monospace;
+          @include breakpoint(small only) {
+            word-break: break-all;
+          }
         }
         p.label {
           min-width: 80px;
@@ -310,6 +326,9 @@ header {
         p {
           padding-top: 15px;
           font-family: 'Source Code Pro', monospace;
+          @include breakpoint(small only) {
+            word-break: break-all;
+          }
         }
       }
     }
