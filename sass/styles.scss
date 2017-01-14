@@ -245,7 +245,7 @@ header {
       color: $textColor;
       border: 2px solid $textColor;
       border-radius: 5px;
-      padding: 10px 50px;
+      padding: 10px 30px;
       display: inline-block;
       background-color: $bgDonationColor;
 
@@ -276,10 +276,13 @@ header {
     }
 
     div.donation-instruction {
-      margin-top: 20px;
       padding-top: 20px;
       padding-bottom: 20px;
       color: $textColor;
+
+      h3 {
+        padding-top: 20px;
+      }
 
       div.instruction-wrapper {
         display: inline-block;
@@ -306,7 +309,7 @@ header {
           display: inline-block;
           font-family: 'Source Code Pro', monospace;
           @include breakpoint(small only) {
-            word-break: break-all;
+            word-break: break-word;
           }
         }
         p.label {
@@ -330,11 +333,17 @@ header {
       }
       div.wallet-instruction {
         text-align: left;
-        p {
+        ol {
           padding-top: 15px;
           font-family: 'Source Code Pro', monospace;
+          list-style: decimal;
           @include breakpoint(small only) {
-            word-break: break-all;
+            word-break: break-word;
+            margin-left: 20px;
+          }
+
+          li {
+            margin-top: 10px;
           }
         }
       }
@@ -471,6 +480,10 @@ main {
 
     p.point-body.less-padding-bot {
       padding-bottom: 0;
+    }
+
+    p.word-break {
+      word-wrap: break-word;
     }
 
     ul.point-body {

@@ -84,9 +84,10 @@ html lang="en"
             h3 Using Ethereum Wallet (Mist) to donate
             div.instruction-wrapper
               div.wallet-instruction
-                p 1. Click on "Send" button on the top bar of Ethereum Wallet.
-                p 2. Paste #{smart_pool_address} on "To" field and specify the amount.
-                p 3. Click "Send" button, enter your wallet's password and click "Send Transaction".
+                ol
+                  li Click on "Send" button on the top bar of Ethereum Wallet.
+                  li Paste #{smart_pool_address} on "To" field and specify the amount.
+                  li Click "Send" button, enter your wallet's password and click "Send Transaction".
             h3 Donating from Geth console (replace yourAccountAdress and amount accordingly)
             div.instruction-wrapper
               div.geth-instruction
@@ -100,8 +101,9 @@ html lang="en"
             h3 If you wish to donate directly from exchanges (e.g. Coinbase, Kraken)
             div.instruction-wrapper
               div.wallet-instruction
-                p 1. Please consider sending your coin to your local address first and send to our contract later. Doing this will give you the control of your credited SmartPool tokens. Further, transactions from exchanges have the default gas of 90000, which is not enough to run our token contract. The contract requires minimum 150,000 gas to run.
-                p 2. If you still wish to donate from exchanges, please send your donation directly to our contract wallet at address 0xa34EDD0E0223C2151b8408E3043b2F6EDC564fcE, which is managed by all of our team members.
+                ol
+                  li Please consider sending your coin to your local address first and send to our contract later. Doing this will give you the control of your credited SmartPool tokens. Further, transactions from exchanges have the default gas of 90000, which is not enough to run our token contract. The contract requires minimum 150,000 gas to run.
+                  li If you still wish to donate from exchanges, please send your donation directly to our contract wallet at address 0xa34EDD0E0223C2151b8408E3043b2F6EDC564fcE, which is managed by all of our team members.
 
 
     main
@@ -121,7 +123,7 @@ html lang="en"
               li 1 ETH = 50 SPT from 27 January onwards
             p.point-body.continue
               | We pre-mine 600,000 SPT for our early donor and our team. The reason why we reserve some tokens for the team, although these tokens currently have no financial value, is for the future plan. If SmartPool takes off successfully and SPT has some value, the reserved tokens will help us fund the future operation of the team to support SmartPool longer and better.
-            p.point-body
+            p.point-body.word-break
               span Who will manage the donation?
               | The donation in ETH will be moved to our wallet contract at address 0xa34EDD0E0223C2151b8408E3043b2F6EDC564fcE which is controlled by 3 people in our team including Loi Luu, Yaron Velner and Victor Tran.
             p.point-body.less-padding-bot
