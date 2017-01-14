@@ -94,7 +94,8 @@ html lang="en"
                   code.language-javascript
                     | personal.unlockAccount(yourAccountAddress, yourPassword)
                     br
-                    | eth.sendTransaction({from: yourAccountAddress, to: '#{smart_pool_address}', value: web3.toWei('10', 'ether'), gas: 1000000})
+                    | eth.sendTransaction({from: yourAccountAddress, to: '#{smart_pool_address}', value: web3.toWei('10', 'ether'), gas: 1000000})            
+
 
     main
       section#calling-donation
