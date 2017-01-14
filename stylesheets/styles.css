@@ -1558,6 +1558,9 @@ header {
       header section#donation div.donation-instruction div.address {
         padding-top: 15px;
         text-align: left; }
+        @media screen and (max-width: 39.9375em) {
+          header section#donation div.donation-instruction div.address {
+            text-align: center; } }
         header section#donation div.donation-instruction div.address p {
           display: inline-block;
           font-family: 'Source Code Pro', monospace; }
@@ -1567,13 +1570,17 @@ header {
         header section#donation div.donation-instruction div.address p.label {
           min-width: 80px; }
       header section#donation div.donation-instruction div.geth-instruction {
-        text-align: left; }
+        text-align: left;
+        max-width: 700px; }
         header section#donation div.donation-instruction div.geth-instruction pre {
           padding-top: 20px; }
           header section#donation div.donation-instruction div.geth-instruction pre code {
             line-height: 30px;
-            font-family: 'Source Code Pro', monospace;
-            max-width: 700px; }
+            font-family: 'Source Code Pro', monospace; }
+        @media screen and (max-width: 39.9375em) {
+          header section#donation div.donation-instruction div.geth-instruction {
+            margin-left: -10px;
+            max-width: 100vw; } }
       header section#donation div.donation-instruction div.wallet-instruction {
         text-align: left; }
         header section#donation div.donation-instruction div.wallet-instruction p {
@@ -1666,6 +1673,10 @@ main section#calling-donation {
     padding-bottom: 0;
     list-style: square url("/images/bullet.svg");
     color: black; }
+    @media screen and (max-width: 39.9375em) {
+      main section#calling-donation ul.point-body {
+        padding-left: 40px;
+        padding-right: 10px; } }
   main section#calling-donation ul.point-body.more-padding-bot {
     padding-bottom: 20px; }
   main section#calling-donation span {
