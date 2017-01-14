@@ -1544,7 +1544,8 @@ header {
       color: #E7E9EA; }
       header section#donation div.donation-instruction div.instruction-wrapper {
         display: inline-block;
-        padding-bottom: 20px; }
+        padding-bottom: 20px;
+        max-width: 900px; }
       header section#donation div.donation-instruction div.address {
         padding-top: 15px;
         text-align: left; }

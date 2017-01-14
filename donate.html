@@ -110,7 +110,20 @@
             </h3>
             <div class="instruction-wrapper">
               <div class="geth-instruction">
-                <pre><code class="language-javascript">personal.unlockAccount(yourAccountAddress, yourPassword)<br />eth.sendTransaction({from: yourAccountAddress, to: '0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80', value: web3.toWei('10', 'ether'), gas: 1000000})            </code></pre>
+                <pre><code class="language-javascript">personal.unlockAccount(yourAccountAddress, yourPassword)<br />/* Note: minimum gas fee needed run our contract is 150,000 */<br />eth.sendTransaction({from: yourAccountAddress, to: '0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80', value: web3.toWei('10', 'ether'), gas: 1000000})</code></pre>
+              </div>
+            </div>
+            <h3>
+              If you wish to donate directly from exchanges (e.g. Coinbase, Kraken)
+            </h3>
+            <div class="instruction-wrapper">
+              <div class="wallet-instruction">
+                <p>
+                  1. Please consider sending your coin to your local address first and send to our contract later. Doing this will give you the control of your credited SmartPool tokens. Further, transactions from exchanges have the default gas of 90000, which is not enough to run our token contract. The contract requires minimum 150,000 gas to run.
+                </p>
+                <p>
+                  2. If you still wish to donate from exchanges, please send your donation directly to our contract wallet at address 0xa34EDD0E0223C2151b8408E3043b2F6EDC564fcE, which is managed by all of our team members.
+                </p>
               </div>
             </div>
           </div>
