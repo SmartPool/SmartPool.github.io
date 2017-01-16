@@ -6,6 +6,9 @@
 - smart_pool_zcash_address = "t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN"
 - smart_pool_address = "0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80"
 - smart_pool_abi_url = 'https://api.etherscan.io/api?module=contract&action=getabi&address=' + smart_pool_address + '&apikey=DS24ZMNDG8CGKNU1QAU32WFS4DZKJ3PE3J'
+- smart_pool_ethereum_url = 'https://etherscan.io/address/' + smart_pool_address 
+- smart_pool_bitcoin_url = 'https://blockchain.info/address/' + smart_pool_bitcoin_address
+- smart_pool_zcash_url = 'https://explorer.zcha.in/accounts/' + smart_pool_zcash_address
 
 - copy_right = "Copyright &copy; 2017. All Right Reserved"
 
@@ -74,13 +77,13 @@ html lang="en"
             div.instruction-wrapper
               div.address
                 p.label.ethereum Ethereum:
-                p.address #{smart_pool_address}
+                p.address <a href=#{smart_pool_ethereum_url}>#{smart_pool_address}</a>
               div.address
                 p.label.bitcoin Bitcoin:
-                p.address #{smart_pool_bitcoin_address}
+                p.address <a href=#{smart_pool_bitcoin_url}>#{smart_pool_bitcoin_address}</a>
               div.address
                 p.label.zcash ZCash:
-                p.address #{smart_pool_zcash_address}
+                p.address <a href=#{smart_pool_zcash_url}>#{smart_pool_zcash_address}</a>
             h3 Using Ethereum Wallet (Mist) to donate
             div.instruction-wrapper
               div.wallet-instruction
