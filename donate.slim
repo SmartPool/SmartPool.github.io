@@ -37,7 +37,6 @@ html lang="en"
     link rel="icon" type="image/x-icon" sizes="16x16" href="images/logo.png"
     link rel="shortcut icon" type="image/png" href="images/logo.png"
     link rel="stylesheet" media="screen" href="stylesheets/styles.css"
-    link rel="stylesheet" media="screen" href="stylesheets/odometer-theme-minimal.css"
     link rel="stylesheet" media="screen" href="stylesheets/obsidian.css"
     link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"
     script src="javascripts/highlight.pack.js"
@@ -70,20 +69,24 @@ html lang="en"
               div.border
                 h3.donation-title #{donation_title}
                 p.progress Current donated amount:
-                p.progress#total-fund-raised.total-fund-raised 0.00
-                p.progress ETH
+                p.progress#total-fund-raised.total-fund-raised
+                  | loading...
+                p.progress#ether.hide ETH
           div.donation-instruction
             h3 Our addresses
             div.instruction-wrapper
               div.address
                 p.label.ethereum Ethereum:
-                p.address <a href=#{smart_pool_ethereum_url}>#{smart_pool_address}</a>
+                a href="#{smart_pool_ethereum_url}"
+                  p.address #{smart_pool_address}
               div.address
                 p.label.bitcoin Bitcoin:
-                p.address <a href=#{smart_pool_bitcoin_url}>#{smart_pool_bitcoin_address}</a>
+                a href="#{smart_pool_bitcoin_url}"
+                p.address #{smart_pool_bitcoin_address}
               div.address
                 p.label.zcash ZCash:
-                p.address <a href=#{smart_pool_zcash_url}>#{smart_pool_zcash_address}</a>
+                a href="#{smart_pool_zcash_url}"
+                p.address #{smart_pool_zcash_address}
             h3 Using Ethereum Wallet (Mist) to donate
             div.instruction-wrapper
               div.wallet-instruction
@@ -206,6 +209,5 @@ html lang="en"
       p#smart-pool-abi-url #{smart_pool_abi_url}
     script src="javascripts/ga.js"
     script src="javascripts/jquery.min.js"
-    script src="javascripts/odometer.min.js"
     script src="javascripts/web3.min.js"
     script src="javascripts/smartpool.js"

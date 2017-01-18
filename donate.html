@@ -17,7 +17,6 @@
     <link href="images/logo.png" rel="icon" sizes="16x16" type="image/x-icon" />
     <link href="images/logo.png" rel="shortcut icon" type="image/png" />
     <link href="stylesheets/styles.css" media="screen" rel="stylesheet" />
-    <link href="stylesheets/odometer-theme-minimal.css" media="screen" rel="stylesheet" />
     <link href="stylesheets/obsidian.css" media="screen" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
     <script src="javascripts/highlight.pack.js"></script>
@@ -51,9 +50,9 @@
                   Current donated amount:
                 </p>
                 <p class="progress total-fund-raised" id="total-fund-raised">
-                  0.00
+                  loading...
                 </p>
-                <p class="progress">
+                <p class="progress hide" id="ether">
                   ETH
                 </p>
               </div>
@@ -68,24 +67,28 @@
                 <p class="label ethereum">
                   Ethereum:
                 </p>
-                <p class="address">
-                  <a href=https://etherscan.io/address/0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80>0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80</a>
-                </p>
+                <a href="https://etherscan.io/address/0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80">
+                  <p class="address">
+                    0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80
+                  </p>
+                </a>
               </div>
               <div class="address">
                 <p class="label bitcoin">
                   Bitcoin:
                 </p>
+                <a href="https://blockchain.info/address/1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC"></a>
                 <p class="address">
-                  <a href=https://blockchain.info/address/1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC>1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC</a>
+                  1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC
                 </p>
               </div>
               <div class="address">
                 <p class="label zcash">
                   ZCash:
                 </p>
+                <a href="https://explorer.zcha.in/accounts/t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN"></a>
                 <p class="address">
-                  <a href=https://explorer.zcha.in/accounts/t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN>t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN</a>
+                  t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN
                 </p>
               </div>
             </div>
@@ -280,7 +283,6 @@
     </section>
     <script src="javascripts/ga.js"></script>
     <script src="javascripts/jquery.min.js"></script>
-    <script src="javascripts/odometer.min.js"></script>
     <script src="javascripts/web3.min.js"></script>
     <script src="javascripts/smartpool.js"></script>
   </body>
