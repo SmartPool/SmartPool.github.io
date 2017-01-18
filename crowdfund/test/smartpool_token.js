@@ -39,7 +39,7 @@ contract('SmartPoolToken', function(accounts) {
   var secondAcc = accounts[1];
   var beneficial = accounts[9];
   // 1. Constructor
-  it("should issue " + PREMINE_TOKEN +" tokens to owner", function() {
+  it("should issue " + PREMINE_TOKEN + " tokens to owner", function() {
     return SmartPoolToken.new(10000, beneficial).then(function(spt){
       return spt.getTokenBalance.call(firstAcc)
         .then(function(balance) {
