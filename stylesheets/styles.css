@@ -1549,6 +1549,8 @@ header {
       header section#donation div.donation-instruction div.instruction-wrapper {
         display: inline-block;
         padding-bottom: 20px; }
+        header section#donation div.donation-instruction div.instruction-wrapper a {
+          color: #E7E9EA; }
         @media screen and (min-width: 40em) {
           header section#donation div.donation-instruction div.instruction-wrapper {
             max-width: 900px; } }

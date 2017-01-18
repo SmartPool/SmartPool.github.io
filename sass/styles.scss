@@ -288,6 +288,10 @@ header {
         display: inline-block;
         padding-bottom: 20px;
 
+        a {
+          color: $textColor;
+        }
+
         @include breakpoint(medium up) {
           max-width: 900px;
         }
