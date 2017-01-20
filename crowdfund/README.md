@@ -7,7 +7,7 @@
 Install dependencies:
 
 ```
-$ npm install --save wait-transaction
+$ npm install
 ```
 
 Run the test:
