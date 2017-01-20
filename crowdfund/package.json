@@ -1,0 +1,33 @@
+{
+  "name": "SmartPoolToken",
+  "version": "1.0.1",
+  "description": "Donation and token contract for SmartPool",
+  "main": "truffle.js",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "ethereumjs-testrpc": "^3.0.2",
+    "truffle": "^2.1.1"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SmartPool/SmartPool.github.io"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+    "smartpool"
+  ],
+  "author": "Victor Tran <vu.tran54@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SmartPool/SmartPool.github.io"
+  },
+  "homepage": "http://smartpool.io"
+}
