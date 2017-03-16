@@ -17,7 +17,6 @@
     <link href="images/logo.png" rel="icon" sizes="16x16" type="image/x-icon" />
     <link href="images/logo.png" rel="shortcut icon" type="image/png" />
     <link href="stylesheets/styles.css" media="screen" rel="stylesheet" />
-    <link href="stylesheets/odometer-theme-minimal.css" media="screen" rel="stylesheet" />
     <link href="stylesheets/obsidian.css" media="screen" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" />
     <script src="javascripts/highlight.pack.js"></script>
@@ -34,7 +33,7 @@
             <section class="columns large-8 small-centered" id="menu">
               <div id="logo">
                 <div id="menu-wrapper">
-                  <a class="menu beginning" href="/"><img src="images/logo.svg" /></a><a class="menu" href="/#problem">Problem</a><a class="menu" href="/#solution">Solution</a><a class="menu hide-for-small-only" href="/#how-it-works">How It Works</a><a class="menu" href="/#team">Team</a><a class="menu" href="/#faq">FAQs</a><a class="menu end-menu active" href="/donate.html">Donate</a>
+                  <a class="menu beginning" href="/"><img src="images/logo.svg" /></a><a class="menu" href="/#problem">Problem</a><a class="menu" href="/#solution">Solution</a><a class="menu hide-for-small-only" href="/#how-it-works">How It Works</a><a class="menu" href="/#team">Team</a><a class="menu" href="/#faq">FAQs</a><a class="menu" href="https://medium.com/smartpool">Blog</a><a class="menu end-menu active" href="/donate.html">Donate</a>
                 </div>
               </div>
             </section>
@@ -50,10 +49,10 @@
                 <p class="progress">
                   Current donated amount:
                 </p>
-                <p class="progress total-fund-raised odometer" id="total-fund-raised">
-                  0.00
+                <p class="progress total-fund-raised" id="total-fund-raised">
+                  loading...
                 </p>
-                <p class="progress">
+                <p class="progress hide" id="ether">
                   ETH
                 </p>
               </div>
@@ -68,25 +67,31 @@
                 <p class="label ethereum">
                   Ethereum:
                 </p>
-                <p class="address">
-                  0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80
-                </p>
+                <a href="https://etherscan.io/address/0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80">
+                  <p class="address">
+                    0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80
+                  </p>
+                </a>
               </div>
               <div class="address">
                 <p class="label bitcoin">
                   Bitcoin:
                 </p>
-                <p class="address">
-                  1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC
-                </p>
+                <a href="https://blockchain.info/address/1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC">
+                  <p class="address">
+                    1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC
+                  </p>
+                </a>
               </div>
               <div class="address">
                 <p class="label zcash">
                   ZCash:
                 </p>
-                <p class="address">
-                  t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN
-                </p>
+                <a href="https://explorer.zcha.in/accounts/t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN">
+                  <p class="address">
+                    t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN
+                  </p>
+                </a>
               </div>
             </div>
             <h3>
@@ -94,15 +99,17 @@
             </h3>
             <div class="instruction-wrapper">
               <div class="wallet-instruction">
-                <p>
-                  1. Click on "Send" button on the top bar of Ethereum Wallet.
-                </p>
-                <p>
-                  2. Paste 0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80 on "To" field and specify the amount.
-                </p>
-                <p>
-                  3. Click "Send" button, enter your wallet's password and click "Send Transaction".
-                </p>
+                <ol>
+                  <li>
+                    Click on "Send" button on the top bar of Ethereum Wallet.
+                  </li>
+                  <li>
+                    Paste 0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80 on "To" field and specify the amount.
+                  </li>
+                  <li>
+                    Click "Send" button, enter your wallet's password and click "Send Transaction".
+                  </li>
+                </ol>
               </div>
             </div>
             <h3>
@@ -110,7 +117,22 @@
             </h3>
             <div class="instruction-wrapper">
               <div class="geth-instruction">
-                <pre><code class="language-javascript">personal.unlockAccount(yourAccountAddress, yourPassword)<br />eth.sendTransaction({from: yourAccountAddress, to: '0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80', value: web3.toWei('10', 'ether'), gas: 1000000})            </code></pre>
+                <pre><code class="language-javascript">personal.unlockAccount(yourAccountAddress, yourPassword)<br />/* Note: minimum gas fee needed run our contract is 150,000 */<br />eth.sendTransaction({from: yourAccountAddress, to: '0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80', value: web3.toWei('10', 'ether'), gas: 1000000})</code></pre>
+              </div>
+            </div>
+            <h3>
+              If you wish to donate directly from exchanges (e.g. Coinbase, Kraken)
+            </h3>
+            <div class="instruction-wrapper">
+              <div class="wallet-instruction">
+                <ol>
+                  <li>
+                    Please consider sending your coin to your local address first and send to our contract later. Doing this will give you the control of your credited SmartPool tokens. Further, transactions from exchanges have the default gas of 90000, which is not enough to run our token contract. The contract requires minimum 150,000 gas to run.
+                  </li>
+                  <li>
+                    If you still wish to donate from exchanges, please send your donation directly to our contract wallet at address 0xa34EDD0E0223C2151b8408E3043b2F6EDC564fcE, which is managed by all of our team members.
+                  </li>
+                </ol>
               </div>
             </div>
           </div>
@@ -144,7 +166,7 @@
             <p class="point-body continue">
               We pre-mine 600,000 SPT for our early donor and our team. The reason why we reserve some tokens for the team, although these tokens currently have no financial value, is for the future plan. If SmartPool takes off successfully and SPT has some value, the reserved tokens will help us fund the future operation of the team to support SmartPool longer and better.
             </p>
-            <p class="point-body">
+            <p class="point-body word-break">
               <span>Who will manage the donation?</span>The donation in ETH will be moved to our wallet contract at address 0xa34EDD0E0223C2151b8408E3043b2F6EDC564fcE which is controlled by 3 people in our team including Loi Luu, Yaron Velner and Victor Tran.
             </p>
             <p class="point-body less-padding-bot">
@@ -196,7 +218,7 @@
               </li>
             </ul>
             <p class="point-body">
-              The team currently consists of 4 members: 2 full-time, 2 part-time (please read about the team in the home page). The total working hours of the team is more than 120 man-hours per week. The team currently consists of 4 members: 2 full-time, 2 part-time (please read about the team in the home page). The total working hours of the team is more than 120 man-hours per week. Team size and working hours may be increased to speed up the development if the funding allows.
+              The team currently consists of 4 members: 2 full-time, 2 part-time (please read about the team in the home page). Team size and working hours may be increased to speed up the development if the funding allows.
             </p>
           </div>
         </div>
@@ -263,7 +285,6 @@
     </section>
     <script src="javascripts/ga.js"></script>
     <script src="javascripts/jquery.min.js"></script>
-    <script src="javascripts/odometer.min.js"></script>
     <script src="javascripts/web3.min.js"></script>
     <script src="javascripts/smartpool.js"></script>
   </body>

@@ -95,6 +95,7 @@ html lang="en"
                     a.menu.hide-for-small-only href="#how-it-works" How It Works
                     a.menu href="#team" Team
                     a.menu href="#faq" FAQs
+                    a.menu href="https://medium.com/smartpool" Blog
                     a.menu.end-menu href="/donate.html" Donate
               // section#action.columns.medium-2
                // a.action href="" Join The Pool
@@ -110,8 +111,8 @@ html lang="en"
             div.border
               h3.donation-title #{donation_title}
               p.progress Current donated amount:
-              p.progress#total-fund-raised.total-fund-raised.odometer 0.00
-              p.progress ether
+              p.progress#total-fund-raised.total-fund-raised loading...
+              p.progress#ether.hide ETH
 
         section#feature
           div.section-content

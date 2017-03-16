@@ -15,6 +15,7 @@ $.getJSON(smartPoolURL, function (data) {
       var totalFundRaisedInWei = contract.totalFundRaised();
       var totalFundRaised = web3.fromWei(totalFundRaisedInWei, "ether");
       $('#total-fund-raised').text(totalFundRaised);
+      $('#ether').removeClass('hide');
     };
     updateTotalFund(smartPoolInstance);
     setInterval(function(){

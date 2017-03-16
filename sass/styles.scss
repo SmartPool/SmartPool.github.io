@@ -245,12 +245,16 @@ header {
       color: $textColor;
       border: 2px solid $textColor;
       border-radius: 5px;
-      padding: 10px 50px;
+      padding: 10px 30px;
       display: inline-block;
       background-color: $bgDonationColor;
 
       &.no-bot-border {
         border-bottom: none;
+      }
+
+      @include breakpoint(small only) {
+        padding: 10px 20px;
       }
     }
 
@@ -272,22 +276,45 @@ header {
     }
 
     div.donation-instruction {
-      margin-top: 20px;
       padding-top: 20px;
       padding-bottom: 20px;
       color: $textColor;
 
+      h3 {
+        padding-top: 20px;
+      }
+
       div.instruction-wrapper {
         display: inline-block;
         padding-bottom: 20px;
+
+        a {
+          color: $textColor;
+        }
+
+        @include breakpoint(medium up) {
+          max-width: 900px;
+        }
+
+        @include breakpoint(small only) {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+
       }
 
       div.address {
         padding-top: 15px;
         text-align: left;
+        @include breakpoint(small only) {
+          text-align:: center;
+        }
         p {
           display: inline-block;
           font-family: 'Source Code Pro', monospace;
+          @include breakpoint(small only) {
+            word-break: break-word;
+          }
         }
         p.label {
           min-width: 80px;
@@ -295,20 +322,33 @@ header {
       }
       div.geth-instruction {
         text-align: left;
+        max-width: 700px;
         pre {
           padding-top: 20px;
           code {
             line-height: 30px;
             font-family: 'Source Code Pro', monospace;
-            max-width: 700px;
           }
+        }
+        @include breakpoint(small only) {
+          margin-left: -10px;
+          max-width: 100vw;
         }
       }
       div.wallet-instruction {
         text-align: left;
-        p {
+        ol {
           padding-top: 15px;
           font-family: 'Source Code Pro', monospace;
+          list-style: decimal;
+          @include breakpoint(small only) {
+            word-break: break-word;
+            margin-left: 20px;
+          }
+
+          li {
+            margin-top: 10px;
+          }
         }
       }
     }
@@ -446,12 +486,20 @@ main {
       padding-bottom: 0;
     }
 
+    p.word-break {
+      word-wrap: break-word;
+    }
+
     ul.point-body {
       color: $textColor;
       padding-left: 80px;
       padding-bottom: 0;
       list-style: square url("/images/bullet.svg");
       color: $callForDonationTextColor;
+      @include breakpoint(small only) {
+        padding-left: 40px;
+        padding-right: 10px;
+      }
     }
 
     ul.point-body.more-padding-bot {
