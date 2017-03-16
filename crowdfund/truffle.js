@@ -15,7 +15,7 @@ module.exports = {
       // optional config values
       // host - defaults to "localhost"
       // port - defaults to 8545
-      // gas
+      gas: 2000000,
       // gasPrice
       // from - default address to use for any transaction Truffle makes during migrations
     },
