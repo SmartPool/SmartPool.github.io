@@ -47,13 +47,61 @@ function eventDisplay(eventType, eventArgs, blockNumber ) {
     
     this.toText = function() {
         var string = this.blockNumber.toString(10) + "   " +  
-        this.eventType + " : " + this.sender.toString(16) + " ";
+        this.eventType + " : " + addressToName(this.sender.toString(16)) + " ";
         if( toInt(this.error) === 0 ) string += "OK";
         else string += "ERROR!!! " + "0x" + this.error.toString(16) + " " + "0x" + this.errorInfo.toString(16);
         
+        if( this.eventType === "VerifyClaim" ) {
+            string += " hash rate " + getHashRate( this.sender, this.blockNumber ); 
+        }
+        
         return string;
     };
-}    
+}
+
+function validSharesStats( args, blockNumber ) {
+    var toInt = function(bigNumber){
+        return parseInt(bigNumber.toString());  
+    };
+ 
+    this.sender = args.miner;
+    this.timestamp = args.time;
+    this.numShares = args.numShares;
+    this.difficulty = args.difficulty;
+    this.blockNumber = blockNumber;
+        
+    this.computeHashRate = function( sortedValidSharesEvents ) {
+        var eventIndex = -1;
+        for( var i = 0 ; i < sortedValidSharesEvents.length ; i++ ) {
+            if( sortedValidSharesEvents[i].sender.toString(16) == this.sender.toString(16)) {
+                if( sortedValidSharesEvents[i].timestamp.toString(16) == this.timestamp.toString(16) ) {
+                    eventIndex = i;
+                    break;                     
+                }
+            }
+        }
+        
+        if( i < 0 ) alret( "event was not found" );
+        
+        // find next event
+        var prevIndex = -1;
+        for( var j = 0 ; j < eventIndex ; j++ ) {
+            if( sortedValidSharesEvents[j].sender.toString(16) == this.sender.toString(16)) {
+                prevIndex = j;
+            }            
+        }
+        
+        if( prevIndex < 0 ) return 0; // first event - cannot compute rate
+        var prevEvent = sortedValidSharesEvents[prevIndex]; 
+        var timediff = toInt(this.timestamp.minus(prevEvent.timestamp));
+
+        var work = toInt(this.numShares) * toInt(this.difficulty);        
+
+        var rate = parseInt((work/timediff) / (1000 * 1000));
+
+        return rate.toString() + " MHs";        
+    };
+}
     
 
 var sortEvents = function( events ) {
@@ -86,49 +134,77 @@ var sortEvents = function( events ) {
 };
 
 
-var makeAllDealsTable = function(){    
-    var event = globalContractInstance.VerifyClaim({},{fromBlock: 0, toBlock: 'latest'});
+var validSharesEvents = [];
 
-    event.get(function(err,logs){
-        var events = [];
-            
+var getHashRate = function( sender, blockNumber ) {
+    var found = false;
+    for( var i = 0 ; i < validSharesEvents.length ; i++ ) {
+        event = validSharesEvents[i];
+        if( event.sender.toString(16) == sender.toString(16) &&
+            event.blockNumber.toString(16) == blockNumber.toString(16) ) {
+                found = true;
+                break;
+            }
+    }
+    
+    if( ! found ) console.log("didn't find event" );
+    
+    return event.computeHashRate(validSharesEvents);
+    
+};
+
+
+var makeAllDealsTable = function(){
+    var workEvent = globalContractInstance.ValidShares({},{fromBlock: 0, toBlock: 'latest'});
+    workEvent.get(function(err,logs){
         if( err ) return handleError(err);
         for( var i = 0 ; i < logs.length ; i++ ){
-            var args = logs[i].args;
-            var display = new eventDisplay(logs[i].event, args, logs[i].blockNumber);
-            
-            events.push(display);
-
-            
-           //$("#all_deals_table").append('<tr><td>' + text + '</td></tr>');
+            validSharesEvents.push( new validSharesStats(logs[i].args,logs[i].blockNumber));
         }
-        
-        var eventSubmit = globalContractInstance.SubmitClaim({},{fromBlock: 0, toBlock: 'latest'});
-        eventSubmit.get(function(err,logs){
+    
+        var event = globalContractInstance.VerifyClaim({},{fromBlock: 0, toBlock: 'latest'});
+    
+        event.get(function(err,logs){
+            var events = [];
+                
             if( err ) return handleError(err);
             for( var i = 0 ; i < logs.length ; i++ ){
                 var args = logs[i].args;
                 var display = new eventDisplay(logs[i].event, args, logs[i].blockNumber);
                 
                 events.push(display);
+    
                 
-                //var text = display.toText();
-                
-                //$("#all_deals_table").append('<tr><td>' + text + '</td></tr>');
+               //$("#all_deals_table").append('<tr><td>' + text + '</td></tr>');
             }
             
-            var sortedEvents = sortEvents(events);
+            var eventSubmit = globalContractInstance.SubmitClaim({},{fromBlock: 0, toBlock: 'latest'});
+            eventSubmit.get(function(err,logs){
+                if( err ) return handleError(err);
+                for( var i = 0 ; i < logs.length ; i++ ){
+                    var args = logs[i].args;
+                    var display = new eventDisplay(logs[i].event, args, logs[i].blockNumber);
+                    
+                    events.push(display);
+                    
+                    //var text = display.toText();
+                    
+                    //$("#all_deals_table").append('<tr><td>' + text + '</td></tr>');
+                }
+                
+                var sortedEvents = sortEvents(events);
+                
+                for( var j = 0 ; j < sortedEvents.length ; j++ ) {
+                    var text = sortedEvents[sortedEvents.length - j - 1].toText();
+                    $("#all_deals_table").append('<tr><td>' + text + '</td></tr>');                
+                }
+                
+                // finished loading
+                $("#all_deals_table").show();
+                $("#all_deals_before_load").hide();             
+            });
             
-            for( var j = 0 ; j < sortedEvents.length ; j++ ) {
-                var text = sortedEvents[sortedEvents.length - j - 1].toText();
-                $("#all_deals_table").append('<tr><td>' + text + '</td></tr>');                
-            }
-            
-            // finished loading
-            $("#all_deals_table").show();
-            $("#all_deals_before_load").hide();             
         });
-        
     });
 };
 
@@ -140,4 +216,10 @@ var allDealsPage = function(){
     makeAllDealsTable();
 };
 
-
+var addressToName = function( address ) {
+    if( address === "0xf214dde57f32f3f34492ba3148641693058d4a9e" ) return "smartpool";
+    if( address === "0x0050521acb69611f5cb00618a60c64aedb1161ba" ) return "Vu";
+    if( address === "0xf5a85a883686ce67f77a1a9db54cc13954349a7c" ) return "aurel";  
+    
+    return address;
+};
