@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="dapp-styles/dist/dapp-styles.css">
+    <link rel="stylesheet" type="text/css" href="dapp-styles/icons/style.css">
+    <link rel="stylesheet" type="text/css" href="dapp-styles/icons/simple-line-icons.css">        
+    <link rel="stylesheet" type="text/css" href="fontawsome/font-awesome-4.6.3/css/font-awesome.css">
+    <style type="text/css"> 
+        #outer {height: 400px; overflow: hidden; position: relative;}
+        #outer[id] {display: table; position: static;}
+        
+        #middle {position: absolute; top: 50%;} /* for explorer only*/
+        #middle[id] {display: table-cell; vertical-align: middle; width: 100%;}
+        
+        #inner {position: relative; top: -50%}
+    </style>                
+        
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js">
+    </script>
+    <script src="web3.min.js"></script>
+    <script src="bignumber.js"></script>
+    <script src="monitor.js"></script>
+</head>
+<body>
+
+
+
+<div class="dapp-flex-content dapp-overflow">
+    
+    <!-- content-->
+    <main class="dapp-content">    
+        
+    <div id="all_deals_div">
+    
+        
+        <table id="all_deals_table_legend">
+            <tr>
+                <th>Icon</th>
+                <th>Meaning</th>
+                <th>Corresponding Variable in Contract</th>
+            </tr>
+            <tr>
+                <td><i class="fa fa-hashtag" aria-hidden="true"></i></td>
+                <td>Deal Id</td>
+                <td><code class="language-javascript">_dealId</code></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-calendar" aria-hidden="true"></i></td>
+                <td>Start Date</td>
+                <td><code class="language-javascript">_startTime</code></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-clock-o" aria-hidden="true"></i><i class="fa fa-shopping-cart" aria-hidden="true"></i></td>
+                <td>Joining Phase Duration (in hours, from the start date)</td>
+                <td><code class="language-javascript">_claimDurationInHours</code></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-clock-o" aria-hidden="true"></i><i class="fa fa-bank" aria-hidden="true"></i></td>
+                <td>Deposit Duration Phase (in hours, from the end of the joining phase)</td>
+                <td><code class="language-javascript">_depositDurationInHours</code></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-money" aria-hidden="true"></i></td>
+                <td>Value to Mix (in Ether)</td>
+                <td><code class="language-javascript">_claimUnitValueInWei * 1000000000000000000</code></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-legal" aria-hidden="true"></i></td>
+                <td>Collateral Amount (in Ether)</td>
+                <td><code class="language-javascript">_claimDepositInWei * 1000000000000000000</code></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-user-times" aria-hidden="true"></i></td>
+                <td>Minimal Required Number of Users (in Ether)</td>
+                <td><code class="language-javascript">_minNumClaims</code></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-users" aria-hidden="true"></i></td>
+                <td>Current Number of Users</td>
+                <td><code class="language-javascript">Deal::numClaims</code></td>
+            </tr>
+            <tr>
+                <td><i class="fa fa-percent" aria-hidden="true"></i></td>
+                <td>Current Percentage of Deposited Funds</td>
+                <td><code class="language-javascript">100 * Deal::depositSum / Deal::claimSum</code></td>
+            </tr>                                                                                    
+        </table>
+                    
+        <table align="center" id="all_deals_table" class="dapp-zebra">            
+        </table>
+        <div id="outer">
+          <div id="middle">
+            <div id="inner">
+            
+                <div id="all_deals_before_load" align="center">
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                    <span class="sr-only">Loading...</span>    
+                </div>
+            
+            </div>
+          </div>
+        </div>
+        
+    <div>
+
+    </main>
+
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+    
+    
+    <!--    
+      <script type="text/javascript">
+       function autorun(){
+          init();
+       }
+       if (document.addEventListener) document.addEventListener("DOMContentLoaded", autorun, false);
+       else if (document.attachEvent) document.attachEvent("onreadystatechange", autorun);
+       else window.onload = autorun;
+      </script>-->
+    
+      </body>
+</html>
