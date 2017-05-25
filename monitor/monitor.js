@@ -232,7 +232,6 @@ var currentBlockNumber;
 var findMaxSetEpoch = function( epochInd ) {
     globalContractInstance.isEpochDataSet( new BigNumber(epochInd.toString()), function(err,result){
         if( err ) return handleError(err);
-        alert(result);
         if( result ) findMaxSetEpoch( epochInd+1);
         else {
             var firstUnsetBlock = epochInd * 30000
