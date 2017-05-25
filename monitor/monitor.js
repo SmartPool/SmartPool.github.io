@@ -214,12 +214,42 @@ var allDealsPage = function(){
     $("#all_deals_table").hide();
     $("#all_deals_table_legend").hide();
     makeAllDealsTable();
+    getEpochData();
 };
 
 var addressToName = function( address ) {
     if( address === "0xf214dde57f32f3f34492ba3148641693058d4a9e" ) return "smartpool";
     if( address === "0x0050521acb69611f5cb00618a60c64aedb1161ba" ) return "Vu";
-    if( address === "0xf5a85a883686ce67f77a1a9db54cc13954349a7c" ) return "aurel";  
+    if( address === "0xf5a85a883686ce67f77a1a9db54cc13954349a7c" ) return "Aurel";
+    if( address === "0x00b6d7d86c0f086929abe4730b581af92b0f6ab6" ) return "John";    
     
     return address;
+};
+
+
+var currentBlockNumber;
+
+var findMaxSetEpoch = function( epochInd ) {
+    globalContractInstance.isEpochDataSet( new BigNumber(epochInd.toString()), function(err,result){
+        if( err ) return handleError(err);
+        alert(result);
+        if( result ) findMaxSetEpoch( epochInd+1);
+        else {
+            var firstUnsetBlock = epochInd * 30000
+            var numBlocksLeft = firstUnsetBlock - currentBlockNumber;
+            $("#epoch_data_label").html( "epoch data is set for the next " + numBlocksLeft.toString() + " blocks");             
+        }
+        
+    });  
+    
+};
+
+var getEpochData = function() {
+     globalWeb3.eth.getBlock("latest",function(err,result){
+          if( err ) return handleError(err);
+          currentBlockNumber = parseInt(result.number.toString(10));
+          var epoch = parseInt(currentBlockNumber / 30000);
+          findMaxSetEpoch( epoch );
+          
+     });    
 };
