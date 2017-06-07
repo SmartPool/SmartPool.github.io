@@ -42,7 +42,7 @@ window.addEventListener('load', function() {
     allDealsPage();
 });
 
-function eventDisplay(eventType, eventArgs, blockNumber ) {
+function eventDisplay(eventType, eventArgs, blockNumber, txHash ) {
     var toInt = function(bigNumber){
         return parseInt(bigNumber.toString());  
     };
@@ -52,6 +52,7 @@ function eventDisplay(eventType, eventArgs, blockNumber ) {
     this.errorInfo = eventArgs.errorInfo;
     this.eventType = eventType;
     this.blockNumber = blockNumber;
+    this.txHash = txHash;
     
     this.work = 0;
     if( this.eventType === "SubmitClaim" ) {
@@ -74,6 +75,30 @@ function eventDisplay(eventType, eventArgs, blockNumber ) {
         
         return resultBlockNumber;
     };
+
+    var getPreviousSubmitClaims = function( events, blockNumber, sender ) {
+        var resultBlockNumber = null;
+        var resultEvents = [];
+        for( var i = 0 ; i < events.length ; i++ ) {
+            if( events[i].eventType === "SubmitClaim" ) {
+                if( toInt( events[i].blockNumber ) < toInt( blockNumber ) ) {
+                    if( events[i].sender == sender ) {
+                        resultEvents.push(events[i]);
+                    }
+                }
+            }
+            if( events[i].eventType === "VerifyClaim" ) {
+                if( toInt( events[i].blockNumber ) < toInt( blockNumber ) ) {
+                    if( events[i].sender == sender ) {
+                        resultEvents = [];
+                    }
+                }
+            }            
+        }
+        
+        return resultEvents;
+    };
+
     
     this.toText = function() {
         var eventUIName = this.eventType;
@@ -86,12 +111,54 @@ function eventDisplay(eventType, eventArgs, blockNumber ) {
         if( toInt(this.error) === 0 ) string += "OK";
         else string += "ERROR!!! " + "0x" + this.error.toString(16) + " " + "0x" + this.errorInfo.toString(16);
         
-        /*
         if( this.eventType === "VerifyClaim" ) {
-            string += " hash rate " + getHashRate( this.sender, this.blockNumber ); 
-        }*/
+
+            //getBalanceDiff( this.sender, this.blockNumber, this.txHash );        
+            
+            //string += " hash rate " + getHashRate( this.sender, this.blockNumber ); 
+        }
+
+        string = "<a href=\"http://gastracker.io/tx/" + this.txHash + "\">" + string + "</a>";
         
         return string;
+    };
+    
+    this.updateExpectedPayment = function( id, submitEvent ) {
+        var myWork = submitEvent.work;
+        globalWeb3.eth.getBlock( submitEvent.blockNumber, function(err,result){
+            if( err ) return handleError(err);
+            var blockDiff = result.difficulty;
+            var myid = id;
+            var relativeWork = (new BigNumber(myWork)).div(blockDiff);
+            var payment = parseFloat( (relativeWork.times(5)).toString(10) );
+            var currentPay = parseFloat($("#" + myid).text());
+            var uncleRate = globalUncleRate;
+            var fees = globalFees;
+            payment = payment * (1.0-fees) * (1.0-(0.25*uncleRate));
+            $("#" + myid).text((currentPay+payment).toString());            
+        });
+    };
+    
+    globalContractInstance.uncleRate(function(err,result){
+        if( err ) return handleError(err);
+        $("#uncle_label").html( "Expected uncle rate " + (result.div(100)).toString(10) + "%");
+            
+    });
+    
+    globalContractInstance.poolFees(function(err,result){
+        if( err ) return handleError(err);
+        $("#fee_label").html( "Pool fees " + (result.div(100)).toString(10) + "%");
+            
+    });
+    
+    
+    this.addExpectedPayment = function( id, events ) {
+        var myid = id;
+        $("#" + myid).html("0.0");
+        var submitClaimEvents = getPreviousSubmitClaims( events, this.blockNumber, this.sender );
+        for( var i = 0 ; i < submitClaimEvents.length ; i++ ) {
+            this.updateExpectedPayment( myid, submitClaimEvents[i] );
+        }
     };
     
     this.addHashRate = function( id, prefix, events ) {
@@ -111,7 +178,12 @@ function eventDisplay(eventType, eventArgs, blockNumber ) {
                 var timeDiff = currentTimeStamp - prevTimeStamp;
                 var rate = parseInt((mywork/timeDiff) / (1000 * 1000));
                 
-                $("#" + id).text(prefix + " " + rate.toString() + " MHs");
+                var blockDiff = result.difficulty;
+                var relativeWork = (new BigNumber(mywork)).div(blockDiff);
+                var payment = (relativeWork.times(5)).toString(10);
+                   
+                
+                $("#" + id).html(prefix + " " + rate.toString() + " MHs. Expected payment = " + payment + " ether (before fees and uncle rate)");
             });            
         }); 
         
@@ -229,7 +301,7 @@ var makeAllDealsTable = function(){
             if( err ) return handleError(err);
             for( var i = 0 ; i < logs.length ; i++ ){
                 var args = logs[i].args;
-                var display = new eventDisplay(logs[i].event, args, logs[i].blockNumber);
+                var display = new eventDisplay(logs[i].event, args, logs[i].blockNumber, logs[i].transactionHash);
                 
                 events.push(display);
     
@@ -242,7 +314,7 @@ var makeAllDealsTable = function(){
                 if( err ) return handleError(err);
                 for( var i = 0 ; i < logs.length ; i++ ){
                     var args = logs[i].args;
-                    var display = new eventDisplay(logs[i].event, args, logs[i].blockNumber);
+                    var display = new eventDisplay(logs[i].event, args, logs[i].blockNumber, logs[i].transactionHash);
                     
                     events.push(display);
                     
@@ -262,6 +334,12 @@ var makeAllDealsTable = function(){
                     if( singleEvent.eventType === "SubmitClaim" ) {
                         singleEvent.addHashRate( id, text, sortedEvents );
                     }
+
+                    if( singleEvent.eventType === "VerifyClaim" ) {
+                        var paymentId = id + "_expected_payment";
+                        $("#all_deals_table").append('<tr><td>Expected payment in verifyClaim (after fees and uncle rate): </td><td id="'+ paymentId +'">' + "" + '</td></tr>');
+                        singleEvent.addExpectedPayment( paymentId, sortedEvents );
+                    }                    
                 }
                 
                 // finished loading
@@ -278,8 +356,13 @@ var allDealsPage = function(){
     $("#all_deals_div").show();    
     $("#all_deals_table").hide();
     $("#all_deals_table_legend").hide();
-    makeAllDealsTable();
+    getBalanceData();    
     getEpochData();
+    getFeeAndUncleRate();
+
+    var address_link = "http://gastracker.io/miner/" + contractAddress; 
+    var text = "<a href=\"" + address_link + "\">view on gas tracker</a>"; 
+    $("#epoch_contract_address").html(text);    
 };
 
 var addressToName = function( address ) {
@@ -317,3 +400,65 @@ var getEpochData = function() {
           
      });    
 };
+
+var getBalanceData = function() {
+    globalWeb3.eth.getBalance( contractAddress, function(err,result){
+          if( err ) return handleError(err);
+          
+          var balance = globalWeb3.fromWei( result, "ether" );
+          var text = "contract balance: " + balance + " ether";
+          $("#balance_label").html( "contract balance: " + balance + " ether");
+                 
+    });  
+};
+
+var globalUncleRate = 0;
+var globalFees = 0;
+var getFeeAndUncleRate = function() {
+    globalContractInstance.uncleRate(function(err,result){
+        if( err ) return handleError(err);
+        $("#uncle_label").html( "Expected uncle rate " + (result.div(100)).toString(10) + "%");
+        globalUncleRate = parseFloat( result.div(10000).toString(10));
+       
+        globalContractInstance.poolFees(function(err,result){
+            if( err ) return handleError(err);
+            $("#fee_label").html( "Pool fees " + (result.div(100)).toString(10) + "%");
+            globalFees = parseFloat( result.div(10000).toString(10));
+            makeAllDealsTable();            
+        });      
+            
+    });    
+};
+
+/*
+var getBalanceDiff = function( userAddress, blockNumber, txHash ) {
+    var prevBlock = parseInt(blockNumber.toString(10)) - 1;
+    var nextBlock = prevBlock + 2;
+    var prevBalance = 0;
+    var nextBalance = 0;
+    var gasPrice    = 0;
+    var fees        = 0;
+    var mytxHash = txHash;
+    globalWeb3.eth.getBalance( userAddress, prevBlock, function(err,result){
+          if( err ) return handleError(err);
+          
+          prevBalance = globalWeb3.fromWei( result, "ether" );
+          globalWeb3.eth.getBalance( userAddress, prevBlock, function(err,result){
+            if( err ) return handleError(err);
+            nextBalance = globalWeb3.fromWei( result, "ether" );
+            
+            globalWeb3.eth.getTransaction( mytxHash, function(err,result){
+                if( err ) return handleError(err);            
+                gasPrice = result.gasPrice;
+                globalWeb3.eth.getTransactionReceipt( mytxHash, function(err,result){
+                    if( err ) return handleError(err);
+                    fees = globalWeb3.fromWei( gasPrice.mul(new BigNumber(result.gasUsed)), "ether" );
+                    
+                    var diff = ((nextBalance.minus(prevBalance)).plus(fees)).toString(10);
+                    alert(diff);                    
+                });
+            });
+          });
+                 
+    });  
+};*/
