@@ -15,12 +15,12 @@ var handleError = function(err){
 var globalWeb3;
 
 var globalContractInstance;
-var contractAddress = "0x893DC419776635F8FD1b1fa9934BF529aeF25607";
-var contractABI = [{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"owners","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"newVersionReleased","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getPoolETHBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"uncleRate","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"creationBlockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"debugGetNumPendingSubmissions","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"canRegister","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"poolFees","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"paymentAddress","type":"address"}],"name":"register","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_uncleRate","type":"uint256"},{"name":"_poolFees","type":"uint256"}],"name":"setUnlceRateAndFees","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"getAverageDifficulty","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"debugResetSubmissions","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"},{"name":"seed","type":"uint256"}],"name":"calculateSubmissionIndex","outputs":[{"name":"","type":"uint256[2]"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"getClaimSeed","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"rootHash","type":"uint256"},{"name":"rootMin","type":"uint256"},{"name":"rootMax","type":"uint256"},{"name":"leafHash","type":"uint256"},{"name":"leafCounter","type":"uint256"},{"name":"branchIndex","type":"uint256"},{"name":"countersBranch","type":"uint256[]"},{"name":"hashesBranch","type":"uint256[]"}],"name":"verifyAgtDebugForTesting","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"ethashContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"sender","type":"address"}],"name":"getShareIndexDebugForTestRPC","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"},{"name":"seed","type":"uint256"},{"name":"submissionNumber","type":"uint256"},{"name":"shareIndex","type":"uint256"}],"name":"verifySubmissionIndex","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"miner","type":"address"},{"name":"add","type":"bool"}],"name":"updateWhiteList","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"rlpHeader","type":"bytes"},{"name":"nonce","type":"uint256"},{"name":"submissionIndex","type":"uint256"},{"name":"shareIndex","type":"uint256"},{"name":"dataSetLookup","type":"uint256[]"},{"name":"witnessForLookup","type":"uint256[]"},{"name":"augCountersBranch","type":"uint256[]"},{"name":"augHashesBranch","type":"uint256[]"}],"name":"verifyClaim","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"isRegistered","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"numShares","type":"uint256"},{"name":"difficulty","type":"uint256"},{"name":"min","type":"uint256"},{"name":"max","type":"uint256"},{"name":"augRoot","type":"uint256"},{"name":"lastClaimBeforeVerification","type":"bool"}],"name":"submitClaim","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"getMinerId","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"whiteListEnabled","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"declareNewerVersion","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"existingIds","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"id","type":"uint256"},{"name":"numChars","type":"uint256"}],"name":"to62Encoding","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"inputs":[{"name":"_owners","type":"address[3]"},{"name":"_ethashContract","type":"address"},{"name":"_whiteListEnabeled","type":"bool"}],"payable":true,"type":"constructor"},{"payable":true,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"miner","type":"address"},{"indexed":false,"name":"time","type":"uint256"},{"indexed":false,"name":"numShares","type":"uint256"},{"indexed":false,"name":"difficulty","type":"uint256"}],"name":"ValidShares","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"Register","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"miner","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"},{"indexed":false,"name":"add","type":"bool"}],"name":"UpdateWhiteList","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"VerifyExtraData","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"VerifyClaim","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"amountInWei","type":"uint256"}],"name":"IncomingFunds","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"SetUnlceRateAndFees","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"index","type":"uint256"}],"name":"GetShareIndexDebugForTestRPCSubmissionIndex","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"index","type":"uint256"}],"name":"GetShareIndexDebugForTestRPCShareIndex","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"SubmitClaim","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"DebugResetSubmissions","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"index","type":"uint256"}],"name":"VerifyAgt","type":"event"}];
+var contractAddress = "0xdead49c9398a34ca8bacaaab0e1af098f0b20733";
+var contractABI = [{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"owners","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"newVersionReleased","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getPoolETHBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"uncleRate","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"debugGetNumPendingSubmissions","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"withdraw","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"canRegister","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"poolFees","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"paymentAddress","type":"address"}],"name":"register","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_uncleRate","type":"uint256"},{"name":"_poolFees","type":"uint256"}],"name":"setUnlceRateAndFees","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"debugResetSubmissions","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"},{"name":"seed","type":"uint256"}],"name":"calculateSubmissionIndex","outputs":[{"name":"","type":"uint256[2]"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"getClaimSeed","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"rootHash","type":"uint256"},{"name":"rootMin","type":"uint256"},{"name":"rootMax","type":"uint256"},{"name":"leafHash","type":"uint256"},{"name":"leafCounter","type":"uint256"},{"name":"branchIndex","type":"uint256"},{"name":"countersBranch","type":"uint256[]"},{"name":"hashesBranch","type":"uint256[]"}],"name":"verifyAgtDebugForTesting","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"ethashContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"sender","type":"address"}],"name":"getShareIndexDebugForTestRPC","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"},{"name":"seed","type":"uint256"},{"name":"submissionNumber","type":"uint256"},{"name":"shareIndex","type":"uint256"}],"name":"verifySubmissionIndex","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"miner","type":"address"},{"name":"add","type":"bool"}],"name":"updateWhiteList","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"rlpHeader","type":"bytes"},{"name":"nonce","type":"uint256"},{"name":"submissionIndex","type":"uint256"},{"name":"shareIndex","type":"uint256"},{"name":"dataSetLookup","type":"uint256[]"},{"name":"witnessForLookup","type":"uint256[]"},{"name":"augCountersBranch","type":"uint256[]"},{"name":"augHashesBranch","type":"uint256[]"}],"name":"verifyClaim","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"isRegistered","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"miner","type":"address"}],"name":"storeClaimSeed","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"numShares","type":"uint256"},{"name":"difficulty","type":"uint256"},{"name":"min","type":"uint256"},{"name":"max","type":"uint256"},{"name":"augRoot","type":"uint256"},{"name":"lastClaimBeforeVerification","type":"bool"}],"name":"submitClaim","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"sender","type":"address"}],"name":"getMinerId","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"whiteListEnabled","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"declareNewerVersion","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"existingIds","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"withdrawalAddress","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"id","type":"uint256"},{"name":"numChars","type":"uint256"}],"name":"to62Encoding","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"inputs":[{"name":"_owners","type":"address[3]"},{"name":"_ethashContract","type":"address"},{"name":"_withdrawalAddress","type":"address"},{"name":"_whiteListEnabeled","type":"bool"}],"payable":true,"type":"constructor"},{"payable":true,"type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"Withdraw","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"Register","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"miner","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"},{"indexed":false,"name":"add","type":"bool"}],"name":"UpdateWhiteList","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"VerifyExtraData","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"VerifyClaim","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"sender","type":"address"},{"indexed":false,"name":"amountInWei","type":"uint256"}],"name":"IncomingFunds","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"SetUnlceRateAndFees","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"paymentAddress","type":"address"},{"indexed":false,"name":"valueInWei","type":"uint256"}],"name":"DoPayment","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"index","type":"uint256"}],"name":"GetShareIndexDebugForTestRPCSubmissionIndex","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"index","type":"uint256"}],"name":"GetShareIndexDebugForTestRPCShareIndex","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"SubmitClaim","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"StoreClaimSeed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"DebugResetSubmissions","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"index","type":"uint256"}],"name":"VerifyAgt","type":"event"}];
 
 var globalEthashInstance;
 var ethashABI = [{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"owners","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"header","type":"bytes32"},{"name":"nonceLe","type":"bytes8"},{"name":"dataSetLookup","type":"uint256[]"},{"name":"witnessForLookup","type":"uint256[]"},{"name":"epochIndex","type":"uint256"}],"name":"hashimoto","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"epochIndex","type":"uint256"},{"name":"nodeIndex","type":"uint256"}],"name":"getEpochData","outputs":[{"name":"","type":"uint256[3]"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"epochIndex","type":"uint256"}],"name":"isEpochDataSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"epoch","type":"uint256"},{"name":"fullSizeIn128Resultion","type":"uint256"},{"name":"branchDepth","type":"uint256"},{"name":"merkleNodes","type":"uint256[]"},{"name":"start","type":"uint256"},{"name":"numElems","type":"uint256"}],"name":"setEpochData","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_owners","type":"address[3]"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"error","type":"uint256"},{"indexed":false,"name":"errorInfo","type":"uint256"}],"name":"SetEpochData","type":"event"}];
-var ethashAddress = "0xdf4bA5f238e204346aCB3a62f41f3A2d16055f69";
+var ethashAddress = "0xFBb8B91fFe0EE6B8f626F03E1378f5569432d406";
 
 window.addEventListener('load', function() {
     var web3 = new Web3(new Web3.providers.HttpProvider("http://52.187.131.96:8545"));
@@ -53,6 +53,7 @@ function eventDisplay(eventType, eventArgs, blockNumber, txHash ) {
     this.eventType = eventType;
     this.blockNumber = blockNumber;
     this.txHash = txHash;
+    this.args = eventArgs;
     
     this.work = 0;
     if( this.eventType === "SubmitClaim" ) {
@@ -75,6 +76,22 @@ function eventDisplay(eventType, eventArgs, blockNumber, txHash ) {
         
         return resultBlockNumber;
     };
+    
+    this.findPayment = function( events, blockNumber, sender ) {
+        var resultBlockNumber = null;
+        for( var i = 0 ; i < events.length ; i++ ) {
+            if( events[i].eventType === "DoPayment" ) {
+                if( toInt( events[i].blockNumber ) == toInt( blockNumber ) ) {
+                    if( events[i].sender == sender ) {
+                        return events[i];
+                    }
+                }
+            }
+        }
+        
+        return null;
+    };
+    
 
     var getPreviousSubmitClaims = function( events, blockNumber, sender ) {
         var resultBlockNumber = null;
@@ -101,6 +118,8 @@ function eventDisplay(eventType, eventArgs, blockNumber, txHash ) {
 
     
     this.toText = function() {
+        if( this.eventType === "DoPayment" ) return "";    
+    
         var eventUIName = this.eventType;
         if (this.eventType === "VerifyClaim" ) eventUIName = "Verify";
         if (this.eventType === "SubmitClaim" ) eventUIName = "Submit";
@@ -112,13 +131,12 @@ function eventDisplay(eventType, eventArgs, blockNumber, txHash ) {
         else string += "ERROR!!! " + "0x" + this.error.toString(16) + " " + "0x" + this.errorInfo.toString(16);
         
         if( this.eventType === "VerifyClaim" ) {
-
             //getBalanceDiff( this.sender, this.blockNumber, this.txHash );        
             
             //string += " hash rate " + getHashRate( this.sender, this.blockNumber ); 
         }
 
-        string = "<a href=\"http://gastracker.io/tx/" + this.txHash + "\">" + string + "</a>";
+        string = "<a href=\"http://etherscan.io/tx/" + this.txHash + "\">" + string + "</a>";
         
         return string;
     };
@@ -285,18 +303,23 @@ var getHashRate = function( sender, blockNumber ) {
 };
 
 
+
 var makeAllDealsTable = function(){
-    var workEvent = globalContractInstance.ValidShares({},{fromBlock: 0, toBlock: 'latest'});
-    workEvent.get(function(err,logs){
+    var paymentEvent = globalContractInstance.DoPayment({},{fromBlock: 0, toBlock: 'latest'});
+    paymentEvent.get(function(err,logs){
+        var events = [];
+    
         if( err ) return handleError(err);
         for( var i = 0 ; i < logs.length ; i++ ){
-            validSharesEvents.push( new validSharesStats(logs[i].args,logs[i].blockNumber));
+            var args = logs[i].args;
+            var display = new eventDisplay(logs[i].event, args, logs[i].blockNumber, logs[i].transactionHash);
+                
+            events.push(display);
         }
+        
     
-        var event = globalContractInstance.VerifyClaim({},{fromBlock: 0, toBlock: 'latest'});
-    
+        var event = globalContractInstance.VerifyClaim({},{fromBlock: 0, toBlock: 'latest'});    
         event.get(function(err,logs){
-            var events = [];
                 
             if( err ) return handleError(err);
             for( var i = 0 ; i < logs.length ; i++ ){
@@ -328,6 +351,16 @@ var makeAllDealsTable = function(){
                 for( var j = 0 ; j < sortedEvents.length ; j++ ) {
                     var singleEvent = sortedEvents[sortedEvents.length - j - 1]; 
                     var text = singleEvent.toText();
+                    
+                    if( singleEvent.eventType === "VerifyClaim" ) {
+                        var payment = singleEvent.findPayment( sortedEvents, singleEvent.blockNumber, singleEvent.sender );
+                        if( payment !== null ) {
+                            var paymentString = globalWeb3.fromWei( payment.args.valueInWei, "ether" );
+                            text += " payment = " + paymentString.toString() + " ether";
+                        }
+                    }
+
+                    
                     var id = "event_id_" + j.toString();
                     $("#all_deals_table").append('<tr><td id="'+id +'">' + text + '</td></tr>');
                     
@@ -360,8 +393,8 @@ var allDealsPage = function(){
     getEpochData();
     getFeeAndUncleRate();
 
-    var address_link = "http://gastracker.io/miner/" + contractAddress; 
-    var text = "<a href=\"" + address_link + "\">view on gas tracker</a>"; 
+    var address_link = "https://etherscan.io/address/" + contractAddress; 
+    var text = "<a href=\"" + address_link + "\">view on etherscan</a>"; 
     $("#epoch_contract_address").html(text);    
 };
 
@@ -430,35 +463,3 @@ var getFeeAndUncleRate = function() {
     });    
 };
 
-/*
-var getBalanceDiff = function( userAddress, blockNumber, txHash ) {
-    var prevBlock = parseInt(blockNumber.toString(10)) - 1;
-    var nextBlock = prevBlock + 2;
-    var prevBalance = 0;
-    var nextBalance = 0;
-    var gasPrice    = 0;
-    var fees        = 0;
-    var mytxHash = txHash;
-    globalWeb3.eth.getBalance( userAddress, prevBlock, function(err,result){
-          if( err ) return handleError(err);
-          
-          prevBalance = globalWeb3.fromWei( result, "ether" );
-          globalWeb3.eth.getBalance( userAddress, prevBlock, function(err,result){
-            if( err ) return handleError(err);
-            nextBalance = globalWeb3.fromWei( result, "ether" );
-            
-            globalWeb3.eth.getTransaction( mytxHash, function(err,result){
-                if( err ) return handleError(err);            
-                gasPrice = result.gasPrice;
-                globalWeb3.eth.getTransactionReceipt( mytxHash, function(err,result){
-                    if( err ) return handleError(err);
-                    fees = globalWeb3.fromWei( gasPrice.mul(new BigNumber(result.gasUsed)), "ether" );
-                    
-                    var diff = ((nextBalance.minus(prevBalance)).plus(fees)).toString(10);
-                    alert(diff);                    
-                });
-            });
-          });
-                 
-    });  
-};*/
