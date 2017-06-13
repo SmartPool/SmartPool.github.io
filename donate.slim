@@ -5,14 +5,15 @@
 - smart_pool_bitcoin_address = "1Cs3D54RqjhNwHurj97qQpbiDSYw1EkjPC"
 - smart_pool_zcash_address = "t1eZFVNbvfgGShyPX4RzScLd76apdVoD2qN"
 - smart_pool_address = "0x98F62d8aD5a884C8bbcf262591DFF55DAb263B80"
+- smart_pool_mul_address = "0xa34EDD0E0223C2151b8408E3043b2F6EDC564fcE"
 - smart_pool_abi_url = 'https://api.etherscan.io/api?module=contract&action=getabi&address=' + smart_pool_address + '&apikey=DS24ZMNDG8CGKNU1QAU32WFS4DZKJ3PE3J'
-- smart_pool_ethereum_url = 'https://etherscan.io/address/' + smart_pool_address 
+- smart_pool_ethereum_url = 'https://etherscan.io/address/' + smart_pool_mul_address 
 - smart_pool_bitcoin_url = 'https://blockchain.info/address/' + smart_pool_bitcoin_address
 - smart_pool_zcash_url = 'https://explorer.zcha.in/accounts/' + smart_pool_zcash_address
 
 - copy_right = "Copyright &copy; 2017. All Right Reserved"
 
-- donation_title = "We have stopped our donation campaign!"
+- donation_title2 = "We have stopped issuing tokens for donations, please send your donation directly to our multisig address " + smart_pool_mul_address
 
 doctype 5
 html lang="en"
@@ -65,21 +66,13 @@ html lang="en"
                // a.action href="" Join The Pool
 
         section#donation.darker-bg-color
-          div.donation-banner
-            a href="/donate.html"
-              div.border
-                h3.donation-title #{donation_title}
-                p.progress Total donated amount:
-                p.progress#total-fund-raised.total-fund-raised
-                  | loading...
-                p.progress#ether.hide ETH
           div.donation-instruction
             h3 Our addresses
             div.instruction-wrapper
               div.address
                 p.label.ethereum Ethereum:
                 a href="#{smart_pool_ethereum_url}"
-                  p.address #{smart_pool_address}
+                  p.address #{smart_pool_mul_address}
               div.address
                 p.label.bitcoin Bitcoin:
                 a href="#{smart_pool_bitcoin_url}"
@@ -93,7 +86,7 @@ html lang="en"
               div.wallet-instruction
                 ol
                   li Click on "Send" button on the top bar of Ethereum Wallet.
-                  li Paste #{smart_pool_address} on "To" field and specify the amount.
+                  li Paste #{smart_pool_mul_address} on "To" field and specify the amount.
                   li Click "Send" button, enter your wallet's password and click "Send Transaction".
             h3 Donating from Geth console (replace yourAccountAdress and amount accordingly)
             div.instruction-wrapper
@@ -102,20 +95,14 @@ html lang="en"
                   code.language-javascript
                     | personal.unlockAccount(yourAccountAddress, yourPassword)
                     br
-                    | /* Note: minimum gas fee needed run our contract is 150,000 */
+                    | /* Note: minimum gas fee needed run our contract is 90,000 */
                     br
-                    | eth.sendTransaction({from: yourAccountAddress, to: '#{smart_pool_address}', value: web3.toWei('10', 'ether'), gas: 1000000})
-            h3 If you wish to donate directly from exchanges (e.g. Coinbase, Kraken)
-            div.instruction-wrapper
-              div.wallet-instruction
-                ol
-                  li Please consider sending your coin to your local address first and send to our contract later. Doing this will give you the control of your credited SmartPool tokens. Further, transactions from exchanges have the default gas of 90000, which is not enough to run our token contract. The contract requires minimum 150,000 gas to run.
-                  li If you still wish to donate from exchanges, please send your donation directly to our contract wallet at address 0xa34EDD0E0223C2151b8408E3043b2F6EDC564fcE, which is managed by all of our team members.
+                    | eth.sendTransaction({from: yourAccountAddress, to: '#{smart_pool_mul_address}', value: web3.toWei('10', 'ether'), gas: 900000})            
 
 
     main
       section#calling-donation
-        h2.section-title #{donation_title}
+        h2.section-title #{donation_title2}
         div.row
           div.column.small-12.medium-10.medium-centered.section-content
             p.point-body
@@ -206,7 +193,7 @@ html lang="en"
               img.contact-item#email src="images/email.svg"
     section#app-variables.hide
       p#public-node #{public_node}
-      p#smart-pool-address #{smart_pool_address}
+      p#smart-pool-address #{smart_pool_mul_address}
       p#smart-pool-abi-url #{smart_pool_abi_url}
     script src="javascripts/ga.js"
     script src="javascripts/jquery.min.js"
