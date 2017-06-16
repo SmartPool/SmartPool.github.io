@@ -188,7 +188,13 @@ function eventDisplay(eventType, eventArgs, blockNumber, txHash ) {
             if( err ) return handleError(err);
             currentTimeStamp = toInt(result.timestamp);
             var prevBlockNumber = findPrevSubmitClaimBlockNumber(events, myblockNumber, mysender);
-            if( prevBlockNumber === null ) return;
+            if( prevBlockNumber === null ) {
+                var blockDiff = result.difficulty;
+                var relativeWork = (new BigNumber(mywork)).div(blockDiff);
+                var payment = (relativeWork.times(5)).toString(10);
+                $("#" + id).html(prefix + " Expected payment = " + payment + " ether (before fees and uncle rate)");
+                return;                                
+            }
             globalWeb3.eth.getBlock( prevBlockNumber, function(err,result){
                 if( err ) return handleError(err);
                 var prevTimeStamp = toInt(result.timestamp);
